@@ -233,6 +233,8 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(245, 174, 20, 0.05) 0%, rgba(245, 174, 20, 0.01) 100%);
+            /* Correction: Ajout de padding-top pour éviter le chevauchement */
+            padding-top: 100px;
         }
 
         .hero:before {
@@ -655,6 +657,12 @@
             animation: float 6s ease-in-out infinite;
         }
 
+        /* Compteur animation */
+        .counter {
+            display: inline-block;
+            min-width: 60px;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             h1 {
@@ -703,6 +711,11 @@
         }
 
         @media (max-width: 768px) {
+            /* Correction: Augmentation du padding-top sur mobile */
+            .hero {
+                padding-top: 30rem;
+            }
+            
             .hamburger {
                 display: block;
             }
@@ -731,7 +744,7 @@
             .hero-content {
                 max-width: 100%;
                 text-align: center;
-                padding-top: 80px;
+                padding-top: 0; /* Retrait du padding-top précédent */
             }
             
             .hero-btns .btn {
@@ -746,11 +759,6 @@
             
             .hero-img {
                 display: none;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
             }
         }
 
@@ -769,6 +777,7 @@
             
             .hero {
                 min-height: 600px;
+                padding-top: 40rem; /* Augmentation du padding-top sur petits écrans */
             }
             
             .stat-item h3 {
@@ -783,6 +792,16 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .stat-item {
+                margin: 10px 20px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -791,9 +810,9 @@
     <header id="header">
         <div class="container header-container">
             <a href="#" class="logo">
-            <img src="./IMG-20250807-WA0003.jpg" alt="" width="100px" style="border: 2px solid; border-radius:50%">
+                <img src="./IMG-20250807-WA0003.jpg" alt="Mwendo Group International" width="100px" style="border: 2px solid var(--primary); border-radius:50%">
             </a>
-            <div class="hamburger" id="hamburger" style="margin-left: 8rem;;">
+            <div class="hamburger" id="hamburger">
                 <svg viewBox="0 0 24 24" width="30" height="30" fill="#333">
                     <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
                 </svg>
@@ -811,7 +830,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home" style=''>
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h1>Solutions Intégrées pour Votre Croissance</h1>
@@ -941,19 +960,19 @@
             </div>
             <div class="stats-grid">
                 <div class="stat-box">
-                    <h3>15+</h3>
+                    <h3><span class="counter" data-target="15">0</span>+</h3>
                     <p>Années d'expérience</p>
                 </div>
                 <div class="stat-box">
-                    <h3>500+</h3>
+                    <h3><span class="counter" data-target="500">0</span>+</h3>
                     <p>Clients satisfaits</p>
                 </div>
                 <div class="stat-box">
-                    <h3>200+</h3>
+                    <h3><span class="counter" data-target="200">0</span>+</h3>
                     <p>Experts qualifiés</p>
                 </div>
                 <div class="stat-box">
-                    <h3>98%</h3>
+                    <h3><span class="counter" data-target="98">0</span>%</h3>
                     <p>Taux de satisfaction</p>
                 </div>
             </div>
@@ -1057,11 +1076,7 @@
             <div class="footer-container">
                 <div class="footer-col">
                     <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
-                        <svg viewBox="0 0 100 100" width="40" height="40">
-                            <path d="M50,10 L90,50 L50,90 L10,50 Z" fill="none" stroke="#f5ae14" stroke-width="8"/>
-                            <circle cx="50" cy="50" r="20" fill="#f5ae14"/>
-                        </svg>
-                        Mwendo <span>Group</span>
+                        <img src="./IMG-20250807-WA0003.jpg" alt="Mwendo Group International" width="100px" style="border: 2px solid var(--primary); border-radius:50%">
                     </a>
                     <p>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de votre entreprise.</p>
                     <div class="social-links">
@@ -1195,6 +1210,44 @@
         document.querySelectorAll('.section').forEach(section => {
             observer.observe(section);
         });
+
+        // Counter animation function
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16); // 16ms per frame (60fps)
+            
+            const updateCounter = () => {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.ceil(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+            
+            updateCounter();
+        }
+
+        // Counter animation trigger
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = document.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target, 2000); // 2 seconds
+                    });
+                    counterObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe the stats section
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            counterObserver.observe(statsSection);
+        }
     </script>
 </body>
 </html>
