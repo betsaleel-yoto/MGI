@@ -233,7 +233,6 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(245, 174, 20, 0.05) 0%, rgba(245, 174, 20, 0.01) 100%);
-            /* Correction: Ajout de padding-top pour éviter le chevauchement */
             padding-top: 100px;
         }
 
@@ -244,9 +243,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(245, 174, 20, 0.03)"/></svg>');
+            background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
             background-size: cover;
-            opacity: 0.5;
+            background-position: center;
+            opacity: 0.15;
             z-index: -1;
         }
 
@@ -306,7 +306,9 @@
             transform: translateY(-50%);
             width: 50%;
             height: 80%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><rect x="0" y="0" width="800" height="800" fill="rgba(245, 174, 20, 0.05)"/><path d="M200,200 Q400,100 600,200 T800,300 L800,800 L200,800 Z" fill="rgba(51, 51, 51, 0.05)"/></svg>') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
             border-radius: 20px;
             box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
             opacity: 0;
@@ -337,27 +339,17 @@
             box-shadow: var(--shadow);
             transform: rotate(-2deg);
             transition: var(--transition);
+            height: 500px;
         }
 
         .about-img:hover {
             transform: rotate(0deg);
         }
 
-        .about-img:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .about-img img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, var(--primary) 0%, rgba(245, 174, 20, 0) 70%);
-            opacity: 0.1;
-        }
-
-        .about-img svg {
-            width: 100%;
-            height: auto;
-            display: block;
+            object-fit: cover;
         }
 
         /* Services Section */
@@ -430,10 +422,12 @@
 
         /* Stats Section */
         .stats {
-            background: linear-gradient(rgba(51, 51, 51, 0.9), rgba(26, 26, 26, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(245, 174, 20, 0.2)"/></pattern><rect x="0" y="0" width="100" height="100" fill="url(%23pattern)"/></svg>');
+            background: linear-gradient(rgba(51, 51, 51, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80');
             color: white;
             text-align: center;
             padding: 100px 0;
+            background-size: cover;
+            background-position: center;
         }
 
         .stats h2 {
@@ -474,6 +468,55 @@
         .stat-box p {
             font-size: 1.1rem;
             font-weight: 500;
+        }
+
+        /* Transport & Logistique Section */
+        .transport {
+            background: #f9f9f9;
+        }
+
+        .transport-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .transport-img {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .transport-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .transport-text {
+            flex: 1;
+        }
+
+        .transport-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .transport-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .transport-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
         }
 
         /* Contact Section */
@@ -532,7 +575,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 15px;
             border: 1px solid var(--medium);
@@ -542,7 +586,8 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(245, 174, 20, 0.2);
@@ -700,7 +745,8 @@
                 height: 60%;
             }
             
-            .about-content {
+            .about-content,
+            .transport-content {
                 flex-direction: column;
                 gap: 50px;
             }
@@ -711,7 +757,6 @@
         }
 
         @media (max-width: 768px) {
-            /* Correction: Augmentation du padding-top sur mobile */
             .hero {
                 padding-top: 30rem;
             }
@@ -744,7 +789,7 @@
             .hero-content {
                 max-width: 100%;
                 text-align: center;
-                padding-top: 0; /* Retrait du padding-top précédent */
+                padding-top: 0;
             }
             
             .hero-btns .btn {
@@ -777,7 +822,7 @@
             
             .hero {
                 min-height: 600px;
-                padding-top: 40rem; /* Augmentation du padding-top sur petits écrans */
+                padding-top: 40rem;
             }
             
             .stat-item h3 {
@@ -822,6 +867,7 @@
                     <li><a href="#" class="active">Accueil</a></li>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#transport">Transport & Logistique</a></li>
                     <li><a href="#stats">Chiffres</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -834,7 +880,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Solutions Intégrées pour Votre Croissance</h1>
-                <p>Mwendo Group International offre des services premium dans les domaines de la logistique, du carburant, de l'ingénierie et de la gestion d'entreprise. Nous combinons innovation et excellence pour répondre à vos besoins complexes.</p>
+                <p>Mwendo Group International S.A.S, fondé en 2024, offre des services premium dans les domaines de la logistique, du carburant, de l'ingénierie, du trading et de la gestion d'entreprise. Nous combinons innovation et excellence pour répondre à vos besoins complexes.</p>
                 <div class="hero-btns">
                     <a href="#services" class="btn">Découvrir nos services</a>
                     <a href="#contact" class="btn" style="background: transparent; border: 2px solid var(--primary); color: var(--secondary);">Nous contacter</a>
@@ -842,11 +888,11 @@
                 <div class="hero-stats">
                     <div class="stat-item">
                         <h3>15+</h3>
-                        <p>Années d'expérience</p>
+                        <p>Années d'expérience collective</p>
                     </div>
                     <div class="stat-item">
-                        <h3>500+</h3>
-                        <p>Clients satisfaits</p>
+                        <h3>50+</h3>
+                        <p>Projets réalisés</p>
                     </div>
                     <div class="stat-item">
                         <h3>24/7</h3>
@@ -864,22 +910,13 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Notre Expertise</h2>
-                    <p>Fondé en ..., Mwendo Group International s'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles. Notre approche multidisciplinaire nous permet d'offrir une gamme complète de services de haute qualité.</p>
+                    <p>Fondé en 2024, <strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> s'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles en République Démocratique du Congo. Notre approche multidisciplinaire nous permet d'offrir une gamme complète de services de haute qualité.</p>
                     <p>Notre mission est de simplifier les opérations complexes de nos clients en leur offrant des solutions sur mesure dans les domaines clés de leur activité. Nous combinons expertise technique, innovation et excellence opérationnelle pour délivrer des résultats exceptionnels.</p>
-                    <p>Avec une équipe de plus de 200 experts passionnés, nous mettons notre savoir-faire à votre service pour transformer vos défis en opportunités de croissance.</p>
+                    <p>Avec une équipe d'experts passionnés, nous mettons notre savoir-faire à votre service pour transformer vos défis en opportunités de croissance durable.</p>
                     <a href="#contact" class="btn" style="margin-top: 30px;">En savoir plus</a>
                 </div>
                 <div class="about-img">
-                    <svg viewBox="0 0 800 600">
-                        <rect x="0" y="0" width="800" height="600" fill="#f5f5f5"/>
-                        <circle cx="200" cy="200" r="150" fill="rgba(245, 174, 20, 0.1)" stroke="#f5ae14" stroke-width="4" stroke-dasharray="10 5"/>
-                        <path d="M400,100 Q550,50 600,200 T500,400 T300,350 T200,200 T400,100" fill="none" stroke="#333" stroke-width="4"/>
-                        <rect x="500" y="250" width="200" height="200" rx="20" fill="none" stroke="#333" stroke-width="4"/>
-                        <line x1="550" y1="300" x2="650" y2="300" stroke="#333" stroke-width="4"/>
-                        <line x1="550" y1="350" x2="650" y2="350" stroke="#333" stroke-width="4"/>
-                        <line x1="550" y1="400" x2="650" y2="400" stroke="#333" stroke-width="4"/>
-                        <circle cx="300" cy="450" r="50" fill="rgba(51, 51, 51, 0.1)" stroke="#333" stroke-width="4"/>
-                    </svg>
+                    <img src="./imagesagent.png" alt="Équipe Mwendo Group International">
                 </div>
             </div>
         </div>
@@ -900,7 +937,7 @@
                         </svg>
                     </div>
                     <h3>Logistique & Transport</h3>
-                    <p>Location de camion pour le transport de minerais,location des bus pour le transport de vos personnels.</p>
+                    <p>Location de camions pour le transport de minerais, location de bus pour le transport de personnel, solutions logistiques complètes.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -917,13 +954,49 @@
                             <path d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12,3L2,12H5V20H11V14H13V20H19V12H22L12,3Z"/>
                         </svg>
                     </div>
-                    <h3>Fourniture de Souffre</h3>
-                    <p>Distribution de produits chimiques industriels, solutions de stockage sécurisé et gestion des matières premières.</p>
+                    <h3>Fourniture d'Acide Sulfurique</h3>
+                    <p>Distribution d'acide sulfurique industriel de haute qualité, solutions de stockage sécurisé et gestion des matières premières chimiques.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M20.5,14.5V16H19V14.5H20.5M18.5,9.5H17V9A3,3 0 0,1 20,6A3,3 0 0,1 23,9C23,9.97 22.5,10.88 21.71,11.41L21.41,11.6C20.84,12 20.5,12.61 20.5,13.3V13.5H19V13.3C19,12.11 19.6,11 20.59,10.35L20.88,10.16C21.27,9.9 21.5,9.47 21.5,9C21.5,8.17 20.83,7.5 20,7.5A1.5,1.5 0 0,0 18.5,9V9.5M9,13C11.67,13 17,14.34 17,17V20H1V17C1,14.34 6.33,13 9,13M9,4A4,4 0 0,1 13,8A4,4 0 0,1 9,12A4,4 0 0,1 5,8A4,4 0 0,1 9,4M9,6A2,2 0 0,0 7,8A2,2 0 0,0 9,10A2,2 0 0,0 11,8A2,2 0 0,0 9,6Z"/>
+                            <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+                        </svg>
+                    </div>
+                    <h3>Fourniture de Bitume</h3>
+                    <p>Distribution de bitume de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V8C22,6.9 21.1,6 20,6M19,12H15V9H10V12H5V14H10V17H15V14H19V12Z"/>
+                        </svg>
+                    </div>
+                    <h3>Maintenance des Équipements Miniers</h3>
+                    <p>Maintenance préventive et corrective d'équipements miniers, gestion de parc machines et optimisation des performances.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M18,15H16V17H18M18,11H16V13H18M20,19H12V17H14V15H12V13H14V11H12V9H20M10,7H8V5H10M10,11H8V9H10M10,15H8V13H10M10,19H8V17H10M6,7H4V5H6M6,11H4V9H6M6,15H4V13H6M6,19H4V17H6M12,7V3H2V21H22V7H12Z"/>
+                        </svg>
+                    </div>
+                    <h3>Construction de Routes</h3>
+                    <p>Construction et réhabilitation de routes, génie civil, travaux d'infrastructure et aménagement routier complet.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M16,6L19,10H21C22.11,10 23,10.89 23,12V15H21V20C21,21.11 20.11,22 19,22C17.89,22 17,21.11 17,20V17H7V20C7,21.11 6.11,22 5,22C3.89,22 3,21.11 3,20V15H1V12C1,10.89 1.89,10 3,10H5L8,6H16M12,7.5H11V10.5H12V7.5M12,12.5H11V15.5H12V12.5M9.5,8L6.5,12H17.5L14.5,8H9.5M3,12V14H5V12H3M19,12V14H21V12H19M13,20C13,20.55 13.45,21 14,21C14.55,21 15,20.55 15,20C15,19.45 14.55,19 14,19C13.45,19 13,19.45 13,20M5,20C5,20.55 5.45,21 6,21C6.55,21 7,20.55 7,20C7,19.45 6.55,19 6,19C5.45,19 5,19.45 5,20Z"/>
+                        </svg>
+                    </div>
+                    <h3>Trading & Commercialisation</h3>
+                    <p>Achat et vente de matières premières, spécialisé dans les cathodes et produits miniers, avec expertise en marché international.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M9,13H15V11H9M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M17,14.25V17H14.25L17,14.25M14.25,7H17V9.75L14.25,7M7,14.25L9.75,17H7V14.25M9.75,7H7V9.75L9.75,7Z"/>
                         </svg>
                     </div>
                     <h3>Gestion RH</h3>
@@ -936,16 +1009,37 @@
                         </svg>
                     </div>
                     <h3>Ingénierie</h3>
-                    <p>Génie civil et industriel: la construction des engares metaliques, construction des immeubles,construction des routes etc... Electricité,montage de lignes électriques etc..</p>
+                    <p>Génie civil et industriel : construction d'hangars métalliques, immeubles, routes, électricité, montage de lignes électriques, etc.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V9.21L13,12.58V19.29L19,15.91Z"/>
-                        </svg>
-                    </div>
-                    <h3>Gestion Informatique</h3>
-                    <p>Infrastructure réseau sécurisée, développement d'applications, cloud computing, cybersécurité et support technique.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transport & Logistique Section -->
+    <section class="section transport" id="transport">
+        <div class="container">
+            <div class="text-center">
+                <h2>Transport & Logistique</h2>
+                <p>Solutions complètes pour vos besoins de transport et de logistique en RDC et au-delà</p>
+            </div>
+            <div class="transport-content">
+                <div class="transport-img">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Transport et logistique Mwendo Group">
+                </div>
+                <div class="transport-text">
+                    <h3>Solutions Logistiques Intégrées</h3>
+                    <p>Notre division Transport & Logistique offre des services complets adaptés aux spécificités du marché congolais et de la région :</p>
+                    <ul class="transport-list">
+                        <li><strong>Transport de minerais</strong> : Camions spécialisés avec équipements de sécurité</li>
+                        <li><strong>Transport de personnel</strong> : Bus confortables et sécurisés</li>
+                        <li><strong>Logistique sur mesure</strong> : Solutions adaptées à vos contraintes</li>
+                        <li><strong>Gestion de flotte</strong> : Maintenance et optimisation de votre parc véhicule</li>
+                        <li><strong>Transport de matières dangereuses</strong> : Équipements adaptés et personnel qualifié</li>
+                        <li><strong>Douane et dédouanement</strong> : Assistance complète pour vos import/export</li>
+                        <li><strong>Stockage et entreposage</strong> : Solutions sécurisées adaptées à vos produits</li>
+                    </ul>
+                    <p>Notre expertise locale nous permet de garantir des délais optimaux et une sécurité maximale pour vos marchandises et votre personnel.</p>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">Demander un devis</a>
                 </div>
             </div>
         </div>
@@ -960,15 +1054,15 @@
             </div>
             <div class="stats-grid">
                 <div class="stat-box">
-                    <h3><span class="counter" data-target="15">0</span>+</h3>
-                    <p>Années d'expérience</p>
-                </div>
-                <div class="stat-box">
-                    <h3><span class="counter" data-target="500">0</span>+</h3>
+                    <h3><span class="counter" data-target="200">0</span>+</h3>
                     <p>Clients satisfaits</p>
                 </div>
                 <div class="stat-box">
-                    <h3><span class="counter" data-target="200">0</span>+</h3>
+                    <h3><span class="counter" data-target="50">0</span>+</h3>
+                    <p>Projets réalisés</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="counter" data-target="100">0</span>+</h3>
                     <p>Experts qualifiés</p>
                 </div>
                 <div class="stat-box">
@@ -996,7 +1090,7 @@
                         </div>
                         <div>
                             <h4>Notre Siège</h4>
-                            <p>123 Avenue ...</p>
+                            <p>54 Avenue Maman yemo Quartier<br>Commune de Manika, Ville de Kolwezi<br>République Démocratique du Congo</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -1007,7 +1101,7 @@
                         </div>
                         <div>
                             <h4>Téléphone</h4>
-                            <p>+243</p>
+                            <p>+243 817 627 927<br>0817 627 927</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -1018,7 +1112,7 @@
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <p>contact@mwendogroup.com</p>
+                            <p>contact@mwendogroup.com<br>info@mwendogroup.com</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -1029,38 +1123,41 @@
                         </div>
                         <div>
                             <h4>Horaires</h4>
-                            <p>Lun-Ven: 8h00 - 18h00<br>Sam: 9h00 - 13h00</p>
+                            <p>Lundi - Vendredi: 8h00 - 17h00<br>Fermé le week-end et jours fériés</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Nom Complet</label>
+                            <label for="name">Nom Complet *</label>
                             <input type="text" id="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Adresse Email</label>
+                            <label for="email">Adresse Email *</label>
                             <input type="email" id="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="service">Service Intéressé</label>
+                            <label for="service">Service Intéressé *</label>
                             <select id="service" required>
                                 <option value="">Sélectionnez un service</option>
                                 <option value="logistique">Logistique & Transport</option>
                                 <option value="carburant">Fourniture de Carburant</option>
-                                <option value="souffre">Fourniture de Souffre</option>
+                                <option value="acide">Fourniture d'Acide Sulfurique</option>
+                                <option value="bitume">Fourniture de Bitume</option>
+                                <option value="maintenance">Maintenance des Équipements Miniers</option>
+                                <option value="construction">Construction de Routes</option>
+                                <option value="trading">Trading & Commercialisation</option>
                                 <option value="rh">Gestion RH</option>
                                 <option value="ingenierie">Ingénierie</option>
-                                <option value="informatique">Gestion Informatique</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message">Message *</label>
                             <textarea id="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn">Envoyer votre message</button>
@@ -1078,49 +1175,47 @@
                     <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
                         <img src="./IMG-20250807-WA0003.jpg" alt="Mwendo Group International" width="100px" style="border: 2px solid var(--primary); border-radius:50%">
                     </a>
-                    <p>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de votre entreprise.</p>
+                    <p><strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de votre entreprise en RDC.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Logistique & Transport</a></li>
-                        <li><a href="#">Fourniture de Carburant</a></li>
-                        <li><a href="#">Fourniture de Souffre</a></li>
-                        <li><a href="#">Ingénierie</a></li>
-                        <li><a href="#">Gestion Informatique</a></li>
-                        <li><a href="#">Gestion des RH</a></li>
+                        <li><a href="#services">Logistique & Transport</a></li>
+                        <li><a href="#services">Fourniture de Carburant</a></li>
+                        <li><a href="#services">Fourniture d'Acide Sulfurique</a></li>
+                        <li><a href="#services">Fourniture de Bitume</a></li>
+                        <li><a href="#services">Maintenance des Équipements Miniers</a></li>
+                        <li><a href="#services">Construction de Routes</a></li>
+                        <li><a href="#services">Trading & Commercialisation</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Liens Utiles</h4>
                     <ul class="footer-links">
-                        <li><a href="#">À propos de nous</a></li>
-                        <li><a href="#">Notre équipe</a></li>
-                        <li><a href="#">Témoignages</a></li>
-                        <li><a href="#">Actualités</a></li>
+                        <li><a href="#about">À propos de nous</a></li>
+                        <li><a href="#transport">Transport & Logistique</a></li>
+                        <li><a href="#stats">Nos réalisations</a></li>
+                        <li><a href="#contact">Demander un devis</a></li>
+                        <li><a href="#contact">Nous contacter</a></li>
                         <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Conditions d'utilisation</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <p>Inscrivez-vous pour recevoir nos dernières actualités et offres spéciales.</p>
-                    <form style="margin-top: 20px;">
-                        <div class="form-group">
-                            <input type="email" placeholder="Votre email" required style="width: 100%; padding: 12px; border-radius: 8px; border: none;">
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">S'abonner</button>
-                    </form>
+                    <h4>Coordonnées</h4>
+                    <p><strong>Adresse:</strong><br>54 Avenue Maman yemo Quartier<br>Commune de Manika, Kolwezi - RDC</p>
+                    <p><strong>Téléphone:</strong><br>+243 817 627 927</p>
+                    <p><strong>Email:</strong><br>contact@mwendogroup.com</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Mwendo Group International. Tous droits réservés. Conçu avec passion pour l'excellence.</p>
+                <p>&copy; 2024 - 2025 MWENDO GROUP INTERNATIONAL S.A.S. Tous droits réservés. Conçu avec passion pour l'excellence.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Les images utilisées sur ce site sont libres de droit et proviennent de Unsplash.</p>
             </div>
         </div>
     </footer>
@@ -1185,7 +1280,7 @@
                     alert('Merci pour votre message ! Nous vous contacterons très bientôt.');
                     contactForm.reset();
                 } else {
-                    alert('Veuillez remplir tous les champs obligatoires.');
+                    alert('Veuillez remplir tous les champs obligatoires (*).');
                 }
             });
         }
