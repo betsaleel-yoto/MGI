@@ -133,6 +133,11 @@
             transform: translateX(100%);
         }
 
+        .btn-small {
+            padding: 12px 24px;
+            font-size: 0.8rem;
+        }
+
         .section {
             padding: 100px 0;
         }
@@ -243,7 +248,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background: url('./transport.png');
             background-size: cover;
             background-position: center;
             opacity: 0.15;
@@ -369,6 +374,10 @@
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
         }
 
         .service-card:hover {
@@ -420,9 +429,50 @@
             fill: white;
         }
 
+        .service-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .service-cta {
+            margin-top: auto;
+        }
+
         /* Stats Section */
         .stats {
-            background: linear-gradient(rgba(51, 51, 51, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80');
+            background: linear-gradient(rgba(51, 51, 51, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             color: white;
             text-align: center;
             padding: 100px 0;
@@ -517,6 +567,42 @@
             left: 0;
             color: var(--primary);
             font-weight: bold;
+        }
+
+        /* Collaboration Section */
+        .collaboration {
+            background: var(--light);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .partner-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .partner-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .partner-name {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 1.1rem;
         }
 
         /* Contact Section */
@@ -868,6 +954,7 @@
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#transport">Transport & Logistique</a></li>
+                    <li><a href="#collaboration">Collaborations</a></li>
                     <li><a href="#stats">Chiffres</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -916,7 +1003,7 @@
                     <a href="#contact" class="btn" style="margin-top: 30px;">En savoir plus</a>
                 </div>
                 <div class="about-img">
-                    <img src="./imagesagent.png" alt="Équipe Mwendo Group International">
+                    <img src="./imagesagent.png" alt="Maintenance d'engins miniers">
                 </div>
             </div>
         </div>
@@ -931,85 +1018,157 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./transport.png" alt="Transport de minerais">
+                    </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
                             <path d="M20,8H17.19C16.74,7.22 16.12,6.55 15.37,6.04L17,4.41L15.59,3L13.42,5.17C12.96,5.06 12.5,5 12,5C11.5,5 11.04,5.06 10.59,5.17L8.41,3L7,4.41L8.62,6.04C7.88,6.55 7.26,7.22 6.81,8H4V10H6.09C6.04,10.33 6,10.66 6,11V12H4V14H6V15C6,15.34 6.04,15.67 6.09,16H4V18H6.81C7.85,19.79 9.78,21 12,21C14.22,21 16.15,19.79 17.19,18H20V16H17.91C17.96,15.67 18,15.34 18,15V14H20V12H18V11C18,10.66 17.96,10.33 17.91,10H20V8M14,16H10V14H14V16M14,12H10V10H14V12Z"/>
                         </svg>
                     </div>
-                    <h3>Logistique & Transport</h3>
-                    <p>Location de camions pour le transport de minerais, location de bus pour le transport de personnel, solutions logistiques complètes.</p>
+                    <div class="service-content">
+                        <h3>Logistique & Transport</h3>
+                        <p>Location de camions HOWO 12 roues pour le transport de minerais, location de grands bus pour le transport de personnel, solutions logistiques complètes.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./carburant.png" alt="Camion citerne carburant">
+                    </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
                             <path d="M3,13H5.79L10.1,4.38L10.1,13H12.9V4.38L17.21,13H20L14.5,2L3,13M20,20V18H3V20H20M3,15H12V17H3V15Z"/>
                         </svg>
                     </div>
-                    <h3>Fourniture de Carburant</h3>
-                    <p>Approvisionnement en carburant de qualité, gestion de flotte, solutions énergétiques sur mesure et conseil en optimisation.</p>
+                    <div class="service-content">
+                        <h3>Fourniture de Carburant</h3>
+                        <p>Approvisionnement en carburant de qualité, camions citernes, gestion d'entrepôts de carburant, solutions énergétiques sur mesure et conseil en optimisation.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./acidesulf.png" alt="Acide sulfurique industriel">
+                    </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
                             <path d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12,3L2,12H5V20H11V14H13V20H19V12H22L12,3Z"/>
                         </svg>
                     </div>
-                    <h3>Fourniture d'Acide Sulfurique</h3>
-                    <p>Distribution d'acide sulfurique industriel de haute qualité, solutions de stockage sécurisé et gestion des matières premières chimiques.</p>
+                    <div class="service-content">
+                        <h3>Fourniture d'Acide Sulfurique</h3>
+                        <p>Distribution d'acide sulfurique industriel de haute qualité, solutions de stockage sécurisé et gestion des matières premières chimiques.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./bitume.png" alt="Bitume pour travaux routiers">
+                    </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
                             <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
                         </svg>
                     </div>
-                    <h3>Fourniture de Bitume</h3>
-                    <p>Distribution de bitume de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.</p>
+                    <div class="service-content">
+                        <h3>Fourniture de Bitume</h3>
+                        <p>Distribution de bitume de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./entretienengin.png" alt="Maintenance d'équipements miniers">
+                    </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
                             <path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V8C22,6.9 21.1,6 20,6M19,12H15V9H10V12H5V14H10V17H15V14H19V12Z"/>
                         </svg>
                     </div>
-                    <h3>Maintenance des Équipements Miniers</h3>
-                    <p>Maintenance préventive et corrective d'équipements miniers, gestion de parc machines et optimisation des performances.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M18,15H16V17H18M18,11H16V13H18M20,19H12V17H14V15H12V13H14V11H12V9H20M10,7H8V5H10M10,11H8V9H10M10,15H8V13H10M10,19H8V17H10M6,7H4V5H6M6,11H4V9H6M6,15H4V13H6M6,19H4V17H6M12,7V3H2V21H22V7H12Z"/>
-                        </svg>
+                    <div class="service-content">
+                        <h3>Maintenance des Équipements Miniers</h3>
+                        <p>Maintenance préventive et corrective d'équipements miniers, gestion de parc machines et optimisation des performances.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
                     </div>
-                    <h3>Construction de Routes</h3>
-                    <p>Construction et réhabilitation de routes, génie civil, travaux d'infrastructure et aménagement routier complet.</p>
                 </div>
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./trading.png" alt="Trading de matières premières">
+                    </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
                             <path d="M16,6L19,10H21C22.11,10 23,10.89 23,12V15H21V20C21,21.11 20.11,22 19,22C17.89,22 17,21.11 17,20V17H7V20C7,21.11 6.11,22 5,22C3.89,22 3,21.11 3,20V15H1V12C1,10.89 1.89,10 3,10H5L8,6H16M12,7.5H11V10.5H12V7.5M12,12.5H11V15.5H12V12.5M9.5,8L6.5,12H17.5L14.5,8H9.5M3,12V14H5V12H3M19,12V14H21V12H19M13,20C13,20.55 13.45,21 14,21C14.55,21 15,20.55 15,20C15,19.45 14.55,19 14,19C13.45,19 13,19.45 13,20M5,20C5,20.55 5.45,21 6,21C6.55,21 7,20.55 7,20C7,19.45 6.55,19 6,19C5.45,19 5,19.45 5,20Z"/>
                         </svg>
                     </div>
-                    <h3>Trading & Commercialisation</h3>
-                    <p>Achat et vente de matières premières, spécialisé dans les cathodes et produits miniers, avec expertise en marché international.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M9,13H15V11H9M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M17,14.25V17H14.25L17,14.25M14.25,7H17V9.75L14.25,7M7,14.25L9.75,17H7V14.25M9.75,7H7V9.75L9.75,7Z"/>
-                        </svg>
+                    <div class="service-content">
+                        <h3>Trading & Commercialisation</h3>
+                        <p>Achat et vente de matières premières, spécialisé dans les cathodes et produits miniers, avec expertise en marché international.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
                     </div>
-                    <h3>Gestion RH</h3>
-                    <p>Recrutement de talents, formation professionnelle, gestion de paie, conseil en droit du travail et développement organisationnel.</p>
                 </div>
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./GestionInformatique.png" alt="Gestion informatique">
+                    </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
                             <path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z"/>
                         </svg>
                     </div>
-                    <h3>Ingénierie</h3>
-                    <p>Génie civil et industriel : construction d'hangars métalliques, immeubles, routes, électricité, montage de lignes électriques, etc.</p>
+                    <div class="service-content">
+                        <h3>Gestion Informatique</h3>
+                        <p>Infrastructure réseau sécurisée, développement d'applications, cloud computing, cybersécurité et support technique.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./Assainissement.png" alt="Assainissement et cleaning">
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M9,13H15V11H9M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M17,14.25V17H14.25L17,14.25M14.25,7H17V9.75L14.25,7M7,14.25L9.75,17H7V14.25M9.75,7H7V9.75L9.75,7Z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>Assainissement & Cleaning</h3>
+                        <p>Services de nettoyage industriel, assainissement de sites, gestion des déchets et maintenance de propreté pour entreprises.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./construction.png" alt="Ingénierie et construction">
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ingénierie</h3>
+                        <p>Génie civil et industriel : construction d'hangars métalliques, immeubles, électricité, montage de lignes électriques, etc.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1030,8 +1189,8 @@
                     <h3>Solutions Logistiques Intégrées</h3>
                     <p>Notre division Transport & Logistique offre des services complets adaptés aux spécificités du marché congolais et de la région :</p>
                     <ul class="transport-list">
-                        <li><strong>Transport de minerais</strong> : Camions spécialisés avec équipements de sécurité</li>
-                        <li><strong>Transport de personnel</strong> : Bus confortables et sécurisés</li>
+                        <li><strong>Transport de minerais</strong> : Camions HOWO 12 roues spécialisés avec équipements de sécurité</li>
+                        <li><strong>Transport de personnel</strong> : Grands bus confortables et sécurisés</li>
                         <li><strong>Logistique sur mesure</strong> : Solutions adaptées à vos contraintes</li>
                         <li><strong>Gestion de flotte</strong> : Maintenance et optimisation de votre parc véhicule</li>
                         <li><strong>Transport de matières dangereuses</strong> : Équipements adaptés et personnel qualifié</li>
@@ -1040,6 +1199,39 @@
                     </ul>
                     <p>Notre expertise locale nous permet de garantir des délais optimaux et une sécurité maximale pour vos marchandises et votre personnel.</p>
                     <a href="#contact" class="btn" style="margin-top: 20px;">Demander un devis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Section -->
+    <section class="section collaboration" id="collaboration">
+        <div class="container">
+            <div class="text-center">
+                <h2>Nos Collaborations</h2>
+                <p>Nous travaillons avec des entreprises partenaires de confiance pour offrir des services complets</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-item">
+                    <div class="partner-name">SSP SARL</div>
+                </div>
+                <div class="partner-item">
+                    <div class="partner-name">MWINDA GROUP SARL</div>
+                </div>
+                <div class="partner-item">
+                    <div class="partner-name">GGS SARL</div>
+                </div>
+                <div class="partner-item">
+                    <div class="partner-name">MME SAS</div>
+                </div>
+                <div class="partner-item">
+                    <div class="partner-name">OLSUN MINING SARL</div>
+                </div>
+                <div class="partner-item">
+                    <div class="partner-name">TCC</div>
+                </div>
+                <div class="partner-item">
+                    <div class="partner-name">GOODNESS MULTISERVICES</div>
                 </div>
             </div>
         </div>
@@ -1107,7 +1299,7 @@
                     <div class="info-item">
                         <div class="info-icon">
                             <svg viewBox="0 0 24 24" fill="#f5ae14">
-                                <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"/>
+                                <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1,20 22,19.1 22,18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"/>
                             </svg>
                         </div>
                         <div>
@@ -1150,9 +1342,9 @@
                                 <option value="acide">Fourniture d'Acide Sulfurique</option>
                                 <option value="bitume">Fourniture de Bitume</option>
                                 <option value="maintenance">Maintenance des Équipements Miniers</option>
-                                <option value="construction">Construction de Routes</option>
                                 <option value="trading">Trading & Commercialisation</option>
-                                <option value="rh">Gestion RH</option>
+                                <option value="informatique">Gestion Informatique</option>
+                                <option value="assainissement">Assainissement & Cleaning</option>
                                 <option value="ingenierie">Ingénierie</option>
                             </select>
                         </div>
@@ -1191,8 +1383,10 @@
                         <li><a href="#services">Fourniture d'Acide Sulfurique</a></li>
                         <li><a href="#services">Fourniture de Bitume</a></li>
                         <li><a href="#services">Maintenance des Équipements Miniers</a></li>
-                        <li><a href="#services">Construction de Routes</a></li>
                         <li><a href="#services">Trading & Commercialisation</a></li>
+                        <li><a href="#services">Gestion Informatique</a></li>
+                        <li><a href="#services">Assainissement & Cleaning</a></li>
+                        <li><a href="#services">Ingénierie</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1200,10 +1394,10 @@
                     <ul class="footer-links">
                         <li><a href="#about">À propos de nous</a></li>
                         <li><a href="#transport">Transport & Logistique</a></li>
+                        <li><a href="#collaboration">Nos collaborations</a></li>
                         <li><a href="#stats">Nos réalisations</a></li>
                         <li><a href="#contact">Demander un devis</a></li>
                         <li><a href="#contact">Nous contacter</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
