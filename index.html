@@ -78,6 +78,15 @@
 
         p {
             margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .service-card p {
+            text-align: justify;
+        }
+
+        .hero p {
+            text-align: left;
         }
 
         a {
@@ -140,6 +149,7 @@
 
         .section {
             padding: 100px 0;
+            scroll-margin-top: 100px;
         }
 
         .text-center {
@@ -160,11 +170,7 @@
             z-index: 1000;
             padding: 25px 0;
             transition: var(--transition);
-        }
-
-        header.scrolled {
             background: rgba(255, 255, 255, 0.95);
-            padding: 15px 0;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
         }
@@ -238,7 +244,8 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(245, 174, 20, 0.05) 0%, rgba(245, 174, 20, 0.01) 100%);
-            padding-top: 100px;
+            padding-top: 300px;
+            margin-top: 0;
         }
 
         .hero:before {
@@ -679,6 +686,50 @@
             box-shadow: 0 0 0 3px rgba(245, 174, 20, 0.2);
         }
 
+        /* Carrière Section */
+        .carriere {
+            background: white;
+        }
+
+        .offres-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .offre-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .offre-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .offre-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .offre-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .offre-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -844,7 +895,7 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding-top: 30rem;
+                padding-top: 150px;
             }
             
             .hamburger {
@@ -908,7 +959,7 @@
             
             .hero {
                 min-height: 600px;
-                padding-top: 40rem;
+                padding-top: 150px;
             }
             
             .stat-item h3 {
@@ -955,6 +1006,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#transport">Transport & Logistique</a></li>
                     <li><a href="#collaboration">Collaborations</a></li>
+                    <li><a href="#carriere">Carrière</a></li>
                     <li><a href="#stats">Chiffres</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -966,8 +1018,8 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Solutions Intégrées pour Votre Croissance</h1>
-                <p>Mwendo Group International S.A.S, fondé en 2024, offre des services premium dans les domaines de la logistique, du carburant, de l'ingénierie, du trading et de la gestion d'entreprise. Nous combinons innovation et excellence pour répondre à vos besoins complexes.</p>
+                <h1>Solution intégrée pour la croissance de vos entreprises</h1>
+                <p>Mwendo Group International S.A.S, fondé en 2024, offre des services premium dans les domaines de la logistique, du carburant, de l'ingénierie, du trading, de la gestion d'entreprises et des mines. Nous combinons innovation et excellence pour répondre à vos besoins complexes.</p>
                 <div class="hero-btns">
                     <a href="#services" class="btn">Découvrir nos services</a>
                     <a href="#contact" class="btn" style="background: transparent; border: 2px solid var(--primary); color: var(--secondary);">Nous contacter</a>
@@ -1023,12 +1075,12 @@
                     </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M20,8H17.19C16.74,7.22 16.12,6.55 15.37,6.04L17,4.41L15.59,3L13.42,5.17C12.96,5.06 12.5,5 12,5C11.5,5 11.04,5.06 10.59,5.17L8.41,3L7,4.41L8.62,6.04C7.88,6.55 7.26,7.22 6.81,8H4V10H6.09C6.04,10.33 6,10.66 6,11V12H4V14H6V15C6,15.34 6.04,15.67 6.09,16H4V18H6.81C7.85,19.79 9.78,21 12,21C14.22,21 16.15,19.79 17.19,18H20V16H17.91C17.96,15.67 18,15.34 18,15V14H20V12H18V11C18,10.66 17.96,10.33 17.91,10H20V8M14,16H10V14H14V16M14,12H10V10H14V12Z"/>
+                            <path d="M20,8H17.19C16.74,7.22 16.12,6.55 15.37,6.04L17,4.41L15.59,3L13.42,5.17C12.96,5.06 12.5,5 12,5C11.5,5 11.04,5.06 10.59,5.17L8.41,3L7,4.41L8.62,6.04C7.88,6.55 7.26,7.22 6.81,8H4V10H6.09C6.04,10.33 6,10.66 6,11V12H4V14H6V15C6,15.34 6.04,15.67 6.09,16H4V18H6.81C7.85,19.79 9.78,21 12,21C14.22,21 16.15,19.79 17.19,18H20V16H17.91C17.96,15.67 18,15.34 18,15V14H20V12H18V11C18,10.66 17.96,10.33 17.91,10H20V8M14,16H10V14H14V16M14,12H10V10H14V12M9.5,8L6.5,12H17.5L14.5,8H9.5M3,12V14H5V12H3M19,12V14H21V12H19M13,20C13,20.55 13.45,21 14,21C14.55,21 15,20.55 15,20C15,19.45 14.55,19 14,19C13.45,19 13,19.45 13,20M5,20C5,20.55 5.45,21 6,21C6.55,21 7,20.55 7,20C7,19.45 6.55,19 6,19C5.45,19 5,19.45 5,20Z"/>
                         </svg>
                     </div>
                     <div class="service-content">
                         <h3>Logistique & Transport</h3>
-                        <p>Location de camions HOWO 12 roues pour le transport de minerais, location de grands bus pour le transport de personnel, solutions logistiques complètes.</p>
+                        <p>MGI S.A.S met a votre disposition une flotte complète de camion howo12 roues pour le transport de minerais des entreprises partenaires, des bus toute dimensions pour le transport de vos personnels et une solution logistique complète.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1045,7 +1097,7 @@
                     </div>
                     <div class="service-content">
                         <h3>Fourniture de Carburant</h3>
-                        <p>Approvisionnement en carburant de qualité, camions citernes, gestion d'entrepôts de carburant, solutions énergétiques sur mesure et conseil en optimisation.</p>
+                        <p>MGI S.A.S met à votre disposition un système d'approvisionnement de carburant de qualité, une solution énergétique sur mesure et des conseils en optimisation.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1057,12 +1109,12 @@
                     </div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12,3L2,12H5V20H11V14H13V20H19V12H22L12,3Z"/>
+                            <path d="M17,14H19V17H22V19H17V22H14V19H10V17H14V14M12,3L2,12H5V20H11V14H13V20H19V12H22L12,3Z"/>
                         </svg>
                     </div>
                     <div class="service-content">
                         <h3>Fourniture d'Acide Sulfurique</h3>
-                        <p>Distribution d'acide sulfurique industriel de haute qualité, solutions de stockage sécurisé et gestion des matières premières chimiques.</p>
+                        <p>MGI S.A.S dispose d'un système de Distribution d'acide sulfurique industriel de haute qualité, des solutions de stockage sécurisé et la gestion des matières premières chimiques.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1079,7 +1131,7 @@
                     </div>
                     <div class="service-content">
                         <h3>Fourniture de Bitume</h3>
-                        <p>Distribution de bitume de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.</p>
+                        <p>MGI S.A.S Fourni e bitume de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1095,8 +1147,8 @@
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Maintenance des Équipements Miniers</h3>
-                        <p>Maintenance préventive et corrective d'équipements miniers, gestion de parc machines et optimisation des performances.</p>
+                        <h3>Maintenance Minier</h3>
+                        <p>MGI S.A.S met a votre disposition des ingénieurs pour la Maintenance préventive et corrective de vos d'équipements miniers, gestion de parc machines et optimisation des performances.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1113,7 +1165,7 @@
                     </div>
                     <div class="service-content">
                         <h3>Trading & Commercialisation</h3>
-                        <p>Achat et vente de matières premières, spécialisé dans les cathodes et produits miniers, avec expertise en marché international.</p>
+                        <p>MGI S.A.S se positionne comme une entreprise tampon dans le secteur minier facilitant ainsi l'achat et la vente de matières premières, spécialisé dans la cathode et produits miniers avec une expertise en marché international.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1130,7 +1182,7 @@
                     </div>
                     <div class="service-content">
                         <h3>Gestion Informatique</h3>
-                        <p>Infrastructure réseau sécurisée, développement d'applications, cloud computing, cybersécurité et support technique.</p>
+                        <p>MWENDO GROUP INTERNATIONAL S.A S met sur pied des Infrastructures réseau sécurisée, développement d'applications, cloud computing, cybersécurité et support technique.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1147,7 +1199,7 @@
                     </div>
                     <div class="service-content">
                         <h3>Assainissement & Cleaning</h3>
-                        <p>Services de nettoyage industriel, assainissement de sites, gestion des déchets et maintenance de propreté pour entreprises.</p>
+                        <p>MWENDO GROUP INTERNATIONAL SAS met a votre disposition un Services d'assaisonnement et de nettoyage industriel très professionnel, la gestion des déchets et maintenance de propreté pour les entreprises partenaires.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1163,8 +1215,8 @@
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Ingénierie</h3>
-                        <p>Génie civil et industriel : construction d'hangars métalliques, immeubles, électricité, montage de lignes électriques, etc.</p>
+                        <h3>Génie Civil et Industriel</h3>
+                        <p>MWENDO GROUP INTERNATIONAL SAS dispose des ingénieurs qualifiés pour la construction des structures spécifiques, usines, raffineries, centres logistiques adaptées aux contraintes des équipements et processus industriels, exigeant des normes techniques très strictes pour garantir la sécurité et la performance des installations ainsi que le montage et l'installation des lignes électriques.</p>
                         <div class="service-cta">
                             <a href="#contact" class="btn btn-small">Demander un devis</a>
                         </div>
@@ -1173,36 +1225,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Transport & Logistique Section -->
-    <!-- <section class="section transport" id="transport">
-        <div class="container">
-            <div class="text-center">
-                <h2>Transport & Logistique</h2>
-                <p>Solutions complètes pour vos besoins de transport et de logistique en RDC et au-delà</p>
-            </div>
-            <div class="transport-content">
-                <div class="transport-img">
-                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Transport et logistique Mwendo Group">
-                </div>
-                <div class="transport-text">
-                    <h3>Solutions Logistiques Intégrées</h3>
-                    <p>Notre division Transport & Logistique offre des services complets adaptés aux spécificités du marché congolais et de la région :</p>
-                    <ul class="transport-list">
-                        <li><strong>Transport de minerais</strong> : Camions HOWO 12 roues spécialisés avec équipements de sécurité</li>
-                        <li><strong>Transport de personnel</strong> : Grands bus confortables et sécurisés</li>
-                        <li><strong>Logistique sur mesure</strong> : Solutions adaptées à vos contraintes</li>
-                        <li><strong>Gestion de flotte</strong> : Maintenance et optimisation de votre parc véhicule</li>
-                        <li><strong>Transport de matières dangereuses</strong> : Équipements adaptés et personnel qualifié</li>
-                        <li><strong>Douane et dédouanement</strong> : Assistance complète pour vos import/export</li>
-                        <li><strong>Stockage et entreposage</strong> : Solutions sécurisées adaptées à vos produits</li>
-                    </ul>
-                    <p>Notre expertise locale nous permet de garantir des délais optimaux et une sécurité maximale pour vos marchandises et votre personnel.</p>
-                    <a href="#contact" class="btn" style="margin-top: 20px;">Demander un devis</a>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Collaboration Section -->
     <section class="section collaboration" id="collaboration">
@@ -1233,6 +1255,58 @@
                 <div class="partner-item">
                     <div class="partner-name">GOODNESS MULTISERVICES</div>
                 </div>
+                <div class="partner-item">
+                    <div class="partner-name">KBS SARL</div>
+                </div>
+                <div class="partner-item">
+                    <div class="partner-name">AFRI SOFT</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrière Section -->
+    <section class="section carriere" id="carriere">
+        <div class="container">
+            <div class="text-center">
+                <h2>Carrière & Offres d'Emploi</h2>
+                <p>Rejoignez notre équipe dynamique et participez à des projets innovants</p>
+            </div>
+            <div class="offres-grid">
+                <div class="offre-card">
+                    <h3>Ingénieur Maintenance Minière</h3>
+                    <div class="offre-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Kolwezi, RDC</span>
+                        <span><i class="fas fa-clock"></i> Temps plein</span>
+                        <span><i class="fas fa-calendar-alt"></i> Publiée le 15/03/2024</span>
+                    </div>
+                    <p>Nous recherchons un ingénieur en maintenance minière pour assurer la maintenance préventive et corrective des équipements miniers.</p>
+                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;">Postuler maintenant</a>
+                </div>
+                <div class="offre-card">
+                    <h3>Logisticien Senior</h3>
+                    <div class="offre-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Lubumbashi, RDC</span>
+                        <span><i class="fas fa-clock"></i> Temps plein</span>
+                        <span><i class="fas fa-calendar-alt"></i> Publiée le 12/03/2024</span>
+                    </div>
+                    <p>Superviser les opérations logistiques, gérer la flotte de camions et optimiser les chaînes d'approvisionnement.</p>
+                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;">Postuler maintenant</a>
+                </div>
+                <div class="offre-card">
+                    <h3>Spécialiste en Trading International</h3>
+                    <div class="offre-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Kinshasa, RDC</span>
+                        <span><i class="fas fa-clock"></i> Temps plein</span>
+                        <span><i class="fas fa-calendar-alt"></i> Publiée le 10/03/2024</span>
+                    </div>
+                    <p>Gérer les opérations de trading de matières premières avec une expertise en marché international.</p>
+                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;">Postuler maintenant</a>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 50px;">
+                <p>Vous ne trouvez pas l'offre qui vous correspond ? Envoyez-nous votre CV spontané !</p>
+                <a href="#contact" class="btn" style="margin-top: 20px;">Envoyer une candidature spontanée</a>
             </div>
         </div>
     </section>
@@ -1341,11 +1415,12 @@
                                 <option value="carburant">Fourniture de Carburant</option>
                                 <option value="acide">Fourniture d'Acide Sulfurique</option>
                                 <option value="bitume">Fourniture de Bitume</option>
-                                <option value="maintenance">Maintenance des Équipements Miniers</option>
+                                <option value="maintenance">Maintenance Minier</option>
                                 <option value="trading">Trading & Commercialisation</option>
                                 <option value="informatique">Gestion Informatique</option>
                                 <option value="assainissement">Assainissement & Cleaning</option>
-                                <option value="ingenierie">Ingénierie</option>
+                                <option value="genie-civil">Génie Civil et Industriel</option>
+                                <option value="carriere">Offre d'emploi</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1367,7 +1442,7 @@
                     <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
                         <img src="./IMG-20250807-WA0003.jpg" alt="Mwendo Group International" width="100px" style="border: 2px solid var(--primary); border-radius:50%">
                     </a>
-                    <p><strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de votre entreprise en RDC.</p>
+                    <p><strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de vos entreprise en RDC et à l'international.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -1382,19 +1457,19 @@
                         <li><a href="#services">Fourniture de Carburant</a></li>
                         <li><a href="#services">Fourniture d'Acide Sulfurique</a></li>
                         <li><a href="#services">Fourniture de Bitume</a></li>
-                        <li><a href="#services">Maintenance des Équipements Miniers</a></li>
+                        <li><a href="#services">Maintenance Minier</a></li>
                         <li><a href="#services">Trading & Commercialisation</a></li>
                         <li><a href="#services">Gestion Informatique</a></li>
                         <li><a href="#services">Assainissement & Cleaning</a></li>
-                        <li><a href="#services">Ingénierie</a></li>
+                        <li><a href="#services">Génie Civil et Industriel</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Liens Utiles</h4>
                     <ul class="footer-links">
                         <li><a href="#about">À propos de nous</a></li>
-                        <li><a href="#transport">Transport & Logistique</a></li>
                         <li><a href="#collaboration">Nos collaborations</a></li>
+                        <li><a href="#carriere">Carrière</a></li>
                         <li><a href="#stats">Nos réalisations</a></li>
                         <li><a href="#contact">Demander un devis</a></li>
                         <li><a href="#contact">Nous contacter</a></li>
@@ -1431,16 +1506,6 @@
             });
         });
 
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1452,7 +1517,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
