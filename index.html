@@ -32,6 +32,7 @@
             color: var(--text);
             background-color: #fff;
             line-height: 1.7;
+            max-width:100%;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -242,7 +243,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            
             background: linear-gradient(135deg, rgba(245, 174, 20, 0.05) 0%, rgba(245, 174, 20, 0.01) 100%);
             padding-top: 300px;
             margin-top: 0;
@@ -703,6 +704,7 @@
         }
 
         .offre-card {
+            width:90%;
             background: var(--light);
             padding: 30px;
             border-radius: 15px;
@@ -898,10 +900,16 @@
         }
 
         @media (max-width: 768px) {
-            .hero {
-                padding-top: 400px;
+            .offre-meta span{
+flex-direction:column;
             }
-            
+            body{
+                overflow-x:hidden;
+            }
+            .hero{
+                padding-top:30rem;
+                height:80rem;
+            }
             .hamburger {
                 display: block;
             }
@@ -930,7 +938,7 @@
             .hero-content {
                 max-width: 100%;
                 text-align: center;
-                padding-top: 0;
+                
             }
             
             .hero-btns .btn {
