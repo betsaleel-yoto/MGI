@@ -202,10 +202,11 @@
         nav ul {
             display: flex;
             list-style: none;
+            align-items: center;
         }
 
         nav ul li {
-            margin-left: 40px;
+            margin-left: 25px;
         }
 
         nav ul li a {
@@ -236,14 +237,42 @@
             cursor: pointer;
         }
 
+        /* Language Selector */
+        .language-selector {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .language-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .language-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .language-btn i {
+            font-size: 0.9rem;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 800px;
             display: flex;
             align-items: center;
             position: relative;
-    
-            background: linear-gradient(135deg, rgba(245, 174, 20, 0.05) 0%, rgba(245, 174, 20, 0.01) 100%);
             padding-top: 300px;
             margin-top: 0;
         }
@@ -329,6 +358,110 @@
             box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
             opacity: 0;
             animation: fadeIn 1.5s forwards 0.5s;
+        }
+
+        /* Vision Mission Valeurs Section - NOUVEAU */
+        .vision-mission {
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-mission:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .vmv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .vmv-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 35px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .vmv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .vmv-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(245, 174, 20, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .vmv-card:hover .vmv-icon {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .vmv-icon svg {
+            width: 40px;
+            height: 40px;
+            transition: var(--transition);
+        }
+
+        .vmv-card:hover .vmv-icon svg {
+            fill: white;
+        }
+
+        .vmv-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .values-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .values-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding-left: 35px;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .values-list li:before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .values-list li:last-child {
+            border-bottom: none;
         }
 
         /* About Section */
@@ -896,11 +1029,16 @@
             .contact-container {
                 flex-direction: column;
             }
+            
+            .vmv-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
         }
 
         @media (max-width: 768px) {
             .offre-meta span{
-flex-direction:column;
+                flex-direction:column;
             }
             body{
                 overflow-x:hidden;
@@ -952,6 +1090,15 @@ flex-direction:column;
             
             .hero-img {
                 display: none;
+            }
+            
+            .vmv-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .vmv-card {
+                padding: 30px 25px;
             }
         }
 
@@ -1020,6 +1167,11 @@ flex-direction:column;
                     <li><a href="#carriere">Carrière</a></li>
                     <li><a href="#stats">Chiffres</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="language-selector">
+                        <button class="language-btn" id="languageBtn">
+                            <i class="fas fa-globe"></i> FR/EN
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -1029,28 +1181,74 @@ flex-direction:column;
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Solution intégrée pour la croissance de vos entreprises</h1>
-                <p>Mwendo Group International S.A.S, fondé en 2024, offre des services premium dans les domaines de la logistique, du carburant, de l'ingénierie, du trading, de la gestion d'entreprises et des mines. Nous combinons innovation et excellence pour répondre à vos besoins complexes.</p>
+                <h1 data-translate="hero-title">Solution intégrée pour la croissance de vos entreprises</h1>
+                <p data-translate="hero-description">Mwendo Group International S.A.S, fondé en 2024, offre des services premium dans les domaines de la logistique, du carburant, de l'ingénierie, du trading, de la gestion d'entreprises et des mines. Nous combinons innovation et excellence pour répondre à vos besoins complexes.</p>
                 <div class="hero-btns">
-                    <a href="#services" class="btn">Découvrir nos services</a>
-                    <a href="#contact" class="btn" style="background: transparent; border: 2px solid var(--primary); color: var(--secondary);">Nous contacter</a>
+                    <a href="#services" class="btn" data-translate="discover-services">Découvrir nos services</a>
+                    <a href="#contact" class="btn" style="background: transparent; border: 2px solid var(--primary); color: var(--secondary);" data-translate="contact-us">Nous contacter</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <h3>15+</h3>
-                        <p>Années d'expérience collective</p>
+                        <p data-translate="years-experience">Années d'expérience collective</p>
                     </div>
                     <div class="stat-item">
                         <h3>50+</h3>
-                        <p>Projets réalisés</p>
+                        <p data-translate="projects-completed">Projets réalisés</p>
                     </div>
                     <div class="stat-item">
                         <h3>24/7</h3>
-                        <p>Support expert</p>
+                        <p data-translate="expert-support">Support expert</p>
                     </div>
                 </div>
             </div>
             <div class="hero-img floating"></div>
+        </div>
+    </section>
+
+    <!-- Vision, Mission et Valeurs Section - NOUVEAU -->
+    <section class="section vision-mission" id="vision-mission">
+        <div class="container">
+            <div class="text-center">
+                <h2 data-translate="vision-mission-title">Notre Vision, Mission & Valeurs</h2>
+                <p data-translate="vision-mission-subtitle">Les fondements qui guident chacune de nos actions et décisions</p>
+            </div>
+            <div class="vmv-grid">
+                <div class="vmv-card">
+                    <div class="vmv-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z"/>
+                        </svg>
+                    </div>
+                    <h3 data-translate="our-vision">NOTRE VISION</h3>
+                    <p data-translate="vision-text">Être compté parmi les fournisseurs de premier choix grâce à notre approche totalement axée sur les clients, devenir un leader régional durable, fournissant des solutions fiables. Nous visons l'excellence opérationnelle, la sécurité et l'innovation.</p>
+                </div>
+                
+                <div class="vmv-card">
+                    <div class="vmv-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M12,2L4,5V11.09C4,16.14 7.41,20.85 12,22C16.59,20.85 20,16.14 20,11.09V5L12,2M14.5,14.59L12,13.5L9.5,14.59L10.21,11.77L8.21,9.91L11.1,9.5L12,6.86L12.9,9.5L15.79,9.91L13.79,11.77L14.5,14.59Z"/>
+                        </svg>
+                    </div>
+                    <h3 data-translate="our-mission">NOTRE MISSION</h3>
+                    <p data-translate="mission-text">Délivrer des services excellents à tous nos clients, travailler dans le respect des normes et des standards de classe mondiale, se focaliser sur des partenariats gagnant-gagnant pour créer une valeur durable et mutuelle.</p>
+                </div>
+                
+                <div class="vmv-card">
+                    <div class="vmv-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5C13.66,5 15,6.34 15,8C15,9.66 13.66,11 12,11C10.34,11 9,9.66 9,8C9,6.34 10.34,5 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.82 8.71,12.47 12,12.47C15.29,12.47 18,13.79 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/>
+                        </svg>
+                    </div>
+                    <h3 data-translate="our-values">NOS VALEURS</h3>
+                    <ul class="values-list">
+                        <li data-translate="integrity">Intégrité</li>
+                        <li data-translate="excellence">Excellence</li>
+                        <li data-translate="commitment">Respect des Engagements</li>
+                        <li data-translate="speed">Rapidité</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1059,11 +1257,11 @@ flex-direction:column;
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Notre Expertise</h2>
-                    <p>Fondé en 2024, <strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> s'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles en République Démocratique du Congo. Notre approche multidisciplinaire nous permet d'offrir une gamme complète de services de haute qualité.</p>
-                    <p>Notre mission est de simplifier les opérations complexes de nos clients en leur offrant des solutions sur mesure dans les domaines clés de leur activité. Nous combinons expertise technique, innovation et excellence opérationnelle pour délivrer des résultats exceptionnels.</p>
-                    <p>Avec une équipe d'experts passionnés, nous mettons notre savoir-faire à votre service pour transformer vos défis en opportunités de croissance durable.</p>
-                    <a href="#contact" class="btn" style="margin-top: 30px;">En savoir plus</a>
+                    <h2 data-translate="our-expertise">Notre Expertise</h2>
+                    <p data-translate="about-text-1">Fondé en 2024, <strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> s'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles en République Démocratique du Congo. Notre approche multidisciplinaire nous permet d'offrir une gamme complète de services de haute qualité.</p>
+                    <p data-translate="about-text-2">Notre mission est de simplifier les opérations complexes de nos clients en leur offrant des solutions sur mesure dans les domaines clés de leur activité. Nous combinons expertise technique, innovation et excellence opérationnelle pour délivrer des résultats exceptionnels.</p>
+                    <p data-translate="about-text-3">Avec une équipe d'experts passionnés, nous mettons notre savoir-faire à votre service pour transformer vos défis en opportunités de croissance durable.</p>
+                    <a href="#contact" class="btn" style="margin-top: 30px;" data-translate="learn-more">En savoir plus</a>
                 </div>
                 <div class="about-img">
                     <img src="./imagesagent.png" alt="Maintenance d'engins miniers">
@@ -1076,8 +1274,8 @@ flex-direction:column;
     <section class="section services" id="services">
         <div class="container">
             <div class="text-center">
-                <h2>Nos Services Premium</h2>
-                <p>Découvrez notre gamme complète de services conçus pour répondre aux besoins complexes des entreprises modernes.</p>
+                <h2 data-translate="our-services">Nos Services Premium</h2>
+                <p data-translate="services-subtitle">Découvrez notre gamme complète de services conçus pour répondre aux besoins complexes des entreprises modernes.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -1090,10 +1288,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Logistique & Transport</h3>
-                        <p>MGI S.A.S met a votre disposition une flotte complète de camion howo12 roues pour le transport de minerais des entreprises partenaires, des bus toute dimensions pour le transport de vos personnels et une solution logistique complète.</p>
+                        <h3 data-translate="logistics-transport">Logistique & Transport</h3>
+                        <p data-translate="logistics-text">MGI S.A.S met a votre disposition une flotte complète de camion howo12 roues pour le transport de minerais des entreprises partenaires, des bus toute dimensions pour le transport de vos personnels et une solution logistique complète.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1107,10 +1305,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Fourniture de Carburant</h3>
-                        <p>MGI S.A.S met à votre disposition un système d'approvisionnement de carburant de qualité, une solution énergétique sur mesure et des conseils en optimisation.</p>
+                        <h3 data-translate="fuel-supply">Fourniture de Carburant</h3>
+                        <p data-translate="fuel-text">MGI S.A.S met à votre disposition un système d'approvisionnement de carburant de qualité, une solution énergétique sur mesure et des conseils en optimisation.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1124,10 +1322,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Fourniture d'Acide Sulfurique</h3>
-                        <p>MGI S.A.S dispose d'un système de Distribution d'acide sulfurique industriel de haute qualité, des solutions de stockage sécurisé et la gestion des matières premières chimiques.</p>
+                        <h3 data-translate="acid-supply">Fourniture d'Acide Sulfurique</h3>
+                        <p data-translate="acid-text">MGI S.A.S dispose d'un système de Distribution d'acide sulfurique industriel de haute qualité, des solutions de stockage sécurisé et la gestion des matières premières chimiques.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1141,10 +1339,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Fourniture de Bitume</h3>
-                        <p>MGI S.A.S Fournit des bitumes de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.</p>
+                        <h3 data-translate="asphalt-supply">Fourniture de Bitume</h3>
+                        <p data-translate="asphalt-text">MGI S.A.S Fournit des bitumes de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1158,10 +1356,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Maintenance Minier</h3>
-                        <p>MGI S.A.S met a votre disposition des ingénieurs pour la Maintenance préventive et corrective de vos d'équipements miniers, gestion de parc machines et optimisation des performances.</p>
+                        <h3 data-translate="mining-maintenance">Maintenance Minière</h3>
+                        <p data-translate="maintenance-text">MGI S.A.S met a votre disposition des ingénieurs pour la Maintenance préventive et corrective de vos équipements miniers, gestion de parc machines et optimisation des performances.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1175,10 +1373,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Trading & Commercialisation</h3>
-                        <p>MGI S.A.S se positionne comme une entreprise tampon dans le secteur minier facilitant ainsi l'achat et la vente de matières premières, spécialisé dans la cathode et produits miniers avec une expertise en marché international.</p>
+                        <h3 data-translate="trading">Trading & Commercialisation</h3>
+                        <p data-translate="trading-text">MGI S.A.S se positionne comme une entreprise tampon dans le secteur minier facilitant ainsi l'achat et la vente de matières premières, spécialisé dans la cathode et produits miniers avec une expertise en marché international.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1192,10 +1390,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Gestion Informatique</h3>
-                        <p>MWENDO GROUP INTERNATIONAL S.A S met sur pied des Infrastructures réseau sécurisée, développement d'applications, cloud computing, cybersécurité et support technique.</p>
+                        <h3 data-translate="it-management">Gestion Informatique</h3>
+                        <p data-translate="it-text">MWENDO GROUP INTERNATIONAL S.A S met sur pied des Infrastructures réseau sécurisée, développement d'applications, cloud computing, cybersécurité et support technique.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1209,10 +1407,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Assainissement & Cleaning</h3>
-                        <p>MWENDO GROUP INTERNATIONAL SAS met a votre disposition un Services d'assaisonnement et de nettoyage industriel très professionnel, la gestion des déchets et maintenance de propreté pour les entreprises partenaires.</p>
+                        <h3 data-translate="sanitation">Assainissement & Cleaning</h3>
+                        <p data-translate="sanitation-text">MWENDO GROUP INTERNATIONAL SAS met a votre disposition un Services d'assainissement et de nettoyage industriel très professionnel, la gestion des déchets et maintenance de propreté pour les entreprises partenaires.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1226,10 +1424,10 @@ flex-direction:column;
                         </svg>
                     </div>
                     <div class="service-content">
-                        <h3>Génie Civil et Industriel</h3>
-                        <p>MWENDO GROUP INTERNATIONAL SAS dispose des ingénieurs qualifiés pour la construction des structures spécifiques, usines, raffineries, centres logistiques adaptées aux contraintes des équipements et processus industriels, exigeant des normes techniques très strictes pour garantir la sécurité et la performance des installations ainsi que le montage et l'installation des lignes électriques.</p>
+                        <h3 data-translate="civil-engineering">Génie Civil et Industriel</h3>
+                        <p data-translate="engineering-text">MWENDO GROUP INTERNATIONAL SAS dispose des ingénieurs qualifiés pour la construction des structures spécifiques, usines, raffineries, centres logistiques adaptées aux contraintes des équipements et processus industriels, exigeant des normes techniques très strictes pour garantir la sécurité et la performance des installations ainsi que le montage et l'installation des lignes électriques.</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn btn-small">Demander un devis</a>
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1241,8 +1439,8 @@ flex-direction:column;
     <section class="section collaboration" id="collaboration">
         <div class="container">
             <div class="text-center">
-                <h2>Nos Collaborations</h2>
-                <p>Nous travaillons avec des entreprises partenaires de confiance pour offrir des services complets</p>
+                <h2 data-translate="collaborations-title">Nos Collaborations</h2>
+                <p data-translate="collaborations-subtitle">Nous travaillons avec des entreprises partenaires de confiance pour offrir des services complets</p>
             </div>
             <div class="partners-grid">
                 <div class="partner-item">
@@ -1280,44 +1478,44 @@ flex-direction:column;
     <section class="section carriere" id="carriere">
         <div class="container">
             <div class="text-center">
-                <h2>Carrière & Offres d'Emploi</h2>
-                <p>Rejoignez notre équipe dynamique et participez à des projets innovants</p>
+                <h2 data-translate="career-title">Carrière & Offres d'Emploi</h2>
+                <p data-translate="career-subtitle">Rejoignez notre équipe dynamique et participez à des projets innovants</p>
             </div>
             <div class="offres-grid">
                 <div class="offre-card">
-                    <h3>Ingénieur Maintenance Minière</h3>
+                    <h3 data-translate="job-1-title">Ingénieur Maintenance Minière</h3>
                     <div class="offre-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Kolwezi, RDC</span>
-                        <span><i class="fas fa-clock"></i> Temps plein</span>
-                        <span><i class="fas fa-calendar-alt"></i> Publiée le 15/03/2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span data-translate="location-1">Kolwezi, RDC</span></span>
+                        <span><i class="fas fa-clock"></i> <span data-translate="full-time">Temps plein</span></span>
+                        <span><i class="fas fa-calendar-alt"></i> <span data-translate="date-1">Publiée le 15/03/2024</span></span>
                     </div>
-                    <p>Nous recherchons un ingénieur en maintenance minière pour assurer la maintenance préventive et corrective des équipements miniers.</p>
-                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;">Postuler maintenant</a>
+                    <p data-translate="job-1-description">Nous recherchons un ingénieur en maintenance minière pour assurer la maintenance préventive et corrective des équipements miniers.</p>
+                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;" data-translate="apply-now">Postuler maintenant</a>
                 </div>
                 <div class="offre-card">
-                    <h3>Logisticien Senior</h3>
+                    <h3 data-translate="job-2-title">Logisticien Senior</h3>
                     <div class="offre-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Lubumbashi, RDC</span>
-                        <span><i class="fas fa-clock"></i> Temps plein</span>
-                        <span><i class="fas fa-calendar-alt"></i> Publiée le 12/03/2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span data-translate="location-2">Lubumbashi, RDC</span></span>
+                        <span><i class="fas fa-clock"></i> <span data-translate="full-time">Temps plein</span></span>
+                        <span><i class="fas fa-calendar-alt"></i> <span data-translate="date-2">Publiée le 12/03/2024</span></span>
                     </div>
-                    <p>Superviser les opérations logistiques, gérer la flotte de camions et optimiser les chaînes d'approvisionnement.</p>
-                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;">Postuler maintenant</a>
+                    <p data-translate="job-2-description">Superviser les opérations logistiques, gérer la flotte de camions et optimiser les chaînes d'approvisionnement.</p>
+                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;" data-translate="apply-now">Postuler maintenant</a>
                 </div>
                 <div class="offre-card">
-                    <h3>Spécialiste en Trading International</h3>
+                    <h3 data-translate="job-3-title">Spécialiste en Trading International</h3>
                     <div class="offre-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Kinshasa, RDC</span>
-                        <span><i class="fas fa-clock"></i> Temps plein</span>
-                        <span><i class="fas fa-calendar-alt"></i> Publiée le 10/03/2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span data-translate="location-3">Kinshasa, RDC</span></span>
+                        <span><i class="fas fa-clock"></i> <span data-translate="full-time">Temps plein</span></span>
+                        <span><i class="fas fa-calendar-alt"></i> <span data-translate="date-3">Publiée le 10/03/2024</span></span>
                     </div>
-                    <p>Gérer les opérations de trading de matières premières avec une expertise en marché international.</p>
-                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;">Postuler maintenant</a>
+                    <p data-translate="job-3-description">Gérer les opérations de trading de matières premières avec une expertise en marché international.</p>
+                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;" data-translate="apply-now">Postuler maintenant</a>
                 </div>
             </div>
             <div class="text-center" style="margin-top: 50px;">
-                <p>Vous ne trouvez pas l'offre qui vous correspond ? Envoyez-nous votre CV spontané !</p>
-                <a href="#contact" class="btn" style="margin-top: 20px;">Envoyer une candidature spontanée</a>
+                <p data-translate="spontaneous-application">Vous ne trouvez pas l'offre qui vous correspond ? Envoyez-nous votre CV spontané !</p>
+                <a href="#contact" class="btn" style="margin-top: 20px;" data-translate="send-spontaneous">Envoyer une candidature spontanée</a>
             </div>
         </div>
     </section>
@@ -1326,25 +1524,25 @@ flex-direction:column;
     <section class="section stats" id="stats">
         <div class="container">
             <div class="text-center">
-                <h2>Notre Impact en Chiffres</h2>
-                <p>Des résultats tangibles qui témoignent de notre engagement envers l'excellence</p>
+                <h2 data-translate="stats-title">Notre Impact en Chiffres</h2>
+                <p data-translate="stats-subtitle">Des résultats tangibles qui témoignent de notre engagement envers l'excellence</p>
             </div>
             <div class="stats-grid">
                 <div class="stat-box">
-                    <h3><span class="counter" data-target="200">0</span>+</h3>
-                    <p>Clients satisfaits</p>
-                </div>
-                <div class="stat-box">
                     <h3><span class="counter" data-target="50">0</span>+</h3>
-                    <p>Projets réalisés</p>
+                    <p data-translate="satisfied-clients">Clients satisfaits</p>
                 </div>
                 <div class="stat-box">
-                    <h3><span class="counter" data-target="100">0</span>+</h3>
-                    <p>Experts qualifiés</p>
+                    <h3><span class="counter" data-target="15">0</span>+</h3>
+                    <p data-translate="projects-completed">Projets réalisés</p>
+                </div>
+                <div class="stat-box">
+                    <h3><span class="counter" data-target="80">0</span>+</h3>
+                    <p data-translate="qualified-experts">Experts qualifiés</p>
                 </div>
                 <div class="stat-box">
                     <h3><span class="counter" data-target="98">0</span>%</h3>
-                    <p>Taux de satisfaction</p>
+                    <p data-translate="satisfaction-rate">Taux de satisfaction</p>
                 </div>
             </div>
         </div>
@@ -1354,8 +1552,8 @@ flex-direction:column;
     <section class="section contact" id="contact">
         <div class="container">
             <div class="text-center">
-                <h2>Contactez-Nous</h2>
-                <p>Prêt à transformer votre entreprise? Notre équipe est à votre écoute</p>
+                <h2 data-translate="contact-title">Contactez-Nous</h2>
+                <p data-translate="contact-subtitle">Prêt à transformer votre entreprise? Notre équipe est à votre écoute</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info">
@@ -1366,7 +1564,7 @@ flex-direction:column;
                             </svg>
                         </div>
                         <div>
-                            <h4>Notre Siège</h4>
+                            <h4 data-translate="headquarters">Notre Siège</h4>
                             <p>54 Avenue Maman yemo Quartier<br>Commune de Manika, Ville de Kolwezi<br>République Démocratique du Congo</p>
                         </div>
                     </div>
@@ -1377,7 +1575,7 @@ flex-direction:column;
                             </svg>
                         </div>
                         <div>
-                            <h4>Téléphone</h4>
+                            <h4 data-translate="phone">Téléphone</h4>
                             <p>+243 817 627 927<br>+243 999 565 072</p>
                         </div>
                     </div>
@@ -1388,8 +1586,8 @@ flex-direction:column;
                             </svg>
                         </div>
                         <div>
-                            <h4>Email</h4>
-                            <p>contact@mwendogroup.com<br>info@mwendogroup.com</p>
+                            <h4 data-translate="email">Email</h4>
+                            <p>admin@mwendogroupeinternational.com</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -1399,46 +1597,46 @@ flex-direction:column;
                             </svg>
                         </div>
                         <div>
-                            <h4>Horaires</h4>
-                            <p>Lundi - Vendredi: 8h00 - 17h00<br>Fermé le week-end et jours fériés</p>
+                            <h4 data-translate="hours">Horaires</h4>
+                            <p data-translate="hours-details">Lundi - Vendredi: 8h00 - 17h00<br>Fermé le week-end et jours fériés</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Nom Complet *</label>
+                            <label for="name" data-translate="full-name">Nom Complet *</label>
                             <input type="text" id="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Adresse Email *</label>
+                            <label for="email" data-translate="email-address">Adresse Email *</label>
                             <input type="email" id="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Téléphone *</label>
+                            <label for="phone" data-translate="phone">Téléphone *</label>
                             <input type="tel" id="phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="service">Service Intéressé *</label>
+                            <label for="service" data-translate="service-interested">Service Intéressé *</label>
                             <select id="service" required>
-                                <option value="">Sélectionnez un service</option>
-                                <option value="logistique">Logistique & Transport</option>
-                                <option value="carburant">Fourniture de Carburant</option>
-                                <option value="acide">Fourniture d'Acide Sulfurique</option>
-                                <option value="bitume">Fourniture de Bitume</option>
-                                <option value="maintenance">Maintenance Minier</option>
-                                <option value="trading">Trading & Commercialisation</option>
-                                <option value="informatique">Gestion Informatique</option>
-                                <option value="assainissement">Assainissement & Cleaning</option>
-                                <option value="genie-civil">Génie Civil et Industriel</option>
-                                <option value="carriere">Offre d'emploi</option>
+                                <option value="" data-translate="select-service">Sélectionnez un service</option>
+                                <option value="logistique" data-translate="logistics-transport">Logistique & Transport</option>
+                                <option value="carburant" data-translate="fuel-supply">Fourniture de Carburant</option>
+                                <option value="acide" data-translate="acid-supply">Fourniture d'Acide Sulfurique</option>
+                                <option value="bitume" data-translate="asphalt-supply">Fourniture de Bitume</option>
+                                <option value="maintenance" data-translate="mining-maintenance">Maintenance Minier</option>
+                                <option value="trading" data-translate="trading">Trading & Commercialisation</option>
+                                <option value="informatique" data-translate="it-management">Gestion Informatique</option>
+                                <option value="assainissement" data-translate="sanitation">Assainissement & Cleaning</option>
+                                <option value="genie-civil" data-translate="civil-engineering">Génie Civil et Industriel</option>
+                                <option value="carriere" data-translate="job-offer">Offre d'emploi</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message *</label>
+                            <label for="message" data-translate="message">Message *</label>
                             <textarea id="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Envoyer votre message</button>
+                        <button type="submit" class="btn" data-translate="send-message">Envoyer votre message</button>
                     </form>
                 </div>
             </div>
@@ -1453,7 +1651,7 @@ flex-direction:column;
                     <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
                         <img src="./IMG-20250807-WA0003.jpg" alt="Mwendo Group International" width="100px" style="border: 2px solid var(--primary); border-radius:50%">
                     </a>
-                    <p><strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de vos entreprise en RDC et à l'international.</p>
+                    <p data-translate="footer-description"><strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de vos entreprise en RDC et à l'international.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -1462,41 +1660,42 @@ flex-direction:column;
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Services</h4>
+                    <h4 data-translate="services">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Logistique & Transport</a></li>
-                        <li><a href="#services">Fourniture de Carburant</a></li>
-                        <li><a href="#services">Fourniture d'Acide Sulfurique</a></li>
-                        <li><a href="#services">Fourniture de Bitume</a></li>
-                        <li><a href="#services">Maintenance Minier</a></li>
-                        <li><a href="#services">Trading & Commercialisation</a></li>
-                        <li><a href="#services">Gestion Informatique</a></li>
-                        <li><a href="#services">Assainissement & Cleaning</a></li>
-                        <li><a href="#services">Génie Civil et Industriel</a></li>
+                        <li><a href="#services" data-translate="logistics-transport">Logistique & Transport</a></li>
+                        <li><a href="#services" data-translate="fuel-supply">Fourniture de Carburant</a></li>
+                        <li><a href="#services" data-translate="acid-supply">Fourniture d'Acide Sulfurique</a></li>
+                        <li><a href="#services" data-translate="asphalt-supply">Fourniture de Bitume</a></li>
+                        <li><a href="#services" data-translate="mining-maintenance">Maintenance Minier</a></li>
+                        <li><a href="#services" data-translate="trading">Trading & Commercialisation</a></li>
+                        <li><a href="#services" data-translate="it-management">Gestion Informatique</a></li>
+                        <li><a href="#services" data-translate="sanitation">Assainissement & Cleaning</a></li>
+                        <li><a href="#services" data-translate="civil-engineering">Génie Civil et Industriel</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Liens Utiles</h4>
+                    <h4 data-translate="useful-links">Liens Utiles</h4>
                     <ul class="footer-links">
-                        <li><a href="#about">À propos de nous</a></li>
-                        <li><a href="#collaboration">Nos collaborations</a></li>
-                        <li><a href="#carriere">Carrière</a></li>
-                        <li><a href="#stats">Nos réalisations</a></li>
-                        <li><a href="#contact">Demander un devis</a></li>
-                        <li><a href="#contact">Nous contacter</a></li>
+                        <li><a href="#about" data-translate="about-us">À propos de nous</a></li>
+                        <li><a href="#vision-mission" data-translate="vision-mission">Vision & Mission</a></li>
+                        <li><a href="#collaboration" data-translate="our-collaborations">Nos collaborations</a></li>
+                        <li><a href="#carriere" data-translate="career">Carrière</a></li>
+                        <li><a href="#stats" data-translate="our-achievements">Nos réalisations</a></li>
+                        <li><a href="#contact" data-translate="request-quote">Demander un devis</a></li>
+                        <li><a href="#contact" data-translate="contact-us">Nous contacter</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Coordonnées</h4>
-                    <p><strong>Adresse:</strong><br>54 Avenue Maman yemo Quartier<br>Commune de Manika, Kolwezi - RDC</p>
-                    <p><strong>Téléphone:</strong><br>+243 817 627 927</p>
+                    <h4 data-translate="contact-info">Coordonnées</h4>
+                    <p><strong data-translate="address">Adresse:</strong><br>54 Avenue Maman yemo Quartier<br>Commune de Manika, Kolwezi - RDC</p>
+                    <p><strong data-translate="phone">Téléphone:</strong><br>+243 817 627 927</p>
                     <p><strong></strong><br>+243 999 565 072</p>
-                    <p><strong>Email:</strong><br>contact@mwendogroup.com</p>
+                    <p><strong data-translate="email">Email:</strong><br>admin@mwendogroupeinternational.com</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 - 2025 MWENDO GROUP INTERNATIONAL S.A.S. Tous droits réservés. Conçu avec passion pour l'excellence.</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">Les images utilisées sur ce site sont libres de droit et proviennent de Unsplash.</p>
+                <p data-translate="copyright">&copy; 2024 - 2026 MWENDO GROUP INTERNATIONAL S.A.S. Tous droits réservés. Conçu avec passion pour l'excellence.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;" data-translate="images-note">Les images utilisées sur ce site sont libres de droit et proviennent de Unsplash.</p>
             </div>
         </div>
     </footer>
@@ -1515,6 +1714,359 @@ flex-direction:column;
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
+        });
+
+        // Language translation system
+        const languageBtn = document.getElementById('languageBtn');
+        let currentLanguage = 'fr'; // Default language is French
+
+        // Translations object - stores all translations
+        const translations = {
+            fr: {
+                // Navigation
+                'home': 'Accueil',
+                'about': 'À propos',
+                'services': 'Services',
+                'transport': 'Transport & Logistique',
+                'collaborations': 'Collaborations',
+                'career': 'Carrière',
+                'stats': 'Chiffres',
+                'contact': 'Contact',
+                'language-btn': 'FR/EN',
+                
+                // Hero Section
+                'hero-title': 'Solution intégrée pour la croissance de vos entreprises',
+                'hero-description': 'Mwendo Group International S.A.S, fondé en 2024, offre des services premium dans les domaines de la logistique, du carburant, de l\'ingénierie, du trading, de la gestion d\'entreprises et des mines. Nous combinons innovation et excellence pour répondre à vos besoins complexes.',
+                'discover-services': 'Découvrir nos services',
+                'contact-us': 'Nous contacter',
+                'years-experience': 'Années d\'expérience collective',
+                'projects-completed': 'Projets réalisés',
+                'expert-support': 'Support expert',
+                
+                // Vision Mission Section
+                'vision-mission-title': 'Notre Vision, Mission & Valeurs',
+                'vision-mission-subtitle': 'Les fondements qui guident chacune de nos actions et décisions',
+                'our-vision': 'NOTRE VISION',
+                'our-mission': 'NOTRE MISSION',
+                'our-values': 'NOS VALEURS',
+                'vision-text': 'Être compté parmi les fournisseurs de premier choix grâce à notre approche totalement axée sur les clients, devenir un leader régional durable, fournissant des solutions fiables. Nous visons l\'excellence opérationnelle, la sécurité et l\'innovation.',
+                'mission-text': 'Délivrer des services excellents à tous nos clients, travailler dans le respect des normes et des standards de classe mondiale, se focaliser sur des partenariats gagnant-gagnant pour créer une valeur durable et mutuelle.',
+                'integrity': 'Intégrité',
+                'excellence': 'Excellence',
+                'commitment': 'Respect des Engagements',
+                'speed': 'Rapidité',
+                
+                // About Section
+                'our-expertise': 'Notre Expertise',
+                'about-text-1': 'Fondé en 2024, <strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> s\'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles en République Démocratique du Congo. Notre approche multidisciplinaire nous permet d\'offrir une gamme complète de services de haute qualité.',
+                'about-text-2': 'Notre mission est de simplifier les opérations complexes de nos clients en leur offrant des solutions sur mesure dans les domaines clés de leur activité. Nous combinons expertise technique, innovation et excellence opérationnelle pour délivrer des résultats exceptionnels.',
+                'about-text-3': 'Avec une équipe d\'experts passionnés, nous mettons notre savoir-faire à votre service pour transformer vos défis en opportunités de croissance durable.',
+                'learn-more': 'En savoir plus',
+                
+                // Services Section
+                'our-services': 'Nos Services Premium',
+                'services-subtitle': 'Découvrez notre gamme complète de services conçus pour répondre aux besoins complexes des entreprises modernes.',
+                'logistics-transport': 'Logistique & Transport',
+                'logistics-text': 'MGI S.A.S met a votre disposition une flotte complète de camion howo12 roues pour le transport de minerais des entreprises partenaires, des bus toute dimensions pour le transport de vos personnels et une solution logistique complète.',
+                'request-quote': 'Demander un devis',
+                'fuel-supply': 'Fourniture de Carburant',
+                'fuel-text': 'MGI S.A.S met à votre disposition un système d\'approvisionnement de carburant de qualité, une solution énergétique sur mesure et des conseils en optimisation.',
+                'acid-supply': 'Fourniture d\'Acide Sulfurique',
+                'acid-text': 'MGI S.A.S dispose d\'un système de Distribution d\'acide sulfurique industriel de haute qualité, des solutions de stockage sécurisé et la gestion des matières premières chimiques.',
+                'asphalt-supply': 'Fourniture de Bitume',
+                'asphalt-text': 'MGI S.A.S Fournit des bitumes de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.',
+                'mining-maintenance': 'Maintenance Minière',
+                'maintenance-text': 'MGI S.A.S met a votre disposition des ingénieurs pour la Maintenance préventive et corrective de vos équipements miniers, gestion de parc machines et optimisation des performances.',
+                'trading': 'Trading & Commercialisation',
+                'trading-text': 'MGI S.A.S se positionne comme une entreprise tampon dans le secteur minier facilitant ainsi l\'achat et la vente de matières premières, spécialisé dans la cathode et produits miniers avec une expertise en marché international.',
+                'it-management': 'Gestion Informatique',
+                'it-text': 'MWENDO GROUP INTERNATIONAL S.A S met sur pied des Infrastructures réseau sécurisée, développement d\'applications, cloud computing, cybersécurité et support technique.',
+                'sanitation': 'Assainissement & Cleaning',
+                'sanitation-text': 'MWENDO GROUP INTERNATIONAL SAS met a votre disposition un Services d\'assainissement et de nettoyage industriel très professionnel, la gestion des déchets et maintenance de propreté pour les entreprises partenaires.',
+                'civil-engineering': 'Génie Civil et Industriel',
+                'engineering-text': 'MWENDO GROUP INTERNATIONAL SAS dispose des ingénieurs qualifiés pour la construction des structures spécifiques, usines, raffineries, centres logistiques adaptées aux contraintes des équipements et processus industriels, exigeant des normes techniques très strictes pour garantir la sécurité et la performance des installations ainsi que le montage et l\'installation des lignes électriques.',
+                
+                // Collaborations Section
+                'collaborations-title': 'Nos Collaborations',
+                'collaborations-subtitle': 'Nous travaillons avec des entreprises partenaires de confiance pour offrir des services complets',
+                
+                // Career Section
+                'career-title': 'Carrière & Offres d\'Emploi',
+                'career-subtitle': 'Rejoignez notre équipe dynamique et participez à des projets innovants',
+                'job-1-title': 'Ingénieur Maintenance Minière',
+                'job-2-title': 'Logisticien Senior',
+                'job-3-title': 'Spécialiste en Trading International',
+                'job-1-description': 'Nous recherchons un ingénieur en maintenance minière pour assurer la maintenance préventive et corrective des équipements miniers.',
+                'job-2-description': 'Superviser les opérations logistiques, gérer la flotte de camions et optimiser les chaînes d\'approvisionnement.',
+                'job-3-description': 'Gérer les opérations de trading de matières premières avec une expertise en marché international.',
+                'apply-now': 'Postuler maintenant',
+                'spontaneous-application': 'Vous ne trouvez pas l\'offre qui vous correspond ? Envoyez-nous votre CV spontané !',
+                'send-spontaneous': 'Envoyer une candidature spontanée',
+                'location-1': 'Kolwezi, RDC',
+                'location-2': 'Lubumbashi, RDC',
+                'location-3': 'Kinshasa, RDC',
+                'full-time': 'Temps plein',
+                'date-1': 'Publiée le 15/03/2024',
+                'date-2': 'Publiée le 12/03/2024',
+                'date-3': 'Publiée le 10/03/2024',
+                
+                // Stats Section
+                'stats-title': 'Notre Impact en Chiffres',
+                'stats-subtitle': 'Des résultats tangibles qui témoignent de notre engagement envers l\'excellence',
+                'satisfied-clients': 'Clients satisfaits',
+                'qualified-experts': 'Experts qualifiés',
+                'satisfaction-rate': 'Taux de satisfaction',
+                
+                // Contact Section
+                'contact-title': 'Contactez-Nous',
+                'contact-subtitle': 'Prêt à transformer votre entreprise? Notre équipe est à votre écoute',
+                'headquarters': 'Notre Siège',
+                'phone': 'Téléphone',
+                'email': 'Email',
+                'hours': 'Horaires',
+                'full-name': 'Nom Complet *',
+                'email-address': 'Adresse Email *',
+                'service-interested': 'Service Intéressé *',
+                'select-service': 'Sélectionnez un service',
+                'message': 'Message *',
+                'send-message': 'Envoyer votre message',
+                'hours-details': 'Lundi - Vendredi: 8h00 - 17h00<br>Fermé le week-end et jours fériés',
+                'job-offer': 'Offre d\'emploi',
+                
+                // Footer
+                'services': 'Services',
+                'useful-links': 'Liens Utiles',
+                'contact-info': 'Coordonnées',
+                'address': 'Adresse:',
+                'footer-description': '<strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de vos entreprise en RDC et à l\'international.',
+                'about-us': 'À propos de nous',
+                'vision-mission': 'Vision & Mission',
+                'our-collaborations': 'Nos collaborations',
+                'our-achievements': 'Nos réalisations',
+                'copyright': '&copy; 2024 - 2026 MWENDO GROUP INTERNATIONAL S.A.S. Tous droits réservés. Conçu avec passion pour l\'excellence.',
+                'images-note': 'Les images utilisées sur ce site sont libres de droit et proviennent de Unsplash.'
+            },
+            en: {
+                // Navigation
+                'home': 'Home',
+                'about': 'About',
+                'services': 'Services',
+                'transport': 'Transport & Logistics',
+                'collaborations': 'Collaborations',
+                'career': 'Career',
+                'stats': 'Numbers',
+                'contact': 'Contact',
+                'language-btn': 'EN/FR',
+                
+                // Hero Section
+                'hero-title': 'Integrated solution for your business growth',
+                'hero-description': 'Mwendo Group International S.A.S, founded in 2024, offers premium services in logistics, fuel, engineering, trading, business management, and mining. We combine innovation and excellence to meet your complex needs.',
+                'discover-services': 'Discover our services',
+                'contact-us': 'Contact us',
+                'years-experience': 'Years of collective experience',
+                'projects-completed': 'Projects completed',
+                'expert-support': 'Expert support',
+                
+                // Vision Mission Section
+                'vision-mission-title': 'Our Vision, Mission & Values',
+                'vision-mission-subtitle': 'The foundations that guide each of our actions and decisions',
+                'our-vision': 'OUR VISION',
+                'our-mission': 'OUR MISSION',
+                'our-values': 'OUR VALUES',
+                'vision-text': 'To be counted among the top choice suppliers through our totally customer-focused approach, become a sustainable regional leader, providing reliable solutions. We aim for operational excellence, safety, and innovation.',
+                'mission-text': 'Deliver excellent services to all our customers, work respecting world-class standards and norms, focus on win-win partnerships to create sustainable and mutual value.',
+                'integrity': 'Integrity',
+                'excellence': 'Excellence',
+                'commitment': 'Commitment Respect',
+                'speed': 'Speed',
+                
+                // About Section
+                'our-expertise': 'Our Expertise',
+                'about-text-1': 'Founded in 2024, <strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> has established itself as a leader in providing integrated solutions for businesses of all sizes in the Democratic Republic of Congo. Our multidisciplinary approach allows us to offer a complete range of high-quality services.',
+                'about-text-2': 'Our mission is to simplify the complex operations of our clients by offering them customized solutions in key areas of their activity. We combine technical expertise, innovation, and operational excellence to deliver exceptional results.',
+                'about-text-3': 'With a team of passionate experts, we put our know-how at your service to transform your challenges into opportunities for sustainable growth.',
+                'learn-more': 'Learn more',
+                
+                // Services Section
+                'our-services': 'Our Premium Services',
+                'services-subtitle': 'Discover our complete range of services designed to meet the complex needs of modern businesses.',
+                'logistics-transport': 'Logistics & Transport',
+                'logistics-text': 'MGI S.A.S puts at your disposal a complete fleet of Howo 12-wheel trucks for transporting minerals from partner companies, buses of all dimensions for transporting your personnel, and a complete logistics solution.',
+                'request-quote': 'Request a quote',
+                'fuel-supply': 'Fuel Supply',
+                'fuel-text': 'MGI S.A.S provides you with a quality fuel supply system, customized energy solutions, and optimization advice.',
+                'acid-supply': 'Sulfuric Acid Supply',
+                'acid-text': 'MGI S.A.S has a system for distributing high-quality industrial sulfuric acid, secure storage solutions, and management of chemical raw materials.',
+                'asphalt-supply': 'Asphalt Supply',
+                'asphalt-text': 'MGI S.A.S provides quality asphalt for road works and infrastructure projects, with technical advice and logistical support.',
+                'mining-maintenance': 'Mining Maintenance',
+                'maintenance-text': 'MGI S.A.S provides you with engineers for preventive and corrective maintenance of your mining equipment, fleet management, and performance optimization.',
+                'trading': 'Trading & Commercialization',
+                'trading-text': 'MGI S.A.S positions itself as a buffer company in the mining sector, thus facilitating the purchase and sale of raw materials, specializing in cathode and mining products with expertise in the international market.',
+                'it-management': 'IT Management',
+                'it-text': 'MWENDO GROUP INTERNATIONAL S.A.S sets up secure network infrastructure, application development, cloud computing, cybersecurity, and technical support.',
+                'sanitation': 'Sanitation & Cleaning',
+                'sanitation-text': 'MWENDO GROUP INTERNATIONAL SAS provides you with a highly professional industrial sanitation and cleaning service, waste management, and cleanliness maintenance for partner companies.',
+                'civil-engineering': 'Civil and Industrial Engineering',
+                'engineering-text': 'MWENDO GROUP INTERNATIONAL SAS has qualified engineers for the construction of specific structures, factories, refineries, logistics centers adapted to the constraints of equipment and industrial processes, requiring very strict technical standards to guarantee the safety and performance of installations, as well as the assembly and installation of electrical lines.',
+                
+                // Collaborations Section
+                'collaborations-title': 'Our Collaborations',
+                'collaborations-subtitle': 'We work with trusted partner companies to offer comprehensive services',
+                
+                // Career Section
+                'career-title': 'Career & Job Offers',
+                'career-subtitle': 'Join our dynamic team and participate in innovative projects',
+                'job-1-title': 'Mining Maintenance Engineer',
+                'job-2-title': 'Senior Logistician',
+                'job-3-title': 'International Trading Specialist',
+                'job-1-description': 'We are looking for a mining maintenance engineer to ensure preventive and corrective maintenance of mining equipment.',
+                'job-2-description': 'Supervise logistics operations, manage the truck fleet, and optimize supply chains.',
+                'job-3-description': 'Manage raw materials trading operations with expertise in the international market.',
+                'apply-now': 'Apply now',
+                'spontaneous-application': 'Don\'t find the offer that suits you? Send us your spontaneous application!',
+                'send-spontaneous': 'Send a spontaneous application',
+                'location-1': 'Kolwezi, DRC',
+                'location-2': 'Lubumbashi, DRC',
+                'location-3': 'Kinshasa, DRC',
+                'full-time': 'Full-time',
+                'date-1': 'Posted 15/03/2024',
+                'date-2': 'Posted 12/03/2024',
+                'date-3': 'Posted 10/03/2024',
+                
+                // Stats Section
+                'stats-title': 'Our Impact in Numbers',
+                'stats-subtitle': 'Tangible results that testify to our commitment to excellence',
+                'satisfied-clients': 'Satisfied clients',
+                'qualified-experts': 'Qualified experts',
+                'satisfaction-rate': 'Satisfaction rate',
+                
+                // Contact Section
+                'contact-title': 'Contact Us',
+                'contact-subtitle': 'Ready to transform your business? Our team is listening to you',
+                'headquarters': 'Our Headquarters',
+                'phone': 'Phone',
+                'email': 'Email',
+                'hours': 'Hours',
+                'full-name': 'Full Name *',
+                'email-address': 'Email Address *',
+                'service-interested': 'Service Interested In *',
+                'select-service': 'Select a service',
+                'message': 'Message *',
+                'send-message': 'Send your message',
+                'hours-details': 'Monday - Friday: 8:00 AM - 5:00 PM<br>Closed on weekends and holidays',
+                'job-offer': 'Job offer',
+                
+                // Footer
+                'services': 'Services',
+                'useful-links': 'Useful Links',
+                'contact-info': 'Contact Information',
+                'address': 'Address:',
+                'footer-description': '<strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Integrated solutions for your growth. Excellence, innovation, and reliability at the service of your businesses in the DRC and internationally.',
+                'about-us': 'About us',
+                'vision-mission': 'Vision & Mission',
+                'our-collaborations': 'Our collaborations',
+                'our-achievements': 'Our achievements',
+                'copyright': '&copy; 2024 - 2026 MWENDO GROUP INTERNATIONAL S.A.S. All rights reserved. Designed with passion for excellence.',
+                'images-note': 'The images used on this site are royalty-free and come from Unsplash.'
+            }
+        };
+
+        // Store original texts for navigation (since they don't have data-translate)
+        const originalNavTexts = {
+            'home': 'Accueil',
+            'about': 'À propos',
+            'services': 'Services',
+            'transport': 'Transport & Logistique',
+            'collaborations': 'Collaborations',
+            'career': 'Carrière',
+            'stats': 'Chiffres',
+            'contact': 'Contact'
+        };
+
+        // Function to translate the page
+        function translatePage(language) {
+            // Update HTML lang attribute
+            document.documentElement.lang = language;
+            
+            // Update page title
+            if (language === 'en') {
+                document.title = 'Mwendo Group International | Integrated Solutions';
+            } else {
+                document.title = 'Mwendo Group International | Solutions Intégrées';
+            }
+            
+            // Update language button text
+            languageBtn.innerHTML = `<i class="fas fa-globe"></i> ${translations[language]['language-btn']}`;
+            
+            // Translate navigation
+            const navLinks = document.querySelectorAll('nav ul li a:not(.language-btn)');
+            navLinks.forEach((link, index) => {
+                const keys = Object.keys(originalNavTexts);
+                if (keys[index]) {
+                    link.textContent = translations[language][keys[index]];
+                }
+            });
+            
+            // Get all translatable elements
+            const translatableElements = document.querySelectorAll('[data-translate]');
+            
+            // Translate each element
+            translatableElements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[language][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[language][key];
+                    } else if (element.tagName === 'LABEL') {
+                        element.textContent = translations[language][key];
+                    } else {
+                        // Check if the translation contains HTML
+                        const translation = translations[language][key];
+                        if (translation.includes('<')) {
+                            element.innerHTML = translation;
+                        } else {
+                            element.textContent = translation;
+                        }
+                    }
+                }
+            });
+            
+            // Update select options
+            const serviceSelect = document.getElementById('service');
+            if (serviceSelect) {
+                const options = serviceSelect.querySelectorAll('option');
+                options.forEach(option => {
+                    const key = option.getAttribute('data-translate');
+                    if (key && translations[language][key]) {
+                        option.textContent = translations[language][key];
+                    }
+                });
+            }
+            
+            currentLanguage = language;
+            
+            // Save language preference to localStorage
+            localStorage.setItem('preferredLanguage', language);
+        }
+
+        // Language button click event
+        languageBtn.addEventListener('click', () => {
+            if (currentLanguage === 'fr') {
+                translatePage('en');
+            } else {
+                translatePage('fr');
+            }
+        });
+
+        // Initialize translation when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check for saved language preference
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage && savedLanguage !== 'fr') {
+                translatePage(savedLanguage);
+            }
         });
 
         // Smooth scrolling for anchor links
@@ -1548,10 +2100,10 @@ flex-direction:column;
                 
                 if (name && email && service) {
                     // Here you would normally send the form data to a server
-                    alert('Merci pour votre message ! Nous vous contacterons très bientôt.');
+                    alert(currentLanguage === 'fr' ? 'Merci pour votre message ! Nous vous contacterons très bientôt.' : 'Thank you for your message! We will contact you very soon.');
                     contactForm.reset();
                 } else {
-                    alert('Veuillez remplir tous les champs obligatoires (*).');
+                    alert(currentLanguage === 'fr' ? 'Veuillez remplir tous les champs obligatoires (*).' : 'Please fill in all required fields (*).');
                 }
             });
         }
