@@ -486,14 +486,10 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transform: rotate(-2deg);
-            transition: var(--transition);
             height: 500px;
         }
 
-        .about-img:hover {
-            transform: rotate(0deg);
-        }
+    
 
         .about-img img {
             width: 100%;
@@ -1346,6 +1342,24 @@
                         </div>
                     </div>
                 </div>
+                <!-- Nouveau Service : Fourniture de Soufre -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./soufre.png" alt="Fourniture de Soufre" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+                    </div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="#f5ae14">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="sulfur-supply">Fourniture de Soufre</h3>
+                        <p data-translate="sulfur-text">Spécialiste de la distribution de matières premières, MGI S.A.S propose une solution complète pour la fourniture de soufre (granulé, en poudre) adaptée aux exigences de l'industrie chimique et minière. Nous garantissons un produit à haute pureté, certifié pour des usages variés. Notre chaîne logistique sécurisée assure des livraisons volumineuses dans le respect des normes de sécurité environnementale.</p>
+                        <div class="service-cta">
+                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="service-card">
                     <div class="service-image">
                         <img src="./entretienengin.png" alt="Maintenance d'équipements miniers">
@@ -1586,7 +1600,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 data-translate="email">Email</h4>
+                            <h4 data-translate="email" style="width: 50%; overflow-x: hidden;">Email</h4>
                             <p>admin@mwendogroupeinternational.com</p>
                         </div>
                     </div>
@@ -1623,6 +1637,7 @@
                                 <option value="logistique" data-translate="logistics-transport">Logistique & Transport</option>
                                 <option value="carburant" data-translate="fuel-supply">Fourniture de Carburant</option>
                                 <option value="acide" data-translate="acid-supply">Fourniture d'Acide Sulfurique</option>
+                                <option value="soufre" data-translate="sulfur-supply">Fourniture de Soufre</option>
                                 <option value="bitume" data-translate="asphalt-supply">Fourniture de Bitume</option>
                                 <option value="maintenance" data-translate="mining-maintenance">Maintenance Minier</option>
                                 <option value="trading" data-translate="trading">Trading & Commercialisation</option>
@@ -1665,6 +1680,7 @@
                         <li><a href="#services" data-translate="logistics-transport">Logistique & Transport</a></li>
                         <li><a href="#services" data-translate="fuel-supply">Fourniture de Carburant</a></li>
                         <li><a href="#services" data-translate="acid-supply">Fourniture d'Acide Sulfurique</a></li>
+                        <li><a href="#services" data-translate="sulfur-supply">Fourniture de Soufre</a></li>
                         <li><a href="#services" data-translate="asphalt-supply">Fourniture de Bitume</a></li>
                         <li><a href="#services" data-translate="mining-maintenance">Maintenance Minier</a></li>
                         <li><a href="#services" data-translate="trading">Trading & Commercialisation</a></li>
@@ -1773,6 +1789,8 @@
                 'fuel-text': 'MGI S.A.S met à votre disposition un système d\'approvisionnement de carburant de qualité, une solution énergétique sur mesure et des conseils en optimisation.',
                 'acid-supply': 'Fourniture d\'Acide Sulfurique',
                 'acid-text': 'MGI S.A.S dispose d\'un système de Distribution d\'acide sulfurique industriel de haute qualité, des solutions de stockage sécurisé et la gestion des matières premières chimiques.',
+                'sulfur-supply': 'Fourniture de Soufre',
+                'sulfur-text': 'Spécialiste de la distribution de matières premières, MGI S.A.S propose une solution complète pour la fourniture de soufre (granulé, en poudre) adaptée aux exigences de l\'industrie chimique et minière. Nous garantissons un produit à haute pureté, certifié pour des usages variés. Notre chaîne logistique sécurisée assure des livraisons volumineuses dans le respect des normes de sécurité environnementale.',
                 'asphalt-supply': 'Fourniture de Bitume',
                 'asphalt-text': 'MGI S.A.S Fournit des bitumes de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.',
                 'mining-maintenance': 'Maintenance Minière',
@@ -1897,6 +1915,8 @@
                 'fuel-text': 'MGI S.A.S provides you with a quality fuel supply system, customized energy solutions, and optimization advice.',
                 'acid-supply': 'Sulfuric Acid Supply',
                 'acid-text': 'MGI S.A.S has a system for distributing high-quality industrial sulfuric acid, secure storage solutions, and management of chemical raw materials.',
+                'sulfur-supply': 'Sulfur Supply',
+                'sulfur-text': 'Specialist in the distribution of raw materials, MGI S.A.S offers a complete solution for the supply of sulfur (granules, powder) adapted to the requirements of the chemical and mining industry. We guarantee a high purity product, certified for various uses. Our secure logistics chain ensures large-volume deliveries in compliance with environmental safety standards.',
                 'asphalt-supply': 'Asphalt Supply',
                 'asphalt-text': 'MGI S.A.S provides quality asphalt for road works and infrastructure projects, with technical advice and logistical support.',
                 'mining-maintenance': 'Mining Maintenance',
