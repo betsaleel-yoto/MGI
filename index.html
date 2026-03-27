@@ -3,2189 +3,1575 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mwendo Group International | Solutions Intégrées</title>
+    <title>MGI – Mwendo Groupe International | Solutions Intégrées Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        /* Variables et reset */
-        :root {
-            --primary: #f5ae14;
-            --primary-dark: #d4970d;
-            --secondary: #333333;
-            --light: #f5f5f5;
-            --medium: #e0e0e0;
-            --dark: #1a1a1a;
-            --text: #444444;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text);
-            background-color: #fff;
-            line-height: 1.7;
-            max-width:100%;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--secondary);
-            line-height: 1.3;
-        }
-
-        h1 {
-            font-size: 4.5rem;
-            letter-spacing: -0.03em;
-        }
-
-        h2 {
-            font-size: 3.2rem;
-            margin-bottom: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        h4 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .service-card p {
-            text-align: justify;
-        }
-
-        .hero p {
-            text-align: left;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 38px;
-            background: var(--primary);
-            color: white;
-            font-weight: 600;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .btn:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-100%);
-            transition: 0.6s;
-        }
-
-        .btn:hover:after {
-            transform: translateX(100%);
-        }
-
-        .btn-small {
-            padding: 12px 24px;
-            font-size: 0.8rem;
-        }
-
-        .section {
-            padding: 100px 0;
-            scroll-margin-top: 100px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-center h2:after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 25px 0;
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .logo svg {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            align-items: center;
-        }
-
-        nav ul li {
-            margin-left: 25px;
-        }
-
-        nav ul li a {
-            color: var(--secondary);
-            font-weight: 500;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        nav ul li a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover:after,
-        nav ul li a.active:after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-
-        /* Language Selector */
-        .language-selector {
-            margin-left: 20px;
-            position: relative;
-        }
-
-        .language-btn {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--secondary);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-        }
-
-        .language-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .language-btn i {
-            font-size: 0.9rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 800px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-top: 300px;
-            margin-top: 0;
-        }
-
-        .hero p{
-            text-align:justify;
-        }
-
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('./transport.png');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 700px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 0.3s;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 0.6s;
-        }
-
-        .hero-btns {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 0.9s;
-        }
-
-        .hero-btns .btn:first-child {
-            margin-right: 15px;
-        }
-
-        .hero-stats {
-            display: flex;
-            margin-top: 60px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 1.2s;
-        }
-
-        .stat-item {
-            margin-right: 50px;
-        }
-
-        .stat-item h3 {
-            font-size: 2.8rem;
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-
-        .hero-img {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50%;
-            height: 80%;
-            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 20px;
-            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            animation: fadeIn 1.5s forwards 0.5s;
-        }
-
-        /* Vision Mission Valeurs Section - NOUVEAU */
-        .vision-mission {
-            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .vision-mission:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-        }
-
-        .vmv-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .vmv-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 35px;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .vmv-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .vmv-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(245, 174, 20, 0.1);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .vmv-card:hover .vmv-icon {
-            background: var(--primary);
-            transform: scale(1.1);
-        }
-
-        .vmv-icon svg {
-            width: 40px;
-            height: 40px;
-            transition: var(--transition);
-        }
-
-        .vmv-card:hover .vmv-icon svg {
-            fill: white;
-        }
-
-        .vmv-card h3 {
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .values-list {
-            list-style: none;
-            text-align: left;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .values-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            padding-left: 35px;
-            font-weight: 500;
-            color: var(--secondary);
-        }
-
-        .values-list li:before {
-            content: '★';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .values-list li:last-child {
-            border-bottom: none;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--light);
-            position: relative;
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 80px;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-img {
-            flex: 1;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 500px;
-        }
-
-    
-
-        .about-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .service-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--primary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition);
-        }
-
-        .service-card:hover:before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(245, 174, 20, 0.1);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon {
-            background: var(--primary);
-            transform: scale(1.1);
-        }
-
-        .service-icon svg {
-            width: 40px;
-            height: 40px;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon svg {
-            fill: white;
-        }
-
-        .service-image {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.05);
-        }
-
-        .service-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-        }
-
-        .service-card p {
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
-
-        .service-cta {
-            margin-top: auto;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(rgba(51, 51, 51, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .stats h2 {
-            color: white;
-        }
-
-        .stats h2:after {
-            background: var(--primary);
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .stat-box {
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            transition: var(--transition);
-        }
-
-        .stat-box:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .stat-box h3 {
-            font-size: 3.5rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .stat-box p {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        /* Transport & Logistique Section */
-        .transport {
-            background: #f9f9f9;
-        }
-
-        .transport-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .transport-img {
-            flex: 1;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 400px;
-        }
-
-        .transport-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .transport-text {
-            flex: 1;
-        }
-
-        .transport-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .transport-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .transport-list li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Collaboration Section */
-        .collaboration {
-            background: var(--light);
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .partner-item {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100px;
-        }
-
-        .partner-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .partner-name {
-            font-weight: 600;
-            color: var(--secondary);
-            font-size: 1.1rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--light);
-        }
-
-        .contact-container {
-            display: flex;
-            gap: 60px;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-form {
-            flex: 1;
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .info-item {
-            display: flex;
-            margin-bottom: 30px;
-        }
-
-        .info-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(245, 174, 20, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
-        .info-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--primary);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid var(--medium);
-            border-radius: 10px;
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(245, 174, 20, 0.2);
-        }
-
-        /* Carrière Section */
-        .carriere {
-            background: white;
-        }
-
-        .offres-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .offre-card {
-            width:90%;
-            background: var(--light);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .offre-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .offre-card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .offre-meta {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .offre-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 80px 0 30px;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-col h4:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--primary);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Compteur animation */
-        .counter {
-            display: inline-block;
-            min-width: 60px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            h1 {
-                font-size: 3.8rem;
-            }
-            
-            .hero {
-                min-height: 700px;
-            }
-            
-            .hero-img {
-                width: 45%;
-            }
-        }
-
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 3.2rem;
-            }
-            
-            h2 {
-                font-size: 2.8rem;
-            }
-            
-            .section {
-                padding: 80px 0;
-            }
-            
-            .hero-content {
-                max-width: 60%;
-            }
-            
-            .hero-img {
-                width: 40%;
-                height: 60%;
-            }
-            
-            .about-content,
-            .transport-content {
-                flex-direction: column;
-                gap: 50px;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            .vmv-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .offre-meta span{
-                flex-direction:column;
-            }
-            body{
-                overflow-x:hidden;
-            }
-            .hero{
-                padding-top:30rem;
-                height:80rem;
-            }
-            .hamburger {
-                display: block;
-            }
-            
-            nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 100px 30px;
-                transition: var(--transition);
-                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.active {
-                right: 0;
-            }
-            
-            nav ul li {
-                margin: 15px 0;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-                text-align: center;
-                
-            }
-            
-            .hero-btns .btn {
-                display: block;
-                width: 100%;
-                margin-bottom: 15px;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .hero-img {
-                display: none;
-            }
-            
-            .vmv-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .vmv-card {
-                padding: 30px 25px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .hero {
-                min-height: 600px;
-                padding-top: 150px;
-            }
-            
-            .stat-item h3 {
-                font-size: 2rem;
-            }
-            
-            .stat-item p {
-                font-size: 0.9rem;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-stats {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .stat-item {
-                margin: 10px 20px;
-                text-align: center;
-            }
-        }
+/* ═══════════════════════════════════════════
+   ROOT & RESET - Light Theme
+═══════════════════════════════════════════ */
+:root {
+  --gold:        #f5ae14;
+  --gold-dark:   #c48b00;
+  --gold-light:  #ffd166;
+  --black:       #f8f9fa;
+  --surface:     #ffffff;
+  --surface-2:   #f8f9fa;
+  --surface-3:   #f1f3f5;
+  --border:      rgba(0,0,0,.1);
+  --border-2:    rgba(0,0,0,.2);
+  --text-white:  #1e2a3a;
+  --text-muted:  rgba(30,42,58,.7);
+  --radius:      12px;
+  --radius-lg:   24px;
+  --transition:  cubic-bezier(.25,.46,.45,.94);
+  --font-display:'Cormorant Garamond', serif;
+  --font-body:   'Outfit', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  background:var(--black);
+  color:var(--text-white);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  line-height:1.7;
+}
+body.loading{overflow:hidden;}
+::selection{background:var(--gold);color:#000;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#e9ecef;}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+
+/* ═══════════════════════════════════════════
+   LOADER (adapté light)
+═══════════════════════════════════════════ */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--black);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:40px;
+  transition:opacity .8s var(--transition),visibility .8s;
+}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-logo-wrap{position:relative;animation:loaderScale 1s var(--transition) both;}
+.loader-logo-wrap img{
+  width:180px;
+  filter:drop-shadow(0 0 20px rgba(0,0,0,.2));
+}
+.loader-ring{
+  position:absolute;inset:-20px;
+  border:2px solid transparent;
+  border-top-color:var(--gold);
+  border-radius:50%;
+  animation:spin 1.4s linear infinite;
+}
+.loader-ring-2{
+  position:absolute;inset:-36px;
+  border:1px solid transparent;
+  border-bottom-color:rgba(0,0,0,.2);
+  border-radius:50%;
+  animation:spin 2.2s linear infinite reverse;
+}
+.loader-bar-wrap{width:220px;height:2px;background:rgba(0,0,0,.1);border-radius:2px;overflow:hidden;}
+.loader-bar{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));
+  border-radius:2px;
+  animation:loaderFill 2.2s var(--transition) forwards .3s;
+}
+.loader-text{
+  font-family:var(--font-body);
+  font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--text-muted);
+  animation:fadeInUp .8s both .5s;
+}
+@keyframes loaderScale{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:scale(1);}}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes loaderFill{to{width:100%;}}
+
+/* ═══════════════════════════════════════════
+   TYPOGRAPHY HELPERS
+═══════════════════════════════════════════ */
+.display{font-family:var(--font-display);font-weight:600;line-height:1.1;letter-spacing:-.02em;}
+.label{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.section-title{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4rem);font-weight:600;line-height:1.1;letter-spacing:-.02em;}
+.gold{color:var(--gold);}
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.container{width:min(92%,1340px);margin:0 auto;}
+section{padding:clamp(80px,10vw,140px) 0;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+
+/* ═══════════════════════════════════════════
+   DECORATIVE LINE
+═══════════════════════════════════════════ */
+.gold-line{
+  display:block;width:60px;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  border-radius:2px;margin:20px 0 32px;
+}
+.gold-line.center{margin-left:auto;margin-right:auto;}
+
+/* ═══════════════════════════════════════════
+   HEADER / NAV (light)
+═══════════════════════════════════════════ */
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:100;
+  padding:0;
+  transition:all .5s var(--transition);
+}
+header.scrolled{
+  background:rgba(248,249,250,.95);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 0;
+}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo img{
+  width:52px;height:52px;
+  border-radius:50%;
+  border:1.5px solid var(--border-2);
+  object-fit:cover;
+}
+.logo-text{
+  font-family:var(--font-display);
+  font-size:1.5rem;font-weight:700;letter-spacing:-.01em;
+  line-height:1.1;
+}
+.logo-text span{color:var(--gold);}
+.logo-sub{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);}
+nav{display:flex;align-items:center;gap:8px;}
+.nav-link{
+  font-size:.8rem;font-weight:500;letter-spacing:.05em;
+  color:var(--text-muted);padding:8px 14px;border-radius:50px;
+  transition:all .3s;position:relative;
+}
+.nav-link:hover,.nav-link.active{color:var(--text-white);}
+.nav-link.active::after{
+  content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);
+  width:4px;height:4px;background:var(--gold);border-radius:50%;
+}
+.nav-cta{
+  background:var(--gold);color:#000;
+  font-size:.78rem;font-weight:600;letter-spacing:.05em;
+  padding:10px 22px;border-radius:50px;
+  transition:all .3s;
+}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);}
+.lang-toggle{
+  background:var(--surface-3);border:1px solid var(--border);
+  color:var(--text-muted);
+  font-size:.75rem;font-weight:600;letter-spacing:.1em;
+  padding:8px 16px;border-radius:50px;cursor:pointer;
+  transition:all .3s;display:flex;align-items:center;gap:6px;
+}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold);}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{display:block;width:26px;height:2px;background:var(--text-white);border-radius:2px;transition:all .3s;}
+
+/* ═══════════════════════════════════════════
+   HERO (avec image de fond)
+═══════════════════════════════════════════ */
+.hero{
+  min-height:100svh;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding-top:100px;
+  background: url('./transport.png') center/cover no-repeat;
+}
+.hero::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,240,0.85);
+  z-index: 1;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(245,174,20,.1) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(245,174,20,.05) 0%, transparent 50%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(0,0,0,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.04) 1px, transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+.hero-glow{
+  position:absolute;top:20%;right:10%;
+  width:600px;height:600px;
+  background:radial-gradient(circle, rgba(245,174,20,.12) 0%, transparent 65%);
+  z-index:0;animation:pulse 6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.15);}}
+.hero-content{position:relative;z-index:2;max-width:760px;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(245,174,20,.12);border:1px solid var(--border-2);
+  padding:8px 20px;border-radius:50px;
+  font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:36px;
+  animation:fadeInUp .8s both .2s;
+}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(3rem,7vw,6.5rem);
+  font-weight:600;line-height:1.05;
+  letter-spacing:-.04em;
+  margin-bottom:28px;
+  animation:fadeInUp .9s both .4s;
+  color: var(--text-white);
+}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-desc{
+  font-size:1.08rem;color:var(--text-muted);
+  max-width:560px;line-height:1.8;
+  margin-bottom:48px;
+  animation:fadeInUp .9s both .6s;
+}
+.hero-actions{
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  animation:fadeInUp .9s both .8s;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold);color:#000;
+  font-weight:600;font-size:.88rem;letter-spacing:.04em;
+  padding:16px 34px;border-radius:50px;
+  transition:all .4s var(--transition);position:relative;overflow:hidden;
+}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  opacity:0;transition:opacity .3s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,174,20,.35);}
+.btn-primary:hover::before{opacity:1;}
+.btn-primary span,.btn-primary i{position:relative;z-index:1;}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;color:var(--text-white);
+  font-weight:500;font-size:.88rem;letter-spacing:.04em;
+  padding:15px 33px;border-radius:50px;
+  border:1px solid rgba(0,0,0,.2);
+  transition:all .4s;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{
+  position:absolute;bottom:60px;right:0;
+  display:flex;gap:0;
+  animation:fadeInUp .9s both 1s;
+}
+.stat-pill{
+  padding:20px 32px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(10px);
+  text-align:center;
+}
+.stat-pill:first-child{border-radius:var(--radius) 0 0 var(--radius);}
+.stat-pill:last-child{border-radius:0 var(--radius) var(--radius) 0;}
+.stat-num{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);}
+.stat-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-top:2px;}
+
+/* ═══════════════════════════════════════════
+   SECTION HEADERS
+═══════════════════════════════════════════ */
+.section-header{margin-bottom:70px;}
+.section-header.center{text-align:center;}
+.section-header.center .gold-line{margin-left:auto;margin-right:auto;}
+
+/* ═══════════════════════════════════════════
+   VMV (Vision Mission Valeurs) - light cards
+═══════════════════════════════════════════ */
+.vmv{background:var(--surface-2);position:relative;}
+.vmv::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.vmv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);}
+.vmv-card{
+  background:var(--surface);
+  padding:56px 44px;position:relative;overflow:hidden;
+  transition:background .4s;
+}
+.vmv-card:hover{background:var(--surface-2);}
+.vmv-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .5s var(--transition);
+}
+.vmv-card:hover::after{transform:scaleX(1);}
+.vmv-num{
+  font-family:var(--font-display);
+  font-size:5rem;font-weight:700;
+  color:rgba(0,0,0,.05);
+  position:absolute;top:20px;right:30px;
+  line-height:1;pointer-events:none;
+  transition:color .4s;
+}
+.vmv-card:hover .vmv-num{color:rgba(0,0,0,.1);}
+.vmv-icon{
+  width:56px;height:56px;
+  background:rgba(245,174,20,.1);border:1px solid var(--border-2);
+  border-radius:14px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:28px;transition:all .4s;font-size:1.4rem;color:var(--gold);
+}
+.vmv-card:hover .vmv-icon{background:var(--gold);color:#000;}
+.vmv-card h3{
+  font-family:var(--font-display);font-size:1.8rem;font-weight:600;
+  margin-bottom:16px;
+}
+.vmv-card p{color:var(--text-muted);font-size:.9rem;line-height:1.8;}
+.values-list{list-style:none;margin-top:16px;}
+.values-list li{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  color:var(--text-muted);font-size:.88rem;
+}
+.values-list li:last-child{border-bottom:none;}
+.values-list li::before{
+  content:'';width:6px;height:6px;background:var(--gold);
+  border-radius:50%;flex-shrink:0;
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════ */
+.about{background:var(--black);}
+.about-img-wrap{
+  position:relative;height:600px;border-radius:var(--radius-lg);overflow:hidden;
+}
+.about-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.about-img-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(245,174,20,.15) 0%, transparent 60%);
+}
+.about-badge{
+  position:absolute;bottom:32px;left:32px;z-index:2;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
+  border:1px solid var(--border-2);
+  padding:20px 28px;border-radius:var(--radius);
+}
+.about-badge .num{font-family:var(--font-display);font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;}
+.about-badge .text{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-top:4px;}
+.about-text .section-title{margin-bottom:8px;}
+.about-text p{color:var(--text-muted);font-size:.95rem;line-height:1.85;}
+.feature-list{list-style:none;margin:28px 0 40px;display:flex;flex-direction:column;gap:14px;}
+.feature-list li{
+  display:flex;align-items:flex-start;gap:14px;
+  font-size:.9rem;color:var(--text-muted);
+}
+.feature-list li i{color:var(--gold);margin-top:3px;font-size:.85rem;flex-shrink:0;}
+
+/* ═══════════════════════════════════════════
+   SERVICES - Grille uniforme et alignée
+═══════════════════════════════════════════ */
+.services{background:var(--surface-2);}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
+  gap: 30px;
+  background: transparent;
+}
+.service-card{
+  background:var(--surface);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  position:relative;
+  transition:all .4s var(--transition);
+  box-shadow: 0 4px 20px rgba(0,0,0,.05);
+  display:flex;
+  flex-direction:column;
+  border:1px solid var(--border);
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow: 0 20px 35px rgba(0,0,0,.1);
+  border-color:var(--border-2);
+}
+.service-img{
+  height:220px;
+  overflow:hidden;
+  position:relative;
+}
+.service-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s var(--transition);
+}
+.service-card:hover .service-img img{transform:scale(1.03);}
+.service-img::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:linear-gradient(transparent,var(--surface));
+  transition:background .4s;
+}
+.service-card:hover .service-img::after{background:linear-gradient(transparent,var(--surface-2));}
+.service-body{
+  padding:28px 28px 36px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+.service-tag{
+  display:inline-block;
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;font-weight:500;
+}
+.service-card h3{
+  font-family:var(--font-display);font-size:1.5rem;font-weight:600;
+  margin-bottom:14px;line-height:1.2;
+}
+.service-card p{
+  color:var(--text-muted);font-size:.87rem;line-height:1.75;
+  flex:1;
+  margin-bottom:24px;
+}
+.service-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--gold);font-size:.82rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;
+  transition:gap .3s;
+  margin-top:auto;
+}
+.service-link:hover{gap:14px;}
+
+/* Sous-services (gardiennage, RH) - intégrés naturellement dans la carte */
+.sub-services{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
+  margin:20px 0 20px;
+}
+.sub-card{
+  background:rgba(245,174,20,.05);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px 18px;
+  transition:all .3s;
+}
+.sub-card:hover{border-color:var(--border-2);background:rgba(245,174,20,.08);}
+.sub-card h4{
+  font-family:var(--font-display);font-size:.95rem;font-weight:600;
+  color:var(--gold);margin-bottom:6px;
+}
+.sub-card p{font-size:.8rem;color:var(--text-muted);line-height:1.6;margin:0;}
+
+/* ═══════════════════════════════════════════
+   STATS BAND
+═══════════════════════════════════════════ */
+.stats-band{
+  background:var(--gold);
+  padding:70px 0;position:relative;overflow:hidden;
+}
+.stats-band::before{
+  content:'MGI';
+  position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  font-family:var(--font-display);font-size:18rem;font-weight:700;
+  color:rgba(0,0,0,.07);line-height:1;pointer-events:none;
+  white-space:nowrap;
+}
+.stats-inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  divide:horizontal;
+}
+.stat-item{
+  text-align:center;padding:20px;
+  border-right:1px solid rgba(0,0,0,.12);
+}
+.stat-item:last-child{border-right:none;}
+.stat-item .num{
+  font-family:var(--font-display);font-size:3.5rem;font-weight:700;
+  color:#000;line-height:1;
+}
+.stat-item .lbl{
+  font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(0,0,0,.6);margin-top:6px;
+}
+
+/* ═══════════════════════════════════════════
+   COLLABORATIONS
+═══════════════════════════════════════════ */
+.collab{background:var(--black);}
+.partners-wrap{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:2px;background:var(--border);margin-top:60px;
+}
+.partner{
+  background:var(--surface);
+  padding:30px 24px;text-align:center;
+  transition:background .3s;cursor:default;
+}
+.partner:hover{background:var(--surface-2);}
+.partner-name{
+  font-weight:600;font-size:.85rem;letter-spacing:.05em;
+  color:var(--text-muted);transition:color .3s;
+}
+.partner:hover .partner-name{color:var(--gold);}
+
+/* ═══════════════════════════════════════════
+   CAREER
+═══════════════════════════════════════════ */
+.career{background:var(--surface-2);}
+.jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;margin-top:56px;}
+.job-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:36px;
+  transition:all .4s var(--transition);position:relative;overflow:hidden;
+}
+.job-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--transition);
+}
+.job-card:hover{border-color:var(--border-2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.1);}
+.job-card:hover::before{transform:scaleX(1);}
+.job-card h3{font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:14px;}
+.job-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;}
+.job-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(245,174,20,.08);border:1px solid var(--border);
+  padding:5px 12px;border-radius:50px;
+  font-size:.72rem;letter-spacing:.05em;color:var(--text-muted);
+}
+.job-tag i{color:var(--gold);font-size:.7rem;}
+.job-card p{color:var(--text-muted);font-size:.88rem;line-height:1.75;margin-bottom:28px;}
+.spontaneous{
+  background:rgba(245,174,20,.05);
+  border:1px dashed var(--border-2);
+  border-radius:var(--radius-lg);
+  padding:48px;text-align:center;margin-top:48px;
+}
+.spontaneous p{color:var(--text-muted);margin-bottom:24px;}
+
+/* ═══════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════ */
+.contact{background:var(--black);}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;}
+.contact-info-list{display:flex;flex-direction:column;gap:28px;margin-top:48px;}
+.info-row{display:flex;gap:20px;align-items:flex-start;}
+.info-icon{
+  width:48px;height:48px;
+  background:rgba(245,174,20,.1);border:1px solid var(--border-2);
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1rem;flex-shrink:0;
+}
+.info-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.info-val{color:var(--text-muted);font-size:.9rem;line-height:1.7;}
+.contact-form-wrap{
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:52px;
+}
+.contact-form-wrap h3{font-family:var(--font-display);font-size:1.8rem;margin-bottom:32px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.form-group{margin-bottom:20px;}
+.form-group label{
+  display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:10px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;background:var(--surface-3);
+  border:1px solid var(--border);border-radius:var(--radius);
+  color:var(--text-white);font-family:var(--font-body);font-size:.9rem;
+  padding:14px 18px;transition:border-color .3s,box-shadow .3s;
+  -webkit-appearance:none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+  outline:none;border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(245,174,20,.1);
+}
+.form-group select option{background:var(--surface-3);}
+.form-group textarea{resize:vertical;min-height:120px;}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:80px 0 36px;
+}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:60px;margin-bottom:60px;}
+.footer-col h4{
+  font-family:var(--font-display);font-size:1.1rem;font-weight:600;
+  margin-bottom:24px;color:var(--text-white);
+}
+.footer-col p{color:var(--text-muted);font-size:.87rem;line-height:1.8;}
+.footer-logo{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.footer-logo img{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--border-2);object-fit:cover;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.footer-links a{
+  color:var(--text-muted);font-size:.87rem;
+  display:flex;align-items:center;gap:8px;
+  transition:color .3s,gap .3s;
+}
+.footer-links a::before{content:'→';color:var(--gold);font-size:.7rem;transition:transform .3s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-links a:hover::before{transform:translateX(4px);}
+.social-row{display:flex;gap:12px;margin-top:24px;}
+.social-btn{
+  width:40px;height:40px;
+  background:var(--surface-3);border:1px solid var(--border);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);font-size:.85rem;transition:all .3s;
+}
+.social-btn:hover{background:var(--gold);border-color:var(--gold);color:#000;}
+.footer-bottom{
+  padding-top:32px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.footer-bottom p{font-size:.8rem;color:var(--text-muted);}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(28px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--transition),transform .8s var(--transition);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV OVERLAY
+═══════════════════════════════════════════ */
+.nav-overlay{
+  display:none;position:fixed;inset:0;z-index:99;
+  background:rgba(248,249,250,.98);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;
+}
+.nav-overlay.open{display:flex;}
+.nav-overlay .nav-link{font-size:1.2rem;padding:14px 30px;}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:1100px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(0,0,0,.12);}
+  .stat-item:nth-child(odd){border-right:1px solid rgba(0,0,0,.12);}
+  .stat-item:last-child,.stat-item:nth-last-child(2){border-bottom:none;}
+}
+@media(max-width:900px){
+  .grid-2{grid-template-columns:1fr;gap:50px;}
+  .vmv-cards{grid-template-columns:1fr;}
+  .contact-wrap{grid-template-columns:1fr;gap:50px;}
+  .about-img-wrap{height:400px;}
+  .services-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+}
+@media(max-width:768px){
+  nav{display:none;}
+  .hamburger{display:flex;}
+  .hero-stats{position:relative;bottom:auto;right:auto;margin-top:50px;flex-wrap:wrap;}
+  .stat-pill{border-radius:var(--radius)!important;margin:4px;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .contact-form-wrap{padding:32px 24px;}
+  .services-grid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .hero h1{font-size:2.6rem;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .hero-actions{flex-direction:column;align-items:stretch;}
+  .btn-primary,.btn-outline{justify-content:center;}
+}
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="./IMG-20250807-WA0003.jpg" alt="Mwendo Group International" width="100px" style="border: 2px solid var(--primary); border-radius:50%">
-            </a>
-            <div class="hamburger" id="hamburger">
-                <svg viewBox="0 0 24 24" width="30" height="30" fill="#333">
-                    <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
-                </svg>
-            </div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="#" class="active">Accueil</a></li>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#transport">Transport & Logistique</a></li>
-                    <li><a href="#collaboration">Collaborations</a></li>
-                    <li><a href="#carriere">Carrière</a></li>
-                    <li><a href="#stats">Chiffres</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="language-selector">
-                        <button class="language-btn" id="languageBtn">
-                            <i class="fas fa-globe"></i> FR/EN
-                        </button>
-                    </li>
-                </ul>
-            </nav>
+<body class="loading">
+
+<!-- ═══════════════════ LOADER ═══════════════════ -->
+<div id="loader">
+  <div class="loader-logo-wrap">
+    <img src="./IMG-20250807-WA0003.jpg" alt="MGI Logo">
+    <div class="loader-ring"></div>
+    <div class="loader-ring-2"></div>
+  </div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <p class="loader-text" data-t="loading">Chargement en cours…</p>
+</div>
+
+<!-- ═══════════════════ MOBILE NAV ═══════════════════ -->
+<div class="nav-overlay" id="navOverlay">
+  <a href="#hero" class="nav-link" data-t="nav-home" onclick="closeNav()">Accueil</a>
+  <a href="#about" class="nav-link" data-t="nav-about" onclick="closeNav()">À propos</a>
+  <a href="#services" class="nav-link" data-t="nav-services" onclick="closeNav()">Services</a>
+  <a href="#collab" class="nav-link" data-t="nav-collab" onclick="closeNav()">Collaborations</a>
+  <a href="#career" class="nav-link" data-t="nav-career" onclick="closeNav()">Carrière</a>
+  <a href="#contact" class="nav-link" data-t="nav-contact" onclick="closeNav()">Contact</a>
+  <div style="margin-top:24px;display:flex;gap:16px;">
+    <button class="lang-toggle" id="langToggleMobile" onclick="toggleLang();closeNav()"><i class="fas fa-globe"></i> <span id="langLabelM">FR/EN</span></button>
+    <a href="#contact" class="btn-primary" onclick="closeNav()"><span data-t="nav-cta">Devis gratuit</span></a>
+  </div>
+</div>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header id="header">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">
+        <img src="./IMG-20250807-WA0003.jpg" alt="MGI">
+        <div>
+          <div class="logo-text">M<span>G</span>I</div>
+          <div class="logo-sub">Mwendo Groupe International</div>
         </div>
-    </header>
+      </a>
+      <nav>
+        <a href="#hero" class="nav-link active" data-t="nav-home">Accueil</a>
+        <a href="#about" class="nav-link" data-t="nav-about">À propos</a>
+        <a href="#services" class="nav-link" data-t="nav-services">Services</a>
+        <a href="#collab" class="nav-link" data-t="nav-collab">Collaborations</a>
+        <a href="#career" class="nav-link" data-t="nav-career">Carrière</a>
+        <a href="#contact" class="nav-link" data-t="nav-contact">Contact</a>
+        <button class="lang-toggle" id="langToggle" onclick="toggleLang()"><i class="fas fa-globe"></i> <span id="langLabel">FR/EN</span></button>
+        <a href="#contact" class="nav-cta" data-t="nav-cta">Devis gratuit</a>
+      </nav>
+      <div class="hamburger" id="hamburger" onclick="openNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 data-translate="hero-title">Solution intégrée pour la croissance de vos entreprises</h1>
-                <p data-translate="hero-description">Mwendo Group International S.A.S, fondé en 2024, offre des services premium dans les domaines de la logistique, du carburant, de l'ingénierie, du trading, de la gestion d'entreprises et des mines. Nous combinons innovation et excellence pour répondre à vos besoins complexes.</p>
-                <div class="hero-btns">
-                    <a href="#services" class="btn" data-translate="discover-services">Découvrir nos services</a>
-                    <a href="#contact" class="btn" style="background: transparent; border: 2px solid var(--primary); color: var(--secondary);" data-translate="contact-us">Nous contacter</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>15+</h3>
-                        <p data-translate="years-experience">Années d'expérience collective</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>50+</h3>
-                        <p data-translate="projects-completed">Projets réalisés</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>24/7</h3>
-                        <p data-translate="expert-support">Support expert</p>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-img floating"></div>
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow" data-t="hero-eyebrow">République Démocratique du Congo · Fondé 2024</div>
+      <h1 data-t="hero-h1">Solutions intégrées pour <em>l'excellence</em> industrielle</h1>
+      <p class="hero-desc" data-t="hero-desc">MGI S.A.S combine logistique, énergie, ingénierie, sécurité et ressources humaines pour propulser votre entreprise vers un niveau de performance d'exception.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary"><span data-t="hero-btn1">Découvrir nos services</span> <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact" class="btn-outline" data-t="hero-btn2">Nous contacter</a>
+      </div>
+    </div>
+    <div class="hero-stats" style="z-index: 100;">
+      <div class="stat-pill">
+        <div class="stat-num">15+</div>
+        <div class="stat-label" data-t="stat-xp">Ans d'expérience</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num">50+</div>
+        <div class="stat-label" data-t="stat-projects">Projets livrés</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label" data-t="stat-support">Support dédié</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ VMV ═══════════════════ -->
+<section class="vmv reveal" id="vision">
+  <div class="container">
+    <div class="section-header center">
+      <p class="label">ADN de l'entreprise</p>
+      <h2 class="section-title" data-t="vmv-title">Vision · Mission · Valeurs</h2>
+      <span class="gold-line center"></span>
+    </div>
+    <div class="vmv-cards">
+      <div class="vmv-card reveal">
+        <div class="vmv-num">01</div>
+        <div class="vmv-icon"><i class="fas fa-eye"></i></div>
+        <h3 data-t="vmv-v-title">Notre Vision</h3>
+        <p data-t="vmv-v-text">Être compté parmi les fournisseurs de premier choix grâce à une approche axée sur les clients. Devenir un leader régional durable fournissant des solutions fiables, visant l'excellence opérationnelle, la sécurité et l'innovation.</p>
+      </div>
+      <div class="vmv-card reveal reveal-delay-1">
+        <div class="vmv-num">02</div>
+        <div class="vmv-icon"><i class="fas fa-bullseye"></i></div>
+        <h3 data-t="vmv-m-title">Notre Mission</h3>
+        <p data-t="vmv-m-text">Délivrer des services d'excellence à tous nos clients, travailler dans le respect des standards de classe mondiale, et se focaliser sur des partenariats gagnant-gagnant pour créer une valeur durable et mutuelle.</p>
+      </div>
+      <div class="vmv-card reveal reveal-delay-2">
+        <div class="vmv-num">03</div>
+        <div class="vmv-icon"><i class="fas fa-gem"></i></div>
+        <h3 data-t="vmv-val-title">Nos Valeurs</h3>
+        <ul class="values-list">
+          <li data-t="val-1">Intégrité</li>
+          <li data-t="val-2">Excellence</li>
+          <li data-t="val-3">Respect des engagements</li>
+          <li data-t="val-4">Rapidité</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="grid-2">
+      <div class="about-img-wrap reveal">
+        <img src="./imagesagent.png" alt="MGI Experts">
+        <div class="about-badge">
+          <div class="num">2024</div>
+          <div class="text" data-t="about-badge">Année de fondation</div>
         </div>
-    </section>
+      </div>
+      <div class="about-text reveal reveal-delay-2">
+        <p class="label" data-t="about-label">Qui sommes-nous</p>
+        <h2 class="section-title" data-t="about-title">Notre expertise<br>au cœur de la RDC</h2>
+        <span class="gold-line"></span>
+        <p data-t="about-p1"><strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> s'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles en République Démocratique du Congo. Notre approche multidisciplinaire nous permet d'offrir une gamme complète de services de haute qualité.</p>
+        <p data-t="about-p2">Nous combinons expertise technique, innovation et excellence opérationnelle pour délivrer des résultats exceptionnels et transformer vos défis en opportunités de croissance durable.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> <span data-t="feat-1">Flotte logistique complète – camions Howo 12 roues & bus</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-t="feat-2">Ingénieurs qualifiés en maintenance minière et génie civil</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-t="feat-3">Services de sécurité et gestion RH professionnels</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-t="feat-4">Partenariats solides avec les acteurs miniers régionaux</span></li>
+        </ul>
+        <a href="#contact" class="btn-primary"><span data-t="about-cta">En savoir plus</span> <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Vision, Mission et Valeurs Section - NOUVEAU -->
-    <section class="section vision-mission" id="vision-mission">
-        <div class="container">
-            <div class="text-center">
-                <h2 data-translate="vision-mission-title">Notre Vision, Mission & Valeurs</h2>
-                <p data-translate="vision-mission-subtitle">Les fondements qui guident chacune de nos actions et décisions</p>
-            </div>
-            <div class="vmv-grid">
-                <div class="vmv-card">
-                    <div class="vmv-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="our-vision">NOTRE VISION</h3>
-                    <p data-translate="vision-text">Être compté parmi les fournisseurs de premier choix grâce à notre approche totalement axée sur les clients, devenir un leader régional durable, fournissant des solutions fiables. Nous visons l'excellence opérationnelle, la sécurité et l'innovation.</p>
-                </div>
-                
-                <div class="vmv-card">
-                    <div class="vmv-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M12,2L4,5V11.09C4,16.14 7.41,20.85 12,22C16.59,20.85 20,16.14 20,11.09V5L12,2M14.5,14.59L12,13.5L9.5,14.59L10.21,11.77L8.21,9.91L11.1,9.5L12,6.86L12.9,9.5L15.79,9.91L13.79,11.77L14.5,14.59Z"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="our-mission">NOTRE MISSION</h3>
-                    <p data-translate="mission-text">Délivrer des services excellents à tous nos clients, travailler dans le respect des normes et des standards de classe mondiale, se focaliser sur des partenariats gagnant-gagnant pour créer une valeur durable et mutuelle.</p>
-                </div>
-                
-                <div class="vmv-card">
-                    <div class="vmv-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5C13.66,5 15,6.34 15,8C15,9.66 13.66,11 12,11C10.34,11 9,9.66 9,8C9,6.34 10.34,5 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.82 8.71,12.47 12,12.47C15.29,12.47 18,13.79 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="our-values">NOS VALEURS</h3>
-                    <ul class="values-list">
-                        <li data-translate="integrity">Intégrité</li>
-                        <li data-translate="excellence">Excellence</li>
-                        <li data-translate="commitment">Respect des Engagements</li>
-                        <li data-translate="speed">Rapidité</li>
-                    </ul>
-                </div>
-            </div>
+<!-- ═══════════════════ STATS BAND ═══════════════════ -->
+<div class="stats-band" id="stats">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="num"><span class="counter" data-target="50">0</span>+</div>
+        <div class="lbl" data-t="stats-clients">Clients satisfaits</div>
+      </div>
+      <div class="stat-item">
+        <div class="num"><span class="counter" data-target="80">0</span>+</div>
+        <div class="lbl" data-t="stats-experts">Experts qualifiés</div>
+      </div>
+      <div class="stat-item">
+        <div class="num"><span class="counter" data-target="15">0</span>+</div>
+        <div class="lbl" data-t="stats-projects">Projets réalisés</div>
+      </div>
+      <div class="stat-item">
+        <div class="num"><span class="counter" data-target="98">0</span>%</div>
+        <div class="lbl" data-t="stats-rate">Taux de satisfaction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header center reveal">
+      <p class="label" data-t="services-label">Ce que nous faisons</p>
+      <h2 class="section-title" data-t="services-title">Nos services premium</h2>
+      <span class="gold-line center"></span>
+      <p style="color:var(--text-muted);max-width:600px;margin:0 auto;" data-t="services-sub">Une gamme complète de services conçus pour répondre aux besoins les plus complexes des entreprises modernes.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Logistique -->
+      <div class="service-card reveal">
+        <div class="service-img"><img src="./transport.png" alt="Logistique"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-ops">Opérations</span>
+          <h3 data-t="svc-log-title">Logistique & Transport</h3>
+          <p data-t="svc-log-text">Flotte complète de camions Howo 12 roues pour le transport de minerais, bus de toutes dimensions pour le personnel et solutions logistiques intégrées pour vos opérations.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 data-translate="our-expertise">Notre Expertise</h2>
-                    <p data-translate="about-text-1">Fondé en 2024, <strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> s'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles en République Démocratique du Congo. Notre approche multidisciplinaire nous permet d'offrir une gamme complète de services de haute qualité.</p>
-                    <p data-translate="about-text-2">Notre mission est de simplifier les opérations complexes de nos clients en leur offrant des solutions sur mesure dans les domaines clés de leur activité. Nous combinons expertise technique, innovation et excellence opérationnelle pour délivrer des résultats exceptionnels.</p>
-                    <p data-translate="about-text-3">Avec une équipe d'experts passionnés, nous mettons notre savoir-faire à votre service pour transformer vos défis en opportunités de croissance durable.</p>
-                    <a href="#contact" class="btn" style="margin-top: 30px;" data-translate="learn-more">En savoir plus</a>
-                </div>
-                <div class="about-img">
-                    <img src="./imagesagent.png" alt="Maintenance d'engins miniers">
-                </div>
-            </div>
+      <!-- Carburant -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-img"><img src="./carburant.png" alt="Carburant"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-energy">Énergie</span>
+          <h3 data-t="svc-fuel-title">Fourniture de Carburant</h3>
+          <p data-t="svc-fuel-text">Système d'approvisionnement en carburant de qualité, solutions énergétiques sur mesure et conseils en optimisation de consommation pour vos installations.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- Services Section -->
-    <section class="section services" id="services">
-        <div class="container">
-            <div class="text-center">
-                <h2 data-translate="our-services">Nos Services Premium</h2>
-                <p data-translate="services-subtitle">Découvrez notre gamme complète de services conçus pour répondre aux besoins complexes des entreprises modernes.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./transport.png" alt="Transport de minerais">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M20,8H17.19C16.74,7.22 16.12,6.55 15.37,6.04L17,4.41L15.59,3L13.42,5.17C12.96,5.06 12.5,5 12,5C11.5,5 11.04,5.06 10.59,5.17L8.41,3L7,4.41L8.62,6.04C7.88,6.55 7.26,7.22 6.81,8H4V10H6.09C6.04,10.33 6,10.66 6,11V12H4V14H6V15C6,15.34 6.04,15.67 6.09,16H4V18H6.81C7.85,19.79 9.78,21 12,21C14.22,21 16.15,19.79 17.19,18H20V16H17.91C17.96,15.67 18,15.34 18,15V14H20V12H18V11C18,10.66 17.96,10.33 17.91,10H20V8M14,16H10V14H14V16M14,12H10V10H14V12M9.5,8L6.5,12H17.5L14.5,8H9.5M3,12V14H5V12H3M19,12V14H21V12H19M13,20C13,20.55 13.45,21 14,21C14.55,21 15,20.55 15,20C15,19.45 14.55,19 14,19C13.45,19 13,19.45 13,20M5,20C5,20.55 5.45,21 6,21C6.55,21 7,20.55 7,20C7,19.45 6.55,19 6,19C5.45,19 5,19.45 5,20Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="logistics-transport">Logistique & Transport</h3>
-                        <p data-translate="logistics-text">MGI S.A.S met a votre disposition une flotte complète de camion howo12 roues pour le transport de minerais des entreprises partenaires, des bus toute dimensions pour le transport de vos personnels et une solution logistique complète.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./carburant.png" alt="Camion citerne carburant">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M3,13H5.79L10.1,4.38L10.1,13H12.9V4.38L17.21,13H20L14.5,2L3,13M20,20V18H3V20H20M3,15H12V17H3V15Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="fuel-supply">Fourniture de Carburant</h3>
-                        <p data-translate="fuel-text">MGI S.A.S met à votre disposition un système d'approvisionnement de carburant de qualité, une solution énergétique sur mesure et des conseils en optimisation.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./acidesulf.png" alt="Acide sulfurique industriel">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M17,14H19V17H22V19H17V22H14V19H10V17H14V14M12,3L2,12H5V20H11V14H13V20H19V12H22L12,3Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="acid-supply">Fourniture d'Acide Sulfurique</h3>
-                        <p data-translate="acid-text">MGI S.A.S dispose d'un système de Distribution d'acide sulfurique industriel de haute qualité, des solutions de stockage sécurisé et la gestion des matières premières chimiques.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./bitume.png" alt="Bitume pour travaux routiers">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="asphalt-supply">Fourniture de Bitume</h3>
-                        <p data-translate="asphalt-text">MGI S.A.S Fournit des bitumes de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Nouveau Service : Fourniture de Soufre -->
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./soufre.png" alt="Fourniture de Soufre" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="sulfur-supply">Fourniture de Soufre</h3>
-                        <p data-translate="sulfur-text">Spécialiste de la distribution de matières premières, MGI S.A.S propose une solution complète pour la fourniture de soufre (granulé, en poudre) adaptée aux exigences de l'industrie chimique et minière. Nous garantissons un produit à haute pureté, certifié pour des usages variés. Notre chaîne logistique sécurisée assure des livraisons volumineuses dans le respect des normes de sécurité environnementale.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./entretienengin.png" alt="Maintenance d'équipements miniers">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V8C22,6.9 21.1,6 20,6M19,12H15V9H10V12H5V14H10V17H15V14H19V12Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="mining-maintenance">Maintenance Minière</h3>
-                        <p data-translate="maintenance-text">MGI S.A.S met a votre disposition des ingénieurs pour la Maintenance préventive et corrective de vos équipements miniers, gestion de parc machines et optimisation des performances.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./trading.png" alt="Trading de matières premières">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M16,6L19,10H21C22.11,10 23,10.89 23,12V15H21V20C21,21.11 20.11,22 19,22C17.89,22 17,21.11 17,20V17H7V20C7,21.11 6.11,22 5,22C3.89,22 3,21.11 3,20V15H1V12C1,10.89 1.89,10 3,10H5L8,6H16M12,7.5H11V10.5H12V7.5M12,12.5H11V15.5H12V12.5M9.5,8L6.5,12H17.5L14.5,8H9.5M3,12V14H5V12H3M19,12V14H21V12H19M13,20C13,20.55 13.45,21 14,21C14.55,21 15,20.55 15,20C15,19.45 14.55,19 14,19C13.45,19 13,19.45 13,20M5,20C5,20.55 5.45,21 6,21C6.55,21 7,20.55 7,20C7,19.45 6.55,19 6,19C5.45,19 5,19.45 5,20Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="trading">Trading & Commercialisation</h3>
-                        <p data-translate="trading-text">MGI S.A.S se positionne comme une entreprise tampon dans le secteur minier facilitant ainsi l'achat et la vente de matières premières, spécialisé dans la cathode et produits miniers avec une expertise en marché international.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./GestionInformatique.png" alt="Gestion informatique">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="it-management">Gestion Informatique</h3>
-                        <p data-translate="it-text">MWENDO GROUP INTERNATIONAL S.A S met sur pied des Infrastructures réseau sécurisée, développement d'applications, cloud computing, cybersécurité et support technique.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./Assainissement.png" alt="Assainissement et cleaning">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M9,13H15V11H9M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M17,14.25V17H14.25L17,14.25M14.25,7H17V9.75L14.25,7M7,14.25L9.75,17H7V14.25M9.75,7H7V9.75L9.75,7Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="sanitation">Assainissement & Cleaning</h3>
-                        <p data-translate="sanitation-text">MWENDO GROUP INTERNATIONAL SAS met a votre disposition un Services d'assainissement et de nettoyage industriel très professionnel, la gestion des déchets et maintenance de propreté pour les entreprises partenaires.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./construction.png" alt="Ingénierie et construction">
-                    </div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="#f5ae14">
-                            <path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z"/>
-                        </svg>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-translate="civil-engineering">Génie Civil et Industriel</h3>
-                        <p data-translate="engineering-text">MWENDO GROUP INTERNATIONAL SAS dispose des ingénieurs qualifiés pour la construction des structures spécifiques, usines, raffineries, centres logistiques adaptées aux contraintes des équipements et processus industriels, exigeant des normes techniques très strictes pour garantir la sécurité et la performance des installations ainsi que le montage et l'installation des lignes électriques.</p>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-small" data-translate="request-quote">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Acide sulfurique -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-img"><img src="./acidesulf.png" alt="Acide sulfurique"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-chem">Chimie industrielle</span>
+          <h3 data-t="svc-acid-title">Fourniture d'Acide Sulfurique</h3>
+          <p data-t="svc-acid-text">Distribution d'acide sulfurique industriel haute qualité, solutions de stockage sécurisé et gestion des matières premières chimiques selon les normes internationales.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- Collaboration Section -->
-    <section class="section collaboration" id="collaboration">
-        <div class="container">
-            <div class="text-center">
-                <h2 data-translate="collaborations-title">Nos Collaborations</h2>
-                <p data-translate="collaborations-subtitle">Nous travaillons avec des entreprises partenaires de confiance pour offrir des services complets</p>
-            </div>
-            <div class="partners-grid">
-                <div class="partner-item">
-                    <div class="partner-name">SSP SARL</div>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-name">MWINDA GROUP SARL</div>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-name">GGS SARL</div>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-name">MME SAS</div>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-name">OLSUN MINING SARL</div>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-name">TCC</div>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-name">GOODNESS MULTISERVICES</div>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-name">KBS SARL</div>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-name">AFRI SOFT</div>
-                </div>
-            </div>
+      <!-- Bitume -->
+      <div class="service-card reveal">
+        <div class="service-img"><img src="./bitume.png" alt="Bitume"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-infra">Infrastructure</span>
+          <h3 data-t="svc-bit-title">Fourniture de Bitume</h3>
+          <p data-t="svc-bit-text">Bitumes de qualité pour travaux routiers et infrastructurels avec conseil technique et support logistique intégré pour vos chantiers.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- Carrière Section -->
-    <section class="section carriere" id="carriere">
-        <div class="container">
-            <div class="text-center">
-                <h2 data-translate="career-title">Carrière & Offres d'Emploi</h2>
-                <p data-translate="career-subtitle">Rejoignez notre équipe dynamique et participez à des projets innovants</p>
-            </div>
-            <div class="offres-grid">
-                <div class="offre-card">
-                    <h3 data-translate="job-1-title">Ingénieur Maintenance Minière</h3>
-                    <div class="offre-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> <span data-translate="location-1">Kolwezi, RDC</span></span>
-                        <span><i class="fas fa-clock"></i> <span data-translate="full-time">Temps plein</span></span>
-                        <span><i class="fas fa-calendar-alt"></i> <span data-translate="date-1">Publiée le 15/03/2024</span></span>
-                    </div>
-                    <p data-translate="job-1-description">Nous recherchons un ingénieur en maintenance minière pour assurer la maintenance préventive et corrective des équipements miniers.</p>
-                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;" data-translate="apply-now">Postuler maintenant</a>
-                </div>
-                <div class="offre-card">
-                    <h3 data-translate="job-2-title">Logisticien Senior</h3>
-                    <div class="offre-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> <span data-translate="location-2">Lubumbashi, RDC</span></span>
-                        <span><i class="fas fa-clock"></i> <span data-translate="full-time">Temps plein</span></span>
-                        <span><i class="fas fa-calendar-alt"></i> <span data-translate="date-2">Publiée le 12/03/2024</span></span>
-                    </div>
-                    <p data-translate="job-2-description">Superviser les opérations logistiques, gérer la flotte de camions et optimiser les chaînes d'approvisionnement.</p>
-                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;" data-translate="apply-now">Postuler maintenant</a>
-                </div>
-                <div class="offre-card">
-                    <h3 data-translate="job-3-title">Spécialiste en Trading International</h3>
-                    <div class="offre-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> <span data-translate="location-3">Kinshasa, RDC</span></span>
-                        <span><i class="fas fa-clock"></i> <span data-translate="full-time">Temps plein</span></span>
-                        <span><i class="fas fa-calendar-alt"></i> <span data-translate="date-3">Publiée le 10/03/2024</span></span>
-                    </div>
-                    <p data-translate="job-3-description">Gérer les opérations de trading de matières premières avec une expertise en marché international.</p>
-                    <a href="#contact" class="btn btn-small" style="margin-top: 15px;" data-translate="apply-now">Postuler maintenant</a>
-                </div>
-            </div>
-            <div class="text-center" style="margin-top: 50px;">
-                <p data-translate="spontaneous-application">Vous ne trouvez pas l'offre qui vous correspond ? Envoyez-nous votre CV spontané !</p>
-                <a href="#contact" class="btn" style="margin-top: 20px;" data-translate="send-spontaneous">Envoyer une candidature spontanée</a>
-            </div>
+      <!-- Soufre -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-img"><img src="./soufre.png" alt="Soufre" onerror="this.src='https://rahaoil.ae/wp-content/uploads/2024/08/eb12e984-e616-46ed-9034-e1f302d55b0e.webp'"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-chem">Chimie industrielle</span>
+          <h3 data-t="svc-sulf-title">Fourniture de Soufre</h3>
+          <p data-t="svc-sulf-text">Soufre granulé ou en poudre haute pureté pour l'industrie chimique et minière. Chaîne logistique sécurisée, livraisons volumineuses dans le respect des normes environnementales.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- Stats Section -->
-    <section class="section stats" id="stats">
-        <div class="container">
-            <div class="text-center">
-                <h2 data-translate="stats-title">Notre Impact en Chiffres</h2>
-                <p data-translate="stats-subtitle">Des résultats tangibles qui témoignent de notre engagement envers l'excellence</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <h3><span class="counter" data-target="50">0</span>+</h3>
-                    <p data-translate="satisfied-clients">Clients satisfaits</p>
-                </div>
-                <div class="stat-box">
-                    <h3><span class="counter" data-target="15">0</span>+</h3>
-                    <p data-translate="projects-completed">Projets réalisés</p>
-                </div>
-                <div class="stat-box">
-                    <h3><span class="counter" data-target="80">0</span>+</h3>
-                    <p data-translate="qualified-experts">Experts qualifiés</p>
-                </div>
-                <div class="stat-box">
-                    <h3><span class="counter" data-target="98">0</span>%</h3>
-                    <p data-translate="satisfaction-rate">Taux de satisfaction</p>
-                </div>
-            </div>
+      <!-- Maintenance minière -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-img"><img src="./entretienengin.png" alt="Maintenance minière"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-mining">Minier</span>
+          <h3 data-t="svc-maint-title">Maintenance Minière</h3>
+          <p data-t="svc-maint-text">Ingénieurs spécialisés pour la maintenance préventive et corrective de vos équipements miniers, gestion de parc machines et optimisation des performances.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="text-center">
-                <h2 data-translate="contact-title">Contactez-Nous</h2>
-                <p data-translate="contact-subtitle">Prêt à transformer votre entreprise? Notre équipe est à votre écoute</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <svg viewBox="0 0 24 24" fill="#f5ae14">
-                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 data-translate="headquarters">Notre Siège</h4>
-                            <p>54 Avenue Maman yemo Quartier<br>Commune de Manika, Ville de Kolwezi<br>République Démocratique du Congo</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <svg viewBox="0 0 24 24" fill="#f5ae14">
-                                <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 data-translate="phone">Téléphone</h4>
-                            <p>+243 817 627 927<br>+243 999 565 072</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <svg viewBox="0 0 24 24" fill="#f5ae14">
-                                <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1,20 22,19.1 22,18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 data-translate="email" style="width: 50%; overflow-x: hidden;">Email</h4>
-                            <p>admin@mwendogroupeinternational.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <svg viewBox="0 0 24 24" fill="#f5ae14">
-                                <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 data-translate="hours">Horaires</h4>
-                            <p data-translate="hours-details">Lundi - Vendredi: 8h00 - 17h00<br>Fermé le week-end et jours fériés</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" data-translate="full-name">Nom Complet *</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" data-translate="email-address">Adresse Email *</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" data-translate="phone">Téléphone *</label>
-                            <input type="tel" id="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service" data-translate="service-interested">Service Intéressé *</label>
-                            <select id="service" required>
-                                <option value="" data-translate="select-service">Sélectionnez un service</option>
-                                <option value="logistique" data-translate="logistics-transport">Logistique & Transport</option>
-                                <option value="carburant" data-translate="fuel-supply">Fourniture de Carburant</option>
-                                <option value="acide" data-translate="acid-supply">Fourniture d'Acide Sulfurique</option>
-                                <option value="soufre" data-translate="sulfur-supply">Fourniture de Soufre</option>
-                                <option value="bitume" data-translate="asphalt-supply">Fourniture de Bitume</option>
-                                <option value="maintenance" data-translate="mining-maintenance">Maintenance Minier</option>
-                                <option value="trading" data-translate="trading">Trading & Commercialisation</option>
-                                <option value="informatique" data-translate="it-management">Gestion Informatique</option>
-                                <option value="assainissement" data-translate="sanitation">Assainissement & Cleaning</option>
-                                <option value="genie-civil" data-translate="civil-engineering">Génie Civil et Industriel</option>
-                                <option value="carriere" data-translate="job-offer">Offre d'emploi</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" data-translate="message">Message *</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" data-translate="send-message">Envoyer votre message</button>
-                    </form>
-                </div>
-            </div>
+      <!-- Génie civil -->
+      <div class="service-card reveal">
+        <div class="service-img"><img src="./construction.png" alt="Génie civil"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-civil">Ingénierie</span>
+          <h3 data-t="svc-civil-title">Génie Civil & Industriel</h3>
+          <p data-t="svc-civil-text">Construction de structures spécifiques, usines, raffineries et centres logistiques. Montage et installation de lignes électriques aux normes les plus strictes.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
-                        <img src="./IMG-20250807-WA0003.jpg" alt="Mwendo Group International" width="100px" style="border: 2px solid var(--primary); border-radius:50%">
-                    </a>
-                    <p data-translate="footer-description"><strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de vos entreprise en RDC et à l'international.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 data-translate="services">Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#services" data-translate="logistics-transport">Logistique & Transport</a></li>
-                        <li><a href="#services" data-translate="fuel-supply">Fourniture de Carburant</a></li>
-                        <li><a href="#services" data-translate="acid-supply">Fourniture d'Acide Sulfurique</a></li>
-                        <li><a href="#services" data-translate="sulfur-supply">Fourniture de Soufre</a></li>
-                        <li><a href="#services" data-translate="asphalt-supply">Fourniture de Bitume</a></li>
-                        <li><a href="#services" data-translate="mining-maintenance">Maintenance Minier</a></li>
-                        <li><a href="#services" data-translate="trading">Trading & Commercialisation</a></li>
-                        <li><a href="#services" data-translate="it-management">Gestion Informatique</a></li>
-                        <li><a href="#services" data-translate="sanitation">Assainissement & Cleaning</a></li>
-                        <li><a href="#services" data-translate="civil-engineering">Génie Civil et Industriel</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-translate="useful-links">Liens Utiles</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about" data-translate="about-us">À propos de nous</a></li>
-                        <li><a href="#vision-mission" data-translate="vision-mission">Vision & Mission</a></li>
-                        <li><a href="#collaboration" data-translate="our-collaborations">Nos collaborations</a></li>
-                        <li><a href="#carriere" data-translate="career">Carrière</a></li>
-                        <li><a href="#stats" data-translate="our-achievements">Nos réalisations</a></li>
-                        <li><a href="#contact" data-translate="request-quote">Demander un devis</a></li>
-                        <li><a href="#contact" data-translate="contact-us">Nous contacter</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-translate="contact-info">Coordonnées</h4>
-                    <p><strong data-translate="address">Adresse:</strong><br>54 Avenue Maman yemo Quartier<br>Commune de Manika, Kolwezi - RDC</p>
-                    <p><strong data-translate="phone">Téléphone:</strong><br>+243 817 627 927</p>
-                    <p><strong></strong><br>+243 999 565 072</p>
-                    <p><strong data-translate="email">Email:</strong><br>admin@mwendogroupeinternational.com</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p data-translate="copyright">&copy; 2024 - 2026 MWENDO GROUP INTERNATIONAL S.A.S. Tous droits réservés. Conçu avec passion pour l'excellence.</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;" data-translate="images-note">Les images utilisées sur ce site sont libres de droit et proviennent de Unsplash.</p>
-            </div>
+      <!-- Informatique -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-img"><img src="./GestionInformatique.png" alt="Informatique"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-it">Digital</span>
+          <h3 data-t="svc-it-title">Gestion Informatique</h3>
+          <p data-t="svc-it-text">Infrastructures réseau sécurisées, développement d'applications, cloud computing, cybersécurité et support technique professionnel pour votre transformation digitale.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        // Menu Mobile Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
+      <!-- Assainissement -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-img"><img src="./Assainissement.png" alt="Assainissement"></div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-clean">Propreté</span>
+          <h3 data-t="svc-clean-title">Assainissement & Cleaning</h3>
+          <p data-t="svc-clean-text">Services d'assainissement et de nettoyage industriel de haut niveau, gestion des déchets et maintenance de propreté pour les sites de vos entreprises partenaires.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
 
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+      <!-- Gardiennage -->
+      <div class="service-card reveal" id="gardiennage">
+        <div class="service-img" style="height:220px;">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80" alt="Gardiennage & Sécurité">
+        </div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-sec">Sécurité</span>
+          <h3 data-t="svc-sec-title">Service de Gardiennage & Sécurité</h3>
+          <p data-t="svc-sec-text">MGI SAS sécurise les personnes et leurs biens grâce à des professionnels expérimentés formés aux techniques de sûreté nationales et internationales.</p>
+          <div class="sub-services">
+            <div class="sub-card">
+              <h4 data-t="sec-sub1-title">01 · Sécurité des personnes & biens</h4>
+              <p data-t="sec-sub1-text">Équipes formées au niveau national et international aux techniques de sûreté pour protéger efficacement vos personnes et biens.</p>
+            </div>
+            <div class="sub-card">
+              <h4 data-t="sec-sub2-title">02 · Sécurité Électronique</h4>
+              <p data-t="sec-sub2-text">Équipements ultra-modernes : détection d'intrusion, détection d'incendie, contrôle d'accès et surveillance caméra CCTV.</p>
+            </div>
+            <div class="sub-card">
+              <h4 data-t="sec-sub3-title">03 · Sécurité Industrielle</h4>
+              <p data-t="sec-sub3-text">Patrouilles véhiculées organisées dans les grandes usines et concessions minières pour une sécurité maximale de vos sites.</p>
+            </div>
+          </div>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
 
-        // Close menu when clicking a link
-        document.querySelectorAll('#nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
+      <!-- Gestion RH -->
+      <div class="service-card reveal" id="rh">
+        <div class="service-img" style="height:220px;">
+          <img src="./trading.png" alt="Gestion des Ressources Humaines">
+        </div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-hr">Ressources Humaines</span>
+          <h3 data-t="svc-hr-title">Gestion des Ressources Humaines</h3>
+          <p data-t="svc-hr-text">MGI SAS accompagne les entreprises dans toutes les étapes de la gestion humaine : recrutement, placement, formation et gestion continue du personnel.</p>
+          <div class="sub-services">
+            <div class="sub-card">
+              <h4 data-t="hr-sub1-title">01 · Recrutement</h4>
+              <p data-t="hr-sub1-text">Meilleure correspondance entre candidats et fonction. Base de données solide de candidats sélectionnés mis à votre disposition.</p>
+            </div>
+            <div class="sub-card">
+              <h4 data-t="hr-sub2-title">02 · Placement</h4>
+              <p data-t="hr-sub2-text">Accompagnement du changement de vos pratiques de recrutement. Placement du candidat idéal taillé sur mesure selon vos besoins.</p>
+            </div>
+            <div class="sub-card">
+              <h4 data-t="hr-sub3-title">03 · Formation & Renforcement</h4>
+              <p data-t="hr-sub3-text">MGI Training prépare les candidats par des formations personnalisées selon le domaine du partenaire, incluant accueil et présentation avant prestation.</p>
+            </div>
+            <div class="sub-card">
+              <h4 data-t="hr-sub4-title">04 · Gestion du Personnel</h4>
+              <p data-t="hr-sub4-text">Gestion des ressources humaines tout au long du partenariat, sur base de la mise à disposition de nos agents auprès de vos équipes.</p>
+            </div>
+          </div>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
 
-        // Language translation system
-        const languageBtn = document.getElementById('languageBtn');
-        let currentLanguage = 'fr'; // Default language is French
+      <!-- Laboratoire Minier -->
+      <div class="service-card reveal" id="labo">
+        <div class="service-img" style="height:220px;">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&q=80" alt="Laboratoire minier">
+        </div>
+        <div class="service-body">
+          <span class="service-tag" data-t="svc-tag-lab">Laboratoire & Mines</span>
+          <h3 data-t="svc-lab-title">Fourniture de Matériels de Laboratoire Minier</h3>
+          <p data-t="svc-lab-text">Le laboratoire minier est un lieu où les professionnels mènent des expériences nécessitant des conditions spécifiquement contrôlées. Les équipements varient selon la spécialité. MGI SAS vous fournit des matériaux de laboratoire appropriés à vos besoins, garantissant conformité, précision et sécurité pour vos analyses et expérimentations minières.</p>
+          <a href="#contact" class="service-link" data-t="svc-cta">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Translations object - stores all translations
-        const translations = {
-            fr: {
-                // Navigation
-                'home': 'Accueil',
-                'about': 'À propos',
-                'services': 'Services',
-                'transport': 'Transport & Logistique',
-                'collaborations': 'Collaborations',
-                'career': 'Carrière',
-                'stats': 'Chiffres',
-                'contact': 'Contact',
-                'language-btn': 'FR/EN',
-                
-                // Hero Section
-                'hero-title': 'Solution intégrée pour la croissance de vos entreprises',
-                'hero-description': 'Mwendo Group International S.A.S, fondé en 2024, offre des services premium dans les domaines de la logistique, du carburant, de l\'ingénierie, du trading, de la gestion d\'entreprises et des mines. Nous combinons innovation et excellence pour répondre à vos besoins complexes.',
-                'discover-services': 'Découvrir nos services',
-                'contact-us': 'Nous contacter',
-                'years-experience': 'Années d\'expérience collective',
-                'projects-completed': 'Projets réalisés',
-                'expert-support': 'Support expert',
-                
-                // Vision Mission Section
-                'vision-mission-title': 'Notre Vision, Mission & Valeurs',
-                'vision-mission-subtitle': 'Les fondements qui guident chacune de nos actions et décisions',
-                'our-vision': 'NOTRE VISION',
-                'our-mission': 'NOTRE MISSION',
-                'our-values': 'NOS VALEURS',
-                'vision-text': 'Être compté parmi les fournisseurs de premier choix grâce à notre approche totalement axée sur les clients, devenir un leader régional durable, fournissant des solutions fiables. Nous visons l\'excellence opérationnelle, la sécurité et l\'innovation.',
-                'mission-text': 'Délivrer des services excellents à tous nos clients, travailler dans le respect des normes et des standards de classe mondiale, se focaliser sur des partenariats gagnant-gagnant pour créer une valeur durable et mutuelle.',
-                'integrity': 'Intégrité',
-                'excellence': 'Excellence',
-                'commitment': 'Respect des Engagements',
-                'speed': 'Rapidité',
-                
-                // About Section
-                'our-expertise': 'Notre Expertise',
-                'about-text-1': 'Fondé en 2024, <strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> s\'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles en République Démocratique du Congo. Notre approche multidisciplinaire nous permet d\'offrir une gamme complète de services de haute qualité.',
-                'about-text-2': 'Notre mission est de simplifier les opérations complexes de nos clients en leur offrant des solutions sur mesure dans les domaines clés de leur activité. Nous combinons expertise technique, innovation et excellence opérationnelle pour délivrer des résultats exceptionnels.',
-                'about-text-3': 'Avec une équipe d\'experts passionnés, nous mettons notre savoir-faire à votre service pour transformer vos défis en opportunités de croissance durable.',
-                'learn-more': 'En savoir plus',
-                
-                // Services Section
-                'our-services': 'Nos Services Premium',
-                'services-subtitle': 'Découvrez notre gamme complète de services conçus pour répondre aux besoins complexes des entreprises modernes.',
-                'logistics-transport': 'Logistique & Transport',
-                'logistics-text': 'MGI S.A.S met a votre disposition une flotte complète de camion howo12 roues pour le transport de minerais des entreprises partenaires, des bus toute dimensions pour le transport de vos personnels et une solution logistique complète.',
-                'request-quote': 'Demander un devis',
-                'fuel-supply': 'Fourniture de Carburant',
-                'fuel-text': 'MGI S.A.S met à votre disposition un système d\'approvisionnement de carburant de qualité, une solution énergétique sur mesure et des conseils en optimisation.',
-                'acid-supply': 'Fourniture d\'Acide Sulfurique',
-                'acid-text': 'MGI S.A.S dispose d\'un système de Distribution d\'acide sulfurique industriel de haute qualité, des solutions de stockage sécurisé et la gestion des matières premières chimiques.',
-                'sulfur-supply': 'Fourniture de Soufre',
-                'sulfur-text': 'Spécialiste de la distribution de matières premières, MGI S.A.S propose une solution complète pour la fourniture de soufre (granulé, en poudre) adaptée aux exigences de l\'industrie chimique et minière. Nous garantissons un produit à haute pureté, certifié pour des usages variés. Notre chaîne logistique sécurisée assure des livraisons volumineuses dans le respect des normes de sécurité environnementale.',
-                'asphalt-supply': 'Fourniture de Bitume',
-                'asphalt-text': 'MGI S.A.S Fournit des bitumes de qualité pour les travaux routiers et infrastructurels, avec conseil technique et support logistique.',
-                'mining-maintenance': 'Maintenance Minière',
-                'maintenance-text': 'MGI S.A.S met a votre disposition des ingénieurs pour la Maintenance préventive et corrective de vos équipements miniers, gestion de parc machines et optimisation des performances.',
-                'trading': 'Trading & Commercialisation',
-                'trading-text': 'MGI S.A.S se positionne comme une entreprise tampon dans le secteur minier facilitant ainsi l\'achat et la vente de matières premières, spécialisé dans la cathode et produits miniers avec une expertise en marché international.',
-                'it-management': 'Gestion Informatique',
-                'it-text': 'MWENDO GROUP INTERNATIONAL S.A S met sur pied des Infrastructures réseau sécurisée, développement d\'applications, cloud computing, cybersécurité et support technique.',
-                'sanitation': 'Assainissement & Cleaning',
-                'sanitation-text': 'MWENDO GROUP INTERNATIONAL SAS met a votre disposition un Services d\'assainissement et de nettoyage industriel très professionnel, la gestion des déchets et maintenance de propreté pour les entreprises partenaires.',
-                'civil-engineering': 'Génie Civil et Industriel',
-                'engineering-text': 'MWENDO GROUP INTERNATIONAL SAS dispose des ingénieurs qualifiés pour la construction des structures spécifiques, usines, raffineries, centres logistiques adaptées aux contraintes des équipements et processus industriels, exigeant des normes techniques très strictes pour garantir la sécurité et la performance des installations ainsi que le montage et l\'installation des lignes électriques.',
-                
-                // Collaborations Section
-                'collaborations-title': 'Nos Collaborations',
-                'collaborations-subtitle': 'Nous travaillons avec des entreprises partenaires de confiance pour offrir des services complets',
-                
-                // Career Section
-                'career-title': 'Carrière & Offres d\'Emploi',
-                'career-subtitle': 'Rejoignez notre équipe dynamique et participez à des projets innovants',
-                'job-1-title': 'Ingénieur Maintenance Minière',
-                'job-2-title': 'Logisticien Senior',
-                'job-3-title': 'Spécialiste en Trading International',
-                'job-1-description': 'Nous recherchons un ingénieur en maintenance minière pour assurer la maintenance préventive et corrective des équipements miniers.',
-                'job-2-description': 'Superviser les opérations logistiques, gérer la flotte de camions et optimiser les chaînes d\'approvisionnement.',
-                'job-3-description': 'Gérer les opérations de trading de matières premières avec une expertise en marché international.',
-                'apply-now': 'Postuler maintenant',
-                'spontaneous-application': 'Vous ne trouvez pas l\'offre qui vous correspond ? Envoyez-nous votre CV spontané !',
-                'send-spontaneous': 'Envoyer une candidature spontanée',
-                'location-1': 'Kolwezi, RDC',
-                'location-2': 'Lubumbashi, RDC',
-                'location-3': 'Kinshasa, RDC',
-                'full-time': 'Temps plein',
-                'date-1': 'Publiée le 15/03/2024',
-                'date-2': 'Publiée le 12/03/2024',
-                'date-3': 'Publiée le 10/03/2024',
-                
-                // Stats Section
-                'stats-title': 'Notre Impact en Chiffres',
-                'stats-subtitle': 'Des résultats tangibles qui témoignent de notre engagement envers l\'excellence',
-                'satisfied-clients': 'Clients satisfaits',
-                'qualified-experts': 'Experts qualifiés',
-                'satisfaction-rate': 'Taux de satisfaction',
-                
-                // Contact Section
-                'contact-title': 'Contactez-Nous',
-                'contact-subtitle': 'Prêt à transformer votre entreprise? Notre équipe est à votre écoute',
-                'headquarters': 'Notre Siège',
-                'phone': 'Téléphone',
-                'email': 'Email',
-                'hours': 'Horaires',
-                'full-name': 'Nom Complet *',
-                'email-address': 'Adresse Email *',
-                'service-interested': 'Service Intéressé *',
-                'select-service': 'Sélectionnez un service',
-                'message': 'Message *',
-                'send-message': 'Envoyer votre message',
-                'hours-details': 'Lundi - Vendredi: 8h00 - 17h00<br>Fermé le week-end et jours fériés',
-                'job-offer': 'Offre d\'emploi',
-                
-                // Footer
-                'services': 'Services',
-                'useful-links': 'Liens Utiles',
-                'contact-info': 'Coordonnées',
-                'address': 'Adresse:',
-                'footer-description': '<strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de vos entreprise en RDC et à l\'international.',
-                'about-us': 'À propos de nous',
-                'vision-mission': 'Vision & Mission',
-                'our-collaborations': 'Nos collaborations',
-                'our-achievements': 'Nos réalisations',
-                'copyright': '&copy; 2024 - 2026 MWENDO GROUP INTERNATIONAL S.A.S. Tous droits réservés. Conçu avec passion pour l\'excellence.',
-                'images-note': 'Les images utilisées sur ce site sont libres de droit et proviennent de Unsplash.'
-            },
-            en: {
-                // Navigation
-                'home': 'Home',
-                'about': 'About',
-                'services': 'Services',
-                'transport': 'Transport & Logistics',
-                'collaborations': 'Collaborations',
-                'career': 'Career',
-                'stats': 'Numbers',
-                'contact': 'Contact',
-                'language-btn': 'EN/FR',
-                
-                // Hero Section
-                'hero-title': 'Integrated solution for your business growth',
-                'hero-description': 'Mwendo Group International S.A.S, founded in 2024, offers premium services in logistics, fuel, engineering, trading, business management, and mining. We combine innovation and excellence to meet your complex needs.',
-                'discover-services': 'Discover our services',
-                'contact-us': 'Contact us',
-                'years-experience': 'Years of collective experience',
-                'projects-completed': 'Projects completed',
-                'expert-support': 'Expert support',
-                
-                // Vision Mission Section
-                'vision-mission-title': 'Our Vision, Mission & Values',
-                'vision-mission-subtitle': 'The foundations that guide each of our actions and decisions',
-                'our-vision': 'OUR VISION',
-                'our-mission': 'OUR MISSION',
-                'our-values': 'OUR VALUES',
-                'vision-text': 'To be counted among the top choice suppliers through our totally customer-focused approach, become a sustainable regional leader, providing reliable solutions. We aim for operational excellence, safety, and innovation.',
-                'mission-text': 'Deliver excellent services to all our customers, work respecting world-class standards and norms, focus on win-win partnerships to create sustainable and mutual value.',
-                'integrity': 'Integrity',
-                'excellence': 'Excellence',
-                'commitment': 'Commitment Respect',
-                'speed': 'Speed',
-                
-                // About Section
-                'our-expertise': 'Our Expertise',
-                'about-text-1': 'Founded in 2024, <strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> has established itself as a leader in providing integrated solutions for businesses of all sizes in the Democratic Republic of Congo. Our multidisciplinary approach allows us to offer a complete range of high-quality services.',
-                'about-text-2': 'Our mission is to simplify the complex operations of our clients by offering them customized solutions in key areas of their activity. We combine technical expertise, innovation, and operational excellence to deliver exceptional results.',
-                'about-text-3': 'With a team of passionate experts, we put our know-how at your service to transform your challenges into opportunities for sustainable growth.',
-                'learn-more': 'Learn more',
-                
-                // Services Section
-                'our-services': 'Our Premium Services',
-                'services-subtitle': 'Discover our complete range of services designed to meet the complex needs of modern businesses.',
-                'logistics-transport': 'Logistics & Transport',
-                'logistics-text': 'MGI S.A.S puts at your disposal a complete fleet of Howo 12-wheel trucks for transporting minerals from partner companies, buses of all dimensions for transporting your personnel, and a complete logistics solution.',
-                'request-quote': 'Request a quote',
-                'fuel-supply': 'Fuel Supply',
-                'fuel-text': 'MGI S.A.S provides you with a quality fuel supply system, customized energy solutions, and optimization advice.',
-                'acid-supply': 'Sulfuric Acid Supply',
-                'acid-text': 'MGI S.A.S has a system for distributing high-quality industrial sulfuric acid, secure storage solutions, and management of chemical raw materials.',
-                'sulfur-supply': 'Sulfur Supply',
-                'sulfur-text': 'Specialist in the distribution of raw materials, MGI S.A.S offers a complete solution for the supply of sulfur (granules, powder) adapted to the requirements of the chemical and mining industry. We guarantee a high purity product, certified for various uses. Our secure logistics chain ensures large-volume deliveries in compliance with environmental safety standards.',
-                'asphalt-supply': 'Asphalt Supply',
-                'asphalt-text': 'MGI S.A.S provides quality asphalt for road works and infrastructure projects, with technical advice and logistical support.',
-                'mining-maintenance': 'Mining Maintenance',
-                'maintenance-text': 'MGI S.A.S provides you with engineers for preventive and corrective maintenance of your mining equipment, fleet management, and performance optimization.',
-                'trading': 'Trading & Commercialization',
-                'trading-text': 'MGI S.A.S positions itself as a buffer company in the mining sector, thus facilitating the purchase and sale of raw materials, specializing in cathode and mining products with expertise in the international market.',
-                'it-management': 'IT Management',
-                'it-text': 'MWENDO GROUP INTERNATIONAL S.A.S sets up secure network infrastructure, application development, cloud computing, cybersecurity, and technical support.',
-                'sanitation': 'Sanitation & Cleaning',
-                'sanitation-text': 'MWENDO GROUP INTERNATIONAL SAS provides you with a highly professional industrial sanitation and cleaning service, waste management, and cleanliness maintenance for partner companies.',
-                'civil-engineering': 'Civil and Industrial Engineering',
-                'engineering-text': 'MWENDO GROUP INTERNATIONAL SAS has qualified engineers for the construction of specific structures, factories, refineries, logistics centers adapted to the constraints of equipment and industrial processes, requiring very strict technical standards to guarantee the safety and performance of installations, as well as the assembly and installation of electrical lines.',
-                
-                // Collaborations Section
-                'collaborations-title': 'Our Collaborations',
-                'collaborations-subtitle': 'We work with trusted partner companies to offer comprehensive services',
-                
-                // Career Section
-                'career-title': 'Career & Job Offers',
-                'career-subtitle': 'Join our dynamic team and participate in innovative projects',
-                'job-1-title': 'Mining Maintenance Engineer',
-                'job-2-title': 'Senior Logistician',
-                'job-3-title': 'International Trading Specialist',
-                'job-1-description': 'We are looking for a mining maintenance engineer to ensure preventive and corrective maintenance of mining equipment.',
-                'job-2-description': 'Supervise logistics operations, manage the truck fleet, and optimize supply chains.',
-                'job-3-description': 'Manage raw materials trading operations with expertise in the international market.',
-                'apply-now': 'Apply now',
-                'spontaneous-application': 'Don\'t find the offer that suits you? Send us your spontaneous application!',
-                'send-spontaneous': 'Send a spontaneous application',
-                'location-1': 'Kolwezi, DRC',
-                'location-2': 'Lubumbashi, DRC',
-                'location-3': 'Kinshasa, DRC',
-                'full-time': 'Full-time',
-                'date-1': 'Posted 15/03/2024',
-                'date-2': 'Posted 12/03/2024',
-                'date-3': 'Posted 10/03/2024',
-                
-                // Stats Section
-                'stats-title': 'Our Impact in Numbers',
-                'stats-subtitle': 'Tangible results that testify to our commitment to excellence',
-                'satisfied-clients': 'Satisfied clients',
-                'qualified-experts': 'Qualified experts',
-                'satisfaction-rate': 'Satisfaction rate',
-                
-                // Contact Section
-                'contact-title': 'Contact Us',
-                'contact-subtitle': 'Ready to transform your business? Our team is listening to you',
-                'headquarters': 'Our Headquarters',
-                'phone': 'Phone',
-                'email': 'Email',
-                'hours': 'Hours',
-                'full-name': 'Full Name *',
-                'email-address': 'Email Address *',
-                'service-interested': 'Service Interested In *',
-                'select-service': 'Select a service',
-                'message': 'Message *',
-                'send-message': 'Send your message',
-                'hours-details': 'Monday - Friday: 8:00 AM - 5:00 PM<br>Closed on weekends and holidays',
-                'job-offer': 'Job offer',
-                
-                // Footer
-                'services': 'Services',
-                'useful-links': 'Useful Links',
-                'contact-info': 'Contact Information',
-                'address': 'Address:',
-                'footer-description': '<strong>MWENDO GROUP INTERNATIONAL S.A.S</strong><br>Integrated solutions for your growth. Excellence, innovation, and reliability at the service of your businesses in the DRC and internationally.',
-                'about-us': 'About us',
-                'vision-mission': 'Vision & Mission',
-                'our-collaborations': 'Our collaborations',
-                'our-achievements': 'Our achievements',
-                'copyright': '&copy; 2024 - 2026 MWENDO GROUP INTERNATIONAL S.A.S. All rights reserved. Designed with passion for excellence.',
-                'images-note': 'The images used on this site are royalty-free and come from Unsplash.'
-            }
-        };
+<!-- ═══════════════════ COLLABORATIONS ═══════════════════ -->
+<section class="collab" id="collab">
+  <div class="container">
+    <div class="section-header center reveal">
+      <p class="label" data-t="collab-label">Réseau de confiance</p>
+      <h2 class="section-title" data-t="collab-title">Nos collaborations</h2>
+      <span class="gold-line center"></span>
+      <p style="color:var(--text-muted);max-width:560px;margin:0 auto;" data-t="collab-sub">Nous travaillons avec des entreprises partenaires de confiance pour offrir des services complets et une couverture opérationnelle maximale.</p>
+    </div>
+    <div class="partners-wrap reveal">
+      <div class="partner"><div class="partner-name">SSP SARL</div></div>
+      <div class="partner"><div class="partner-name">MWINDA GROUP SARL</div></div>
+      <div class="partner"><div class="partner-name">GGS SARL</div></div>
+      <div class="partner"><div class="partner-name">MME SAS</div></div>
+      <div class="partner"><div class="partner-name">OLSUN MINING SARL</div></div>
+      <div class="partner"><div class="partner-name">TCC</div></div>
+      <div class="partner"><div class="partner-name">GOODNESS MULTISERVICES</div></div>
+      <div class="partner"><div class="partner-name">KBS SARL</div></div>
+      <div class="partner"><div class="partner-name">AFRI SOFT</div></div>
+    </div>
+  </div>
+</section>
 
-        // Store original texts for navigation (since they don't have data-translate)
-        const originalNavTexts = {
-            'home': 'Accueil',
-            'about': 'À propos',
-            'services': 'Services',
-            'transport': 'Transport & Logistique',
-            'collaborations': 'Collaborations',
-            'career': 'Carrière',
-            'stats': 'Chiffres',
-            'contact': 'Contact'
-        };
+<!-- ═══════════════════ CAREER ═══════════════════ -->
+<section class="career" id="career">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="label" data-t="career-label">Rejoignez-nous</p>
+      <h2 class="section-title" data-t="career-title">Carrière & Offres d'emploi</h2>
+      <span class="gold-line"></span>
+    </div>
+    <div class="jobs-grid">
+      <div class="job-card reveal">
+        <h3 data-t="job1-title">Ingénieur Maintenance Minière</h3>
+        <div class="job-meta">
+          <span class="job-tag"><i class="fas fa-map-marker-alt"></i> <span data-t="job1-loc">Kolwezi, RDC</span></span>
+          <span class="job-tag"><i class="fas fa-clock"></i> <span data-t="job-ft">Temps plein</span></span>
+          <span class="job-tag"><i class="fas fa-calendar"></i> <span data-t="job1-date">15/03/2024</span></span>
+        </div>
+        <p data-t="job1-desc">Maintenance préventive et corrective des équipements miniers. Expérience en gestion de parc machines requise.</p>
+        <a href="#contact" class="btn-primary"><span data-t="job-apply">Postuler maintenant</span> <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="job-card reveal reveal-delay-1">
+        <h3 data-t="job2-title">Logisticien Senior</h3>
+        <div class="job-meta">
+          <span class="job-tag"><i class="fas fa-map-marker-alt"></i> <span data-t="job2-loc">Lubumbashi, RDC</span></span>
+          <span class="job-tag"><i class="fas fa-clock"></i> <span data-t="job-ft">Temps plein</span></span>
+          <span class="job-tag"><i class="fas fa-calendar"></i> <span data-t="job2-date">12/03/2024</span></span>
+        </div>
+        <p data-t="job2-desc">Superviser les opérations logistiques, gérer la flotte de camions et optimiser les chaînes d'approvisionnement.</p>
+        <a href="#contact" class="btn-primary"><span data-t="job-apply">Postuler maintenant</span> <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="job-card reveal reveal-delay-2">
+        <h3 data-t="job3-title">Agent de Sécurité Senior</h3>
+        <div class="job-meta">
+          <span class="job-tag"><i class="fas fa-map-marker-alt"></i> <span data-t="job3-loc">Kolwezi, RDC</span></span>
+          <span class="job-tag"><i class="fas fa-clock"></i> <span data-t="job-ft">Temps plein</span></span>
+          <span class="job-tag"><i class="fas fa-calendar"></i> <span data-t="job3-date">10/03/2024</span></span>
+        </div>
+        <p data-t="job3-desc">Gestion des équipes de gardiennage sur sites miniers et industriels. Formation sécurité nationale et internationale exigée.</p>
+        <a href="#contact" class="btn-primary"><span data-t="job-apply">Postuler maintenant</span> <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="spontaneous reveal">
+      <p data-t="job-spont">Vous ne trouvez pas l'offre qui vous correspond ? Envoyez-nous votre candidature spontanée !</p>
+      <a href="#contact" class="btn-primary"><span data-t="job-spont-cta">Candidature spontanée</span> <i class="fas fa-paper-plane"></i></a>
+    </div>
+  </div>
+</section>
 
-        // Function to translate the page
-        function translatePage(language) {
-            // Update HTML lang attribute
-            document.documentElement.lang = language;
-            
-            // Update page title
-            if (language === 'en') {
-                document.title = 'Mwendo Group International | Integrated Solutions';
-            } else {
-                document.title = 'Mwendo Group International | Solutions Intégrées';
-            }
-            
-            // Update language button text
-            languageBtn.innerHTML = `<i class="fas fa-globe"></i> ${translations[language]['language-btn']}`;
-            
-            // Translate navigation
-            const navLinks = document.querySelectorAll('nav ul li a:not(.language-btn)');
-            navLinks.forEach((link, index) => {
-                const keys = Object.keys(originalNavTexts);
-                if (keys[index]) {
-                    link.textContent = translations[language][keys[index]];
-                }
-            });
-            
-            // Get all translatable elements
-            const translatableElements = document.querySelectorAll('[data-translate]');
-            
-            // Translate each element
-            translatableElements.forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[language][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = translations[language][key];
-                    } else if (element.tagName === 'OPTION') {
-                        element.textContent = translations[language][key];
-                    } else if (element.tagName === 'LABEL') {
-                        element.textContent = translations[language][key];
-                    } else {
-                        // Check if the translation contains HTML
-                        const translation = translations[language][key];
-                        if (translation.includes('<')) {
-                            element.innerHTML = translation;
-                        } else {
-                            element.textContent = translation;
-                        }
-                    }
-                }
-            });
-            
-            // Update select options
-            const serviceSelect = document.getElementById('service');
-            if (serviceSelect) {
-                const options = serviceSelect.querySelectorAll('option');
-                options.forEach(option => {
-                    const key = option.getAttribute('data-translate');
-                    if (key && translations[language][key]) {
-                        option.textContent = translations[language][key];
-                    }
-                });
-            }
-            
-            currentLanguage = language;
-            
-            // Save language preference to localStorage
-            localStorage.setItem('preferredLanguage', language);
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="reveal">
+        <p class="label" data-t="contact-label">Parlons de votre projet</p>
+        <h2 class="section-title" data-t="contact-title">Contactez-nous</h2>
+        <span class="gold-line"></span>
+        <p style="color:var(--text-muted);margin-bottom:0;" data-t="contact-sub">Notre équipe d'experts est disponible pour répondre à toutes vos demandes et vous proposer des solutions adaptées à vos besoins.</p>
+        <div class="contact-info-list">
+          <div class="info-row">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div class="info-label" data-t="contact-addr-label">Siège social</div>
+              <div class="info-val">54 Avenue Maman Yemo, Quartier<br>Commune de Manika, Kolwezi – RDC</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="info-label" data-t="contact-phone-label">Téléphone</div>
+              <div class="info-val">+243 817 627 927<br>+243 999 565 072</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-val">admin@mwendogroupeinternational.com</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <div class="info-label" data-t="contact-hours-label">Horaires</div>
+              <div class="info-val" data-t="contact-hours">Lun – Ven : 8h00 – 17h00<br>Fermé week-end & jours fériés</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal reveal-delay-2">
+        <h3 data-t="form-title">Envoyer un message</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-t="form-name">Nom complet *</label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+              <label data-t="form-email">Adresse e-mail *</label>
+              <input type="email" id="email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-t="form-phone">Téléphone *</label>
+            <input type="tel" id="phone" required>
+          </div>
+          <div class="form-group">
+            <label data-t="form-service">Service concerné *</label>
+            <select id="service" required>
+              <option value="" data-t="form-select">Sélectionnez un service</option>
+              <option value="logistique" data-t="svc-log-title">Logistique & Transport</option>
+              <option value="carburant" data-t="svc-fuel-title">Fourniture de Carburant</option>
+              <option value="acide" data-t="svc-acid-title">Fourniture d'Acide Sulfurique</option>
+              <option value="soufre" data-t="svc-sulf-title">Fourniture de Soufre</option>
+              <option value="bitume" data-t="svc-bit-title">Fourniture de Bitume</option>
+              <option value="maintenance" data-t="svc-maint-title">Maintenance Minière</option>
+              <option value="gardiennage" data-t="svc-sec-title">Gardiennage & Sécurité</option>
+              <option value="rh" data-t="svc-hr-title">Gestion des Ressources Humaines</option>
+              <option value="labo" data-t="svc-lab-title">Matériels de Laboratoire Minier</option>
+              <option value="informatique" data-t="svc-it-title">Gestion Informatique</option>
+              <option value="assainissement" data-t="svc-clean-title">Assainissement & Cleaning</option>
+              <option value="genie-civil" data-t="svc-civil-title">Génie Civil et Industriel</option>
+              <option value="emploi" data-t="form-job">Offre d'emploi</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-t="form-msg">Message *</label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;border:none;cursor:pointer;">
+            <span data-t="form-submit">Envoyer le message</span> <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <img src="./IMG-20250807-WA0003.jpg" alt="MGI">
+          <div>
+            <div class="logo-text" style="font-size:1.3rem;">M<span class="gold">G</span>I</div>
+            <div class="logo-sub">Mwendo Groupe International</div>
+          </div>
+        </div>
+        <p data-t="footer-desc">Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de vos entreprises en RDC et à l'international.</p>
+        <div class="social-row">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-t="footer-services">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services" data-t="svc-log-title">Logistique & Transport</a></li>
+          <li><a href="#services" data-t="svc-fuel-title">Fourniture de Carburant</a></li>
+          <li><a href="#gardiennage" data-t="svc-sec-title">Gardiennage & Sécurité</a></li>
+          <li><a href="#rh" data-t="svc-hr-title">Gestion des RH</a></li>
+          <li><a href="#labo" data-t="svc-lab-title">Labo Minier</a></li>
+          <li><a href="#services" data-t="svc-civil-title">Génie Civil</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-t="footer-links">Liens utiles</h4>
+        <ul class="footer-links">
+          <li><a href="#about" data-t="nav-about">À propos de nous</a></li>
+          <li><a href="#vision" data-t="vmv-title">Vision & Mission</a></li>
+          <li><a href="#collab" data-t="nav-collab">Nos collaborations</a></li>
+          <li><a href="#career" data-t="nav-career">Carrière</a></li>
+          <li><a href="#stats">Nos chiffres</a></li>
+          <li><a href="#contact" data-t="nav-contact">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-t="footer-contact">Coordonnées</h4>
+        <p>54 Avenue Maman Yemo<br>Commune de Manika, Kolwezi<br>République Démocratique du Congo</p>
+        <p style="margin-top:16px;">+243 817 627 927<br>+243 999 565 072</p>
+        <p style="margin-top:16px;word-break:break-all;">admin@mwendogroupeinternational.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-t="footer-copy">&copy; 2024 – 2026 MWENDO GROUP INTERNATIONAL S.A.S. Tous droits réservés.</p>
+      <p data-t="footer-crafted">Conçu avec passion pour l'excellence.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════
+   TRANSLATIONS (complet)
+═══════════════════════════════════ */
+const T = {
+  fr:{
+    "loading":"Chargement en cours…",
+    "nav-home":"Accueil","nav-about":"À propos","nav-services":"Services",
+    "nav-collab":"Collaborations","nav-career":"Carrière","nav-contact":"Contact",
+    "nav-cta":"Devis gratuit",
+    "hero-eyebrow":"République Démocratique du Congo · Fondé 2024",
+    "hero-h1":"Solutions intégrées pour <em>l'excellence</em> industrielle",
+    "hero-desc":"MGI S.A.S combine logistique, énergie, ingénierie, sécurité et ressources humaines pour propulser votre entreprise vers un niveau de performance d'exception.",
+    "hero-btn1":"Découvrir nos services","hero-btn2":"Nous contacter",
+    "stat-xp":"Ans d'expérience","stat-projects":"Projets livrés","stat-support":"Support dédié",
+    "vmv-title":"Vision · Mission · Valeurs",
+    "vmv-v-title":"Notre Vision","vmv-m-title":"Notre Mission","vmv-val-title":"Nos Valeurs",
+    "vmv-v-text":"Être compté parmi les fournisseurs de premier choix grâce à une approche axée sur les clients. Devenir un leader régional durable fournissant des solutions fiables, visant l'excellence opérationnelle, la sécurité et l'innovation.",
+    "vmv-m-text":"Délivrer des services d'excellence à tous nos clients, travailler dans le respect des standards de classe mondiale, et se focaliser sur des partenariats gagnant-gagnant pour créer une valeur durable et mutuelle.",
+    "val-1":"Intégrité","val-2":"Excellence","val-3":"Respect des engagements","val-4":"Rapidité",
+    "about-label":"Qui sommes-nous","about-badge":"Année de fondation",
+    "about-title":"Notre expertise<br>au cœur de la RDC",
+    "about-p1":"<strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> s'est imposé comme un leader dans la fourniture de solutions intégrées pour les entreprises de toutes tailles en République Démocratique du Congo. Notre approche multidisciplinaire nous permet d'offrir une gamme complète de services de haute qualité.",
+    "about-p2":"Nous combinons expertise technique, innovation et excellence opérationnelle pour délivrer des résultats exceptionnels et transformer vos défis en opportunités de croissance durable.",
+    "feat-1":"Flotte logistique complète – camions Howo 12 roues & bus",
+    "feat-2":"Ingénieurs qualifiés en maintenance minière et génie civil",
+    "feat-3":"Services de sécurité et gestion RH professionnels",
+    "feat-4":"Partenariats solides avec les acteurs miniers régionaux",
+    "about-cta":"En savoir plus",
+    "stats-clients":"Clients satisfaits","stats-experts":"Experts qualifiés",
+    "stats-projects":"Projets réalisés","stats-rate":"Taux de satisfaction",
+    "services-label":"Ce que nous faisons","services-title":"Nos services premium",
+    "services-sub":"Une gamme complète de services conçus pour répondre aux besoins les plus complexes des entreprises modernes.",
+    "svc-tag-ops":"Opérations","svc-tag-energy":"Énergie","svc-tag-chem":"Chimie industrielle",
+    "svc-tag-infra":"Infrastructure","svc-tag-mining":"Minier","svc-tag-civil":"Ingénierie",
+    "svc-tag-it":"Digital","svc-tag-clean":"Propreté","svc-tag-sec":"Sécurité",
+    "svc-tag-hr":"Ressources Humaines","svc-tag-lab":"Laboratoire & Mines",
+    "svc-log-title":"Logistique & Transport","svc-log-text":"Flotte complète de camions Howo 12 roues pour le transport de minerais, bus de toutes dimensions pour le personnel et solutions logistiques intégrées pour vos opérations.",
+    "svc-fuel-title":"Fourniture de Carburant","svc-fuel-text":"Système d'approvisionnement en carburant de qualité, solutions énergétiques sur mesure et conseils en optimisation de consommation pour vos installations.",
+    "svc-acid-title":"Fourniture d'Acide Sulfurique","svc-acid-text":"Distribution d'acide sulfurique industriel haute qualité, solutions de stockage sécurisé et gestion des matières premières chimiques selon les normes internationales.",
+    "svc-bit-title":"Fourniture de Bitume","svc-bit-text":"Bitumes de qualité pour travaux routiers et infrastructurels avec conseil technique et support logistique intégré pour vos chantiers.",
+    "svc-sulf-title":"Fourniture de Soufre","svc-sulf-text":"Soufre granulé ou en poudre haute pureté pour l'industrie chimique et minière. Chaîne logistique sécurisée, livraisons volumineuses dans le respect des normes environnementales.",
+    "svc-maint-title":"Maintenance Minière","svc-maint-text":"Ingénieurs spécialisés pour la maintenance préventive et corrective de vos équipements miniers, gestion de parc machines et optimisation des performances.",
+    "svc-civil-title":"Génie Civil & Industriel","svc-civil-text":"Construction de structures spécifiques, usines, raffineries et centres logistiques. Montage et installation de lignes électriques aux normes les plus strictes.",
+    "svc-it-title":"Gestion Informatique","svc-it-text":"Infrastructures réseau sécurisées, développement d'applications, cloud computing, cybersécurité et support technique professionnel pour votre transformation digitale.",
+    "svc-clean-title":"Assainissement & Cleaning","svc-clean-text":"Services d'assainissement et de nettoyage industriel de haut niveau, gestion des déchets et maintenance de propreté pour les sites de vos entreprises partenaires.",
+    "svc-sec-title":"Service de Gardiennage & Sécurité","svc-sec-text":"MGI SAS sécurise les personnes et leurs biens grâce à des professionnels expérimentés formés aux techniques de sûreté nationales et internationales.",
+    "sec-sub1-title":"01 · Sécurité des personnes & biens","sec-sub1-text":"Équipes formées au niveau national et international aux techniques de sûreté pour protéger efficacement vos personnes et biens.",
+    "sec-sub2-title":"02 · Sécurité Électronique","sec-sub2-text":"Équipements ultra-modernes : détection d'intrusion, détection d'incendie, contrôle d'accès et surveillance caméra CCTV.",
+    "sec-sub3-title":"03 · Sécurité Industrielle","sec-sub3-text":"Patrouilles véhiculées organisées dans les grandes usines et concessions minières pour une sécurité maximale de vos sites.",
+    "svc-hr-title":"Gestion des Ressources Humaines","svc-hr-text":"MGI SAS accompagne les entreprises dans toutes les étapes de la gestion humaine : recrutement, placement, formation et gestion continue du personnel.",
+    "hr-sub1-title":"01 · Recrutement","hr-sub1-text":"Meilleure correspondance entre candidats et fonction. Base de données solide de candidats sélectionnés mis à votre disposition.",
+    "hr-sub2-title":"02 · Placement","hr-sub2-text":"Accompagnement du changement de vos pratiques de recrutement. Placement du candidat idéal taillé sur mesure selon vos besoins.",
+    "hr-sub3-title":"03 · Formation & Renforcement","hr-sub3-text":"MGI Training prépare les candidats par des formations personnalisées selon le domaine du partenaire, incluant accueil et présentation avant prestation.",
+    "hr-sub4-title":"04 · Gestion du Personnel","hr-sub4-text":"Gestion des ressources humaines tout au long du partenariat, sur base de la mise à disposition de nos agents auprès de vos équipes.",
+    "svc-lab-title":"Fourniture de Matériels de Laboratoire Minier","svc-lab-text":"Le laboratoire minier est un lieu où les professionnels mènent des expériences nécessitant des conditions spécifiquement contrôlées. Les équipements varient selon la spécialité. MGI SAS vous fournit des matériaux de laboratoire appropriés à vos besoins, garantissant conformité, précision et sécurité pour vos analyses et expérimentations minières.",
+    "svc-cta":"Demander un devis",
+    "collab-label":"Réseau de confiance","collab-title":"Nos collaborations","collab-sub":"Nous travaillons avec des entreprises partenaires de confiance pour offrir des services complets et une couverture opérationnelle maximale.",
+    "career-label":"Rejoignez-nous","career-title":"Carrière & Offres d'emploi",
+    "job1-title":"Ingénieur Maintenance Minière","job1-loc":"Kolwezi, RDC","job1-date":"15/03/2024",
+    "job1-desc":"Maintenance préventive et corrective des équipements miniers. Expérience en gestion de parc machines requise.",
+    "job2-title":"Logisticien Senior","job2-loc":"Lubumbashi, RDC","job2-date":"12/03/2024",
+    "job2-desc":"Superviser les opérations logistiques, gérer la flotte de camions et optimiser les chaînes d'approvisionnement.",
+    "job3-title":"Agent de Sécurité Senior","job3-loc":"Kolwezi, RDC","job3-date":"10/03/2024",
+    "job3-desc":"Gestion des équipes de gardiennage sur sites miniers et industriels. Formation sécurité nationale et internationale exigée.",
+    "job-ft":"Temps plein","job-apply":"Postuler maintenant",
+    "job-spont":"Vous ne trouvez pas l'offre qui vous correspond ? Envoyez-nous votre candidature spontanée !",
+    "job-spont-cta":"Candidature spontanée",
+    "contact-label":"Parlons de votre projet","contact-title":"Contactez-nous",
+    "contact-sub":"Notre équipe d'experts est disponible pour répondre à toutes vos demandes et vous proposer des solutions adaptées à vos besoins.",
+    "contact-addr-label":"Siège social","contact-phone-label":"Téléphone",
+    "contact-hours-label":"Horaires","contact-hours":"Lun – Ven : 8h00 – 17h00<br>Fermé week-end & jours fériés",
+    "form-title":"Envoyer un message","form-name":"Nom complet *","form-email":"Adresse e-mail *",
+    "form-phone":"Téléphone *","form-service":"Service concerné *","form-select":"Sélectionnez un service",
+    "form-msg":"Message *","form-submit":"Envoyer le message","form-job":"Offre d'emploi",
+    "footer-desc":"Solutions intégrées pour votre croissance. Excellence, innovation et fiabilité au service de vos entreprises en RDC et à l'international.",
+    "footer-services":"Services","footer-links":"Liens utiles","footer-contact":"Coordonnées",
+    "footer-copy":"© 2024 – 2026 MWENDO GROUP INTERNATIONAL S.A.S. Tous droits réservés.",
+    "footer-crafted":"Conçu avec passion pour l'excellence."
+  },
+  en:{
+    "loading":"Loading…",
+    "nav-home":"Home","nav-about":"About","nav-services":"Services",
+    "nav-collab":"Collaborations","nav-career":"Career","nav-contact":"Contact",
+    "nav-cta":"Free Quote",
+    "hero-eyebrow":"Democratic Republic of Congo · Founded 2024",
+    "hero-h1":"Integrated solutions for industrial <em>excellence</em>",
+    "hero-desc":"MGI S.A.S combines logistics, energy, engineering, security and human resources to drive your company to exceptional performance levels.",
+    "hero-btn1":"Discover our services","hero-btn2":"Contact us",
+    "stat-xp":"Years experience","stat-projects":"Projects delivered","stat-support":"Dedicated support",
+    "vmv-title":"Vision · Mission · Values",
+    "vmv-v-title":"Our Vision","vmv-m-title":"Our Mission","vmv-val-title":"Our Values",
+    "vmv-v-text":"To be counted among the top-choice suppliers through a totally customer-focused approach. To become a sustainable regional leader providing reliable solutions, aiming for operational excellence, safety and innovation.",
+    "vmv-m-text":"Deliver excellent services to all our clients, work in compliance with world-class standards and norms, focus on win-win partnerships to create sustainable and mutual value.",
+    "val-1":"Integrity","val-2":"Excellence","val-3":"Commitment Respect","val-4":"Speed",
+    "about-label":"Who we are","about-badge":"Year of foundation",
+    "about-title":"Our expertise<br>at the heart of DRC",
+    "about-p1":"<strong>MWENDO GROUP INTERNATIONAL S.A.S</strong> has established itself as a leader in providing integrated solutions for businesses of all sizes in the Democratic Republic of Congo. Our multidisciplinary approach allows us to offer a comprehensive range of high-quality services.",
+    "about-p2":"We combine technical expertise, innovation and operational excellence to deliver exceptional results and transform your challenges into sustainable growth opportunities.",
+    "feat-1":"Complete logistics fleet – Howo 12-wheel trucks & buses",
+    "feat-2":"Qualified engineers in mining maintenance and civil engineering",
+    "feat-3":"Professional security services and HR management",
+    "feat-4":"Strong partnerships with regional mining players",
+    "about-cta":"Learn more",
+    "stats-clients":"Satisfied clients","stats-experts":"Qualified experts",
+    "stats-projects":"Projects completed","stats-rate":"Satisfaction rate",
+    "services-label":"What we do","services-title":"Our premium services",
+    "services-sub":"A complete range of services designed to meet the most complex needs of modern businesses.",
+    "svc-tag-ops":"Operations","svc-tag-energy":"Energy","svc-tag-chem":"Industrial Chemistry",
+    "svc-tag-infra":"Infrastructure","svc-tag-mining":"Mining","svc-tag-civil":"Engineering",
+    "svc-tag-it":"Digital","svc-tag-clean":"Cleaning","svc-tag-sec":"Security",
+    "svc-tag-hr":"Human Resources","svc-tag-lab":"Mining Lab",
+    "svc-log-title":"Logistics & Transport","svc-log-text":"Complete fleet of Howo 12-wheel trucks for mineral transport, buses of all sizes for personnel, and integrated logistics solutions for your operations.",
+    "svc-fuel-title":"Fuel Supply","svc-fuel-text":"Quality fuel supply system, custom energy solutions and optimization advice for your installations.",
+    "svc-acid-title":"Sulfuric Acid Supply","svc-acid-text":"Distribution of high-quality industrial sulfuric acid, secure storage solutions and chemical raw materials management according to international standards.",
+    "svc-bit-title":"Asphalt Supply","svc-bit-text":"Quality asphalt for road and infrastructure works with technical advice and integrated logistical support for your projects.",
+    "svc-sulf-title":"Sulfur Supply","svc-sulf-text":"High-purity granular or powder sulfur for the chemical and mining industry. Secure logistics chain, large-volume deliveries in compliance with environmental standards.",
+    "svc-maint-title":"Mining Maintenance","svc-maint-text":"Specialist engineers for preventive and corrective maintenance of your mining equipment, fleet management and performance optimization.",
+    "svc-civil-title":"Civil & Industrial Engineering","svc-civil-text":"Construction of specific structures, factories, refineries and logistics centers. Assembly and installation of electrical lines to the strictest standards.",
+    "svc-it-title":"IT Management","svc-it-text":"Secure network infrastructure, application development, cloud computing, cybersecurity and professional technical support for your digital transformation.",
+    "svc-clean-title":"Sanitation & Cleaning","svc-clean-text":"High-level industrial sanitation and cleaning services, waste management and cleanliness maintenance for your partner companies' sites.",
+    "svc-sec-title":"Security & Guarding Service","svc-sec-text":"MGI SAS secures people and their property with experienced professionals trained in national and international safety techniques.",
+    "sec-sub1-title":"01 · Personal & Property Security","sec-sub1-text":"Teams trained nationally and internationally in security techniques to effectively protect your people and assets.",
+    "sec-sub2-title":"02 · Electronic Security","sec-sub2-text":"State-of-the-art equipment: intrusion detection, fire detection, access control and CCTV camera surveillance.",
+    "sec-sub3-title":"03 · Industrial Security","sec-sub3-text":"Vehicle patrols organized in large factories and mining concessions for maximum site security.",
+    "svc-hr-title":"Human Resources Management","svc-hr-text":"MGI SAS supports companies through all HR management stages: recruitment, placement, training and ongoing personnel management.",
+    "hr-sub1-title":"01 · Recruitment","hr-sub1-text":"Best match between candidates and function. Solid database of selected candidates at your disposal.",
+    "hr-sub2-title":"02 · Placement","hr-sub2-text":"Support for changing your recruitment practices. Placement of the ideal candidate tailored to your needs.",
+    "hr-sub3-title":"03 · Training & Development","hr-sub3-text":"MGI Training prepares candidates with personalized training based on the partner's field, including reception and presentation before service.",
+    "hr-sub4-title":"04 · Personnel Management","hr-sub4-text":"Full HR management throughout the partnership based on deployment of our agents to your teams.",
+    "svc-lab-title":"Mining Laboratory Equipment Supply","svc-lab-text":"The mining laboratory is a place where professionals conduct experiments requiring specifically controlled conditions. Equipment varies by specialty. MGI SAS provides appropriate laboratory materials for your needs, ensuring compliance, precision and safety for your mining analyses and experiments.",
+    "svc-cta":"Request a quote",
+    "collab-label":"Trusted network","collab-title":"Our collaborations","collab-sub":"We work with trusted partner companies to offer comprehensive services and maximum operational coverage.",
+    "career-label":"Join us","career-title":"Career & Job Offers",
+    "job1-title":"Mining Maintenance Engineer","job1-loc":"Kolwezi, DRC","job1-date":"03/15/2024",
+    "job1-desc":"Preventive and corrective maintenance of mining equipment. Machine fleet management experience required.",
+    "job2-title":"Senior Logistician","job2-loc":"Lubumbashi, DRC","job2-date":"03/12/2024",
+    "job2-desc":"Supervise logistics operations, manage truck fleet and optimize supply chains.",
+    "job3-title":"Senior Security Officer","job3-loc":"Kolwezi, DRC","job3-date":"03/10/2024",
+    "job3-desc":"Management of security teams on mining and industrial sites. National and international security training required.",
+    "job-ft":"Full-time","job-apply":"Apply now",
+    "job-spont":"Don't find the offer that suits you? Send us your spontaneous application!",
+    "job-spont-cta":"Spontaneous Application",
+    "contact-label":"Let's talk about your project","contact-title":"Contact Us",
+    "contact-sub":"Our team of experts is available to answer all your requests and propose tailored solutions.",
+    "contact-addr-label":"Head Office","contact-phone-label":"Phone",
+    "contact-hours-label":"Hours","contact-hours":"Mon – Fri: 8:00 AM – 5:00 PM<br>Closed weekends & holidays",
+    "form-title":"Send a message","form-name":"Full name *","form-email":"Email address *",
+    "form-phone":"Phone *","form-service":"Service of interest *","form-select":"Select a service",
+    "form-msg":"Message *","form-submit":"Send message","form-job":"Job offer",
+    "footer-desc":"Integrated solutions for your growth. Excellence, innovation and reliability at the service of your companies in DRC and internationally.",
+    "footer-services":"Services","footer-links":"Useful links","footer-contact":"Contact",
+    "footer-copy":"© 2024 – 2026 MWENDO GROUP INTERNATIONAL S.A.S. All rights reserved.",
+    "footer-crafted":"Crafted with passion for excellence."
+  }
+};
+
+// Language state
+let currentLang = 'fr';
+
+// Helper: update all elements with data-t attribute
+function updateLanguage(lang) {
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (T[lang][key] !== undefined) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
+        if (el.placeholder !== undefined) el.placeholder = T[lang][key];
+      } else if (el.tagName === 'OPTION') {
+        el.textContent = T[lang][key];
+      } else {
+        el.innerHTML = T[lang][key];
+      }
+    }
+  });
+  document.getElementById('langLabel').innerText = lang === 'fr' ? 'FR/EN' : 'EN/FR';
+  document.getElementById('langLabelM').innerText = lang === 'fr' ? 'FR/EN' : 'EN/FR';
+}
+
+function toggleLang() {
+  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  updateLanguage(currentLang);
+}
+
+// Mobile nav
+function openNav() {
+  document.getElementById('navOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeNav() {
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+  // active nav highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const scrollPos = window.scrollY + 200;
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+    if (scrollPos >= top && scrollPos < bottom) {
+      const id = section.getAttribute('id');
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('active');
         }
+      });
+    }
+  });
+});
 
-        // Language button click event
-        languageBtn.addEventListener('click', () => {
-            if (currentLanguage === 'fr') {
-                translatePage('en');
-            } else {
-                translatePage('fr');
-            }
-        });
+// Reveal animations on scroll
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+revealElements.forEach(el => revealObserver.observe(el));
 
-        // Initialize translation when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            // Check for saved language preference
-            const savedLanguage = localStorage.getItem('preferredLanguage');
-            if (savedLanguage && savedLanguage !== 'fr') {
-                translatePage(savedLanguage);
-            }
-        });
+// Counter animation
+const counterSection = document.querySelector('.stats-band');
+let counted = false;
+function startCounters() {
+  if (counted) return;
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    let current = 0;
+    const increment = target / 50;
+    const updateCounter = () => {
+      current += increment;
+      if (current < target) {
+        counter.innerText = Math.floor(current);
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCounter();
+  });
+  counted = true;
+}
+const statsObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    startCounters();
+    statsObserver.unobserve(counterSection);
+  }
+}, { threshold: 0.3 });
+if (counterSection) statsObserver.observe(counterSection);
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+// Form submission (simulate)
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert(currentLang === 'fr' ? 'Merci ! Votre message a été envoyé. Nous vous répondrons sous 48h.' : 'Thank you! Your message has been sent. We will reply within 48 hours.');
+  contactForm.reset();
+});
 
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Simple validation
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const service = document.getElementById('service').value;
-                
-                if (name && email && service) {
-                    // Here you would normally send the form data to a server
-                    alert(currentLanguage === 'fr' ? 'Merci pour votre message ! Nous vous contacterons très bientôt.' : 'Thank you for your message! We will contact you very soon.');
-                    contactForm.reset();
-                } else {
-                    alert(currentLanguage === 'fr' ? 'Veuillez remplir tous les champs obligatoires (*).' : 'Please fill in all required fields (*).');
-                }
-            });
-        }
+// Hide loader and show content after page load
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  loader.classList.add('hidden');
+  document.body.classList.remove('loading');
+  updateLanguage('fr'); // initial language
+});
 
-        // Initialize animations on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Counter animation function
-        function animateCounter(element, target, duration) {
-            let start = 0;
-            const increment = target / (duration / 16); // 16ms per frame (60fps)
-            
-            const updateCounter = () => {
-                start += increment;
-                if (start < target) {
-                    element.textContent = Math.ceil(start);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
-            };
-            
-            updateCounter();
-        }
-
-        // Counter animation trigger
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = document.querySelectorAll('.counter');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        animateCounter(counter, target, 2000); // 2 seconds
-                    });
-                    counterObserver.disconnect();
-                }
-            });
-        }, { threshold: 0.5 });
-
-        // Observe the stats section
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            counterObserver.observe(statsSection);
-        }
-    </script>
+// Smooth scroll for anchor links (already handled by css)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href').substring(1);
+    if (targetId && document.getElementById(targetId)) {
+      e.preventDefault();
+      document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
 </body>
 </html>
